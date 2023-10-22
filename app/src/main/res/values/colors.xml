@@ -1,5 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
+
+    <!--  Original color palette  -->
+    <color name="Tint_1">#E5F2E9</color>
+    <color name="Tint_2">#CAE4D3</color>
+    <color name="Tint_3">#B0D7BD</color>
+    <color name="tint_4">#96C9A7</color>
+    <color name="Tint_5">#7CBC91</color>
+    <color name="Tint_6">#61AE7B</color>
+    <color name="Tint_7">#61AE7B</color>
+    <color name="Primary">#417F56</color>
+    <color name="Shade_1">#396F4B</color>
+    <color name="Shade_2">#315F41</color>
+    <color name="Shade_3">#294F36</color>
+    <color name="Shade_4">#21402B</color>
+    <color name="Shade_5">#183020</color>
+    <color name="Shade_6">#102016</color>
+    <color name="Shade_7">#08100B</color>
+
+    <!--  Neutral color palette  -->
     <color name="white">#FFFFFFFF</color>
+    <color name="Gray_1">#F9F9F9</color>
+    <color name="Gray_2">#E1E1E1</color>
+    <color name="Gray_3">#EDEDED</color>
+    <color name="Gray_4">#CBCBCB</color>
+    <color name="Gray_5">#ADADAD</color>
+    <color name="Gray_6">#757575</color>
+    <color name="Gray_7">#717171</color>
+    <color name="Gray_8">#353535</color>
+    <color name="black">#0C0C0C</color>
+
+    <!--  Status color palette  -->
+    <color name="Error">#C30000</color>
+    <color name="Error_light">#ED2E2E</color>
+    <color name="Error_extralight">#FFF2F2</color>
+
+    <color name="Success">#00966D</color>
+    <color name="success_light">#00BA88</color>
+    <color name="success_extralight">#F3FDFA</color>
+
+    <color name="warning">#A9791C</color>
+    <color name="warning_light">#F4B740</color>
+    <color name="warning_extralight">#FFF8E1</color>
+
 </resources>
