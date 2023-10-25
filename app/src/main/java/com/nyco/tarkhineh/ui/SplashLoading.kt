@@ -28,7 +28,7 @@ class CustomLoadingWidget : View {
 
     init {
         circlePaint.isAntiAlias = true
-        circlePaint.color = Color.LTGRAY
+        circlePaint.color = Color.WHITE
         circlePaint.style = Paint.Style.FILL
 
         for (i in 0 until numCircles) {
@@ -49,9 +49,9 @@ class CustomLoadingWidget : View {
 
             // Update the color when the radius reaches its maximum value
             if (animatedValue == targetRadius) {
-                circlePaint.color = Color.WHITE
-            } else {
                 circlePaint.color = Color.LTGRAY
+            } else {
+                circlePaint.color = Color.WHITE
             }
 
             postInvalidate()
