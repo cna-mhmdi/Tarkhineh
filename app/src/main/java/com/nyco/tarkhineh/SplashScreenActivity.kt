@@ -22,7 +22,7 @@ class SplashScreenActivity : AppCompatActivity() {
 
         CoroutineScope(Dispatchers.Main).launch {
             delay(3000)
-            val intent = Intent(this@SplashScreenActivity,MainActivity::class.java)
+            val intent = Intent(this@SplashScreenActivity,OnboardingActivity::class.java)
             startActivity(intent)
             finish()
         }
