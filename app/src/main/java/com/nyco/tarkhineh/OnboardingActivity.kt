@@ -25,6 +25,9 @@ class OnboardingActivity : AppCompatActivity() {
         binding = ActivityOnboardingBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.circleButton.setImageResource(R.drawable.arrow_left)
+        binding.circleButton.scaleX = (-1).toFloat()
+
         progressAnimator = ValueAnimator.ofInt(0, maxProgress).apply {
             duration = animationDuration
             interpolator = LinearInterpolator()
@@ -40,8 +43,13 @@ class OnboardingActivity : AppCompatActivity() {
         binding.circleButton.setOnClickListener {
             if (getItem(0) < 2) {
                 if (!progressAnimator.isRunning) {
-                    progressAnimator.setIntValues(currentProgress, currentProgress + 40)
+                    val newProgress = currentProgress + 40
+                    progressAnimator.setIntValues(currentProgress, newProgress)
                     progressAnimator.start()
+                    if (newProgress > 80 ){
+                        binding.circleButton.setImageResource(R.drawable.vector)
+                        binding.circleButton.scaleX = (1).toFloat()
+                    }
                 }
                 binding.onBoardingViewPager.setCurrentItem(getItem(1), true)
             } else {

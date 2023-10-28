@@ -40,6 +40,7 @@
             android:background="@drawable/onboard_btn_back"
             android:padding="10dp"
             android:textColor="#FFFFFF"
+            android:scaleType="centerInside"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
