@@ -26,13 +26,25 @@
     </androidx.viewpager.widget.ViewPager>
 
     <Button
-        android:id="@+id/onBoarding_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="60dp"
-        android:text="next"
+        android:id="@+id/circleButton"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:background="@drawable/onboard_btn_back"
+        android:padding="10dp"
+        android:text="Next"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/onBoarding_viewPager" />
+        app:layout_constraintTop_toBottomOf="@+id/onBoarding_viewPager"/>
+
+    <com.nyco.tarkhineh.ui.CircularProgressBar
+        android:id="@+id/circleProgressBar"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/onBoarding_viewPager"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
