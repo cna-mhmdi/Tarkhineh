@@ -8,14 +8,14 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="240dp"
+        android:layout_height="220dp"
         android:background="@drawable/onboard_vector"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 
-    <androidx.viewpager.widget.ViewPager
+    <com.nyco.tarkhineh.ui.NonSwipeableViewPager
         android:id="@+id/onBoarding_viewPager"
         android:layout_width="match_parent"
         android:layout_height="500dp"
@@ -23,28 +23,39 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-    </androidx.viewpager.widget.ViewPager>
+    </com.nyco.tarkhineh.ui.NonSwipeableViewPager>
 
-    <Button
-        android:id="@+id/circleButton"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:background="@drawable/onboard_btn_back"
-        android:padding="10dp"
-        android:text="Next"
-        android:textColor="#FFFFFF"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/onBoarding_viewPager"/>
+        app:layout_constraintTop_toBottomOf="@+id/onBoarding_viewPager">
 
-    <com.nyco.tarkhineh.ui.CircularProgressBar
-        android:id="@+id/circleProgressBar"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/onBoarding_viewPager"/>
+        <ImageButton
+            android:id="@+id/circleButton"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@drawable/onboard_btn_back"
+            android:padding="10dp"
+            android:textColor="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <com.nyco.tarkhineh.ui.CircularProgressBar
+            android:id="@+id/circleProgressBar"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
