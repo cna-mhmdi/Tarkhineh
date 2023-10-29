@@ -10,11 +10,9 @@ import android.view.View
 class CircularProgressBar(context: Context, attr: AttributeSet) : View(context, attr) {
 
     private val paint: Paint = Paint()
-
     private val borderPaint: Paint = Paint()
     private var progress = 40
     private val maxProgress = 120
-
 
     init {
         paint.isAntiAlias = true

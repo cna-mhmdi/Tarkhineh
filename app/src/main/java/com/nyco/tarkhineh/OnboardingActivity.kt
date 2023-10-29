@@ -10,13 +10,11 @@ import com.nyco.tarkhineh.databinding.ActivityOnboardingBinding
 class OnboardingActivity : AppCompatActivity() {
 
     private var currentProgress = 40
-
     private val maxProgress = 120
     private val animationDuration = 500L
+
     private lateinit var progressAnimator: ValueAnimator
-
     private lateinit var binding: ActivityOnboardingBinding
-
     private lateinit var viewPagerAdapter: ViewPagerAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,20 +22,13 @@ class OnboardingActivity : AppCompatActivity() {
         binding = ActivityOnboardingBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        viewPagerAdapter = ViewPagerAdapter(this)
+        binding.onBoardingViewPager.adapter = viewPagerAdapter
+
         binding.circleButton.setImageResource(R.drawable.arrow_left)
         binding.circleButton.scaleX = (-1).toFloat()
 
-        progressAnimator = ValueAnimator.ofInt(0, maxProgress).apply {
-            duration = animationDuration
-            interpolator = LinearInterpolator()
-            addUpdateListener { animation ->
-                currentProgress = animation.animatedValue as Int
-                binding.circleProgressBar.setProgress(currentProgress)
-            }
-        }
-
-        viewPagerAdapter = ViewPagerAdapter(this)
-        binding.onBoardingViewPager.adapter = viewPagerAdapter
+        setProgressAnimator()
 
         binding.circleButton.setOnClickListener {
             if (getItem(0) < 2) {
@@ -62,6 +53,17 @@ class OnboardingActivity : AppCompatActivity() {
 
     private fun getItem(int: Int): Int {
         return binding.onBoardingViewPager.currentItem + int
+    }
+
+    private fun setProgressAnimator(){
+        progressAnimator = ValueAnimator.ofInt(0, maxProgress).apply {
+            duration = animationDuration
+            interpolator = LinearInterpolator()
+            addUpdateListener { animation ->
+                currentProgress = animation.animatedValue as Int
+                binding.circleProgressBar.setProgress(currentProgress)
+            }
+        }
     }
 
 }

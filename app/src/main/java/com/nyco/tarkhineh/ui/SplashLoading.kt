@@ -10,12 +10,12 @@ import android.view.View
 
 class CustomLoadingWidget : View {
 
-    //this section has a problem that need to be solve later
-    //the circles need to change the color to white evert
-    //time they get big and turn to gray when they are small
-
+    /*
+    this section has a problem that need to be solve later
+    the circles need to change the color to white every
+    time they get big and turn to gray when they are small
+    */
     constructor(context: Context) : super(context)
-
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs)
 
     private val circlePaint = Paint()
@@ -47,7 +47,6 @@ class CustomLoadingWidget : View {
             val animatedValue = animation.animatedValue as Float
             radiusList[index] = animatedValue
 
-            // Update the color when the radius reaches its maximum value
             if (animatedValue == targetRadius) {
                 circlePaint.color = Color.LTGRAY
             } else {
