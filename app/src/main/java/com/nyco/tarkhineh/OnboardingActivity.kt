@@ -2,10 +2,9 @@ package com.nyco.tarkhineh
 
 import android.animation.ValueAnimator
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.animation.LinearInterpolator
-import androidx.viewpager.widget.ViewPager
+import androidx.appcompat.app.AppCompatActivity
 import com.nyco.tarkhineh.databinding.ActivityOnboardingBinding
 
 class OnboardingActivity : AppCompatActivity() {
@@ -16,7 +15,7 @@ class OnboardingActivity : AppCompatActivity() {
     private val animationDuration = 250L
     private lateinit var progressAnimator: ValueAnimator
 
-    private lateinit var binding : ActivityOnboardingBinding
+    private lateinit var binding: ActivityOnboardingBinding
 
     private lateinit var viewPagerAdapter: ViewPagerAdapter
 
@@ -46,7 +45,7 @@ class OnboardingActivity : AppCompatActivity() {
                     val newProgress = currentProgress + 40
                     progressAnimator.setIntValues(currentProgress, newProgress)
                     progressAnimator.start()
-                    if (newProgress > 80 ){
+                    if (newProgress > 80) {
                         binding.circleButton.setImageResource(R.drawable.vector)
                         binding.circleButton.scaleX = (1).toFloat()
                     }

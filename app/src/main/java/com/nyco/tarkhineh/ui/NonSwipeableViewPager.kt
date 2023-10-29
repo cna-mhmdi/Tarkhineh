@@ -5,7 +5,7 @@ import android.util.AttributeSet
 import android.view.MotionEvent
 import androidx.viewpager.widget.ViewPager
 
-class NonSwipeableViewPager(context: Context, attr: AttributeSet): ViewPager(context, attr) {
+class NonSwipeableViewPager(context: Context, attr: AttributeSet) : ViewPager(context, attr) {
 
     override fun onTouchEvent(ev: MotionEvent?): Boolean {
         return false

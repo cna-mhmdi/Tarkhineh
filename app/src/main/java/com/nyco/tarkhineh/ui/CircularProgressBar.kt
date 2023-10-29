@@ -3,20 +3,17 @@ package com.nyco.tarkhineh.ui
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
-import android.graphics.Color.GRAY
-import android.graphics.ColorFilter
 import android.graphics.Paint
 import android.util.AttributeSet
 import android.view.View
 
-class CircularProgressBar(context: Context, attr:AttributeSet): View(context,attr) {
+class CircularProgressBar(context: Context, attr: AttributeSet) : View(context, attr) {
 
     private val paint: Paint = Paint()
 
     private val borderPaint: Paint = Paint()
     private var progress = 40
     private val maxProgress = 120
-
 
 
     init {
@@ -46,7 +43,8 @@ class CircularProgressBar(context: Context, attr:AttributeSet): View(context,att
             centerX + radius,
             centerY + radius,
             startAngle, sweepAngle.toFloat(),
-            false, paint)
+            false, paint
+        )
     }
 
     fun setProgress(progress: Int) {

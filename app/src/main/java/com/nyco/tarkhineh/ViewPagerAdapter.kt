@@ -1,7 +1,6 @@
 package com.nyco.tarkhineh
 
 import android.content.Context
-import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,7 +10,7 @@ import android.widget.TextView
 import androidx.viewpager.widget.PagerAdapter
 
 
-class ViewPagerAdapter(private val context: Context): PagerAdapter() {
+class ViewPagerAdapter(private val context: Context) : PagerAdapter() {
 
 
     private val characters = listOf(
@@ -42,7 +41,8 @@ class ViewPagerAdapter(private val context: Context): PagerAdapter() {
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
 
-        val layoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+        val layoutInflater =
+            context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         val view = layoutInflater.inflate(R.layout.onboarding_content_layout, container, false)
 
         val onBoardingHead = view.findViewById<TextView>(R.id.onBoarding_head)
