@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Tarkhineh</string>
-    
+
     <string name="head1">سفارش آسان غذا با چند کلیک</string>
     <string name="desc1">با اپلیکیشن ترخینه می‌تونی در عرض چند ثانیه و با چند کلیک به\n راحتی سفارش خودت رو ثبت کنی.</string>
 
@@ -9,4 +9,7 @@
 
     <string name="head3">تجربه غذای سالم و گیاهی</string>
     <string name="desc3">تموم غذاهای ترخینه با محصولات کشاورزی کاملا سالم و ارگانیک \n تهیه می‌شن تا بهترین تجربه رو بهت هدیه بدن.</string>
+
+    <string name="CD_nextBtn">next Button</string>
+    <string name="CD_character">this is a normal character that doing nothing</string>
 </resources>
