@@ -43,7 +43,7 @@ class OnboardingActivity : AppCompatActivity() {
                 }
                 binding.onBoardingViewPager.setCurrentItem(getItem(1), true)
             } else {
-                val intent = Intent(this@OnboardingActivity, MainActivity::class.java)
+                val intent = Intent(this@OnboardingActivity, LoginActivity::class.java)
                 startActivity(intent)
                 finish()
             }
