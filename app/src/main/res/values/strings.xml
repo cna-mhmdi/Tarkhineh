@@ -10,6 +10,14 @@
     <string name="head3">تجربه غذای سالم و گیاهی</string>
     <string name="desc3">تموم غذاهای ترخینه با محصولات کشاورزی کاملا سالم و ارگانیک \n تهیه می‌شن تا بهترین تجربه رو بهت هدیه بدن.</string>
 
+
+    <string name="register">ورود / ثبت نام</string>
+    <string name="enteNumber">شماره همراه خود را وارد کنید</string>
+    <string name="phoneNumber">شماره همراه</string>
+    <string name="send_code">ارسال کد</string>
+    <string name="privacy_text">من قوانین و مقررات ارائه خدمات توسط ترخینه را می‌پذیرم…</string>
+
     <string name="CD_nextBtn">next Button</string>
     <string name="CD_character">this is a normal character that doing nothing</string>
+    <string name="DC_login_logo">this is applictions icon</string>
 </resources>
