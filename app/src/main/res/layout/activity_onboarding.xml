@@ -35,8 +35,8 @@
 
         <ImageButton
             android:id="@+id/circleButton"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:background="@drawable/onboard_btn_back"
             android:padding="10dp"
             android:textColor="#FFFFFF"
@@ -50,8 +50,8 @@
 
         <com.nyco.tarkhineh.ui.CircularProgressBar
             android:id="@+id/circleProgressBar"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

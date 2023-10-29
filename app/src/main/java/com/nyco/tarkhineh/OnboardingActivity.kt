@@ -12,7 +12,7 @@ class OnboardingActivity : AppCompatActivity() {
     private var currentProgress = 40
 
     private val maxProgress = 120
-    private val animationDuration = 250L
+    private val animationDuration = 500L
     private lateinit var progressAnimator: ValueAnimator
 
     private lateinit var binding: ActivityOnboardingBinding
