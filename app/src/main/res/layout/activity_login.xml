@@ -44,7 +44,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/numberEditText"
+        android:id="@+id/layout_phoneNumber"
         style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="320dp"
         android:layout_height="75dp"
@@ -58,6 +58,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editText_phoneNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="number"
@@ -68,7 +69,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btn_sendCode"
         android:layout_width="320dp"
         android:layout_height="45dp"
         android:layout_marginTop="4dp"
@@ -78,7 +79,7 @@
         app:cornerRadius="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/numberEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/layout_phoneNumber" />
 
     <LinearLayout
         android:layout_width="260dp"
@@ -88,7 +89,7 @@
         android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button">
+        app:layout_constraintTop_toBottomOf="@+id/btn_sendCode">
 
         <TextView
             android:layout_width="wrap_content"
@@ -100,6 +101,7 @@
             tools:ignore="SmallSp" />
 
         <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/checkbox_privacy"
             android:layout_width="30dp"
             android:layout_height="18dp"
             app:buttonTint="@color/Primary" />
