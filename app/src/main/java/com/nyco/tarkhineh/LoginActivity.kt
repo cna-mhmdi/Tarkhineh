@@ -4,7 +4,12 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
+import android.text.SpannableString
 import android.text.TextWatcher
+import android.text.method.LinkMovementMethod
+import android.text.style.ClickableSpan
+import android.view.View
+import android.widget.Toast
 import com.nyco.tarkhineh.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
@@ -52,5 +57,21 @@ class LoginActivity : AppCompatActivity() {
         }
 
 
+        val privacyText = binding.textViewPrivacy.text
+        val spannableString = SpannableString(privacyText)
+
+        val clickableSpan = object : ClickableSpan() {
+            override fun onClick(p0: View) {
+                Toast.makeText(this@LoginActivity,"activity privacy", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        val startIndex = privacyText.indexOf("قوانین و مقررات")
+        val endIndex = startIndex + "قوانین و مقررات".length
+        spannableString.setSpan(clickableSpan,startIndex,endIndex,0)
+
+        binding.textViewPrivacy.text = spannableString
+
+        binding.textViewPrivacy.movementMethod = LinkMovementMethod.getInstance()
     }
 }
