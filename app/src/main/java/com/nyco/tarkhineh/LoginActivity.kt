@@ -62,7 +62,8 @@ class LoginActivity : AppCompatActivity() {
 
         val clickableSpan = object : ClickableSpan() {
             override fun onClick(p0: View) {
-                Toast.makeText(this@LoginActivity,"activity privacy", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this@LoginActivity, PrivacyActivity::class.java)
+                startActivity(intent)
             }
         }
 
