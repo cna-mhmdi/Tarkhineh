@@ -1,7 +1,6 @@
 package com.nyco.tarkhineh
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.SpannableString
@@ -9,7 +8,7 @@ import android.text.TextWatcher
 import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
 import android.view.View
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.nyco.tarkhineh.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
@@ -29,7 +28,7 @@ class LoginActivity : AppCompatActivity() {
 
         binding.btnSendCode.setOnClickListener {
             val phoneNumber = binding.editTextPhoneNumber.text.toString()
-            val intent = Intent(this,VerifyCodeActivity::class.java).apply {
+            val intent = Intent(this, VerifyCodeActivity::class.java).apply {
                 putExtra(phoneNumber, NUMBER_TAG)
             }
             startActivity(intent)
@@ -52,7 +51,8 @@ class LoginActivity : AppCompatActivity() {
 
         binding.checkboxPrivacy.setOnCheckedChangeListener { _, isChecked ->
 
-            val isValidPhoneNumber = phonePattern.matches(binding.editTextPhoneNumber.text.toString())
+            val isValidPhoneNumber =
+                phonePattern.matches(binding.editTextPhoneNumber.text.toString())
             binding.btnSendCode.isEnabled = isChecked && isValidPhoneNumber
         }
 
@@ -69,7 +69,7 @@ class LoginActivity : AppCompatActivity() {
 
         val startIndex = privacyText.indexOf("قوانین و مقررات")
         val endIndex = startIndex + "قوانین و مقررات".length
-        spannableString.setSpan(clickableSpan,startIndex,endIndex,0)
+        spannableString.setSpan(clickableSpan, startIndex, endIndex, 0)
 
         binding.textViewPrivacy.text = spannableString
 

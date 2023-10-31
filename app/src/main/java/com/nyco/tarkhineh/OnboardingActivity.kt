@@ -55,7 +55,7 @@ class OnboardingActivity : AppCompatActivity() {
         return binding.onBoardingViewPager.currentItem + int
     }
 
-    private fun setProgressAnimator(){
+    private fun setProgressAnimator() {
         progressAnimator = ValueAnimator.ofInt(0, maxProgress).apply {
             duration = animationDuration
             interpolator = LinearInterpolator()

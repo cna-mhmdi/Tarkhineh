@@ -9,24 +9,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
         android:layout_marginTop="50dp"
-        android:text="@string/head1"
+        android:layout_marginRight="20dp"
         android:fontFamily="@font/estedad_bold"
-        android:textSize="20sp"
-        android:textColor="@color/white" />
+        android:text="@string/head1"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/onBoarding_desc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
         android:layout_marginTop="8dp"
-        android:text="@string/desc1"
+        android:layout_marginRight="20dp"
         android:fontFamily="@font/estedad_medium"
-        android:textSize="12sp"
-        android:textColor="@color/white" />
+        android:text="@string/desc1"
+        android:textColor="@color/white"
+        android:textSize="12sp" />
 
     <ImageView
         android:id="@+id/onBoarding_char"
@@ -34,7 +34,7 @@
         android:layout_height="240dp"
         android:layout_gravity="center"
         android:layout_marginTop="100dp"
-        android:src="@drawable/character1"
-        android:contentDescription="@string/CD_character" />
+        android:contentDescription="@string/CD_character"
+        android:src="@drawable/character1" />
 
 </LinearLayout>
