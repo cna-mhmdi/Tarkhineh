@@ -51,7 +51,7 @@ class ExpandableListAdapter(private val context: Context) : BaseExpandableListAd
         childPosition: Int,
         isLastChild: Boolean,
         convertView: View?,
-        parent: ViewGroup?
+        parent: ViewGroup?,
     ): View {
         val itemView: View = convertView
             ?: LayoutInflater.from(context).inflate(R.layout.expandable_child_list, parent, false)
@@ -82,7 +82,7 @@ class ExpandableListAdapter(private val context: Context) : BaseExpandableListAd
         groupPosition: Int,
         isExpanded: Boolean,
         convertView: View?,
-        parent: ViewGroup?
+        parent: ViewGroup?,
     ): View {
         val groupView: View = convertView
             ?: LayoutInflater.from(context).inflate(R.layout.expandable_group_list, parent, false)

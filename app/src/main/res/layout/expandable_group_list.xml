@@ -4,10 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:fontFamily="@font/estedad_medium"
-    android:textColor="@color/Gray_8"
+    android:paddingStart="?android:attr/expandableListPreferredItemPaddingLeft"
     android:paddingTop="8dp"
-    android:paddingBottom="8dp"
     android:paddingEnd="16dp"
-    android:paddingStart="?android:attr/expandableListPreferredItemPaddingLeft">
+    android:paddingBottom="8dp"
+    android:textColor="@color/Gray_8">
 
 </TextView>

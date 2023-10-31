@@ -1,10 +1,8 @@
 package com.nyco.tarkhineh
 
 import android.os.Bundle
-import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
 import com.nyco.tarkhineh.databinding.ActivityPrivacyBinding
-import java.util.ArrayList
 
 class PrivacyActivity : AppCompatActivity() {
 
@@ -24,7 +22,6 @@ class PrivacyActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
         binding.privacyToolbar.setNavigationIcon(R.drawable.arrow_left1)
-
 
 
     }
