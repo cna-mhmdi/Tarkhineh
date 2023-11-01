@@ -69,8 +69,11 @@ class VerifyCodeActivity : AppCompatActivity() {
         binding.editText4.onFocusChangeListener = focusChangeListener
         binding.editText5.onFocusChangeListener = focusChangeListener
 
+        //this section may create problem in future so keep that in mind that if
+        //something happened like memory loose
         binding.btnSendCode.setOnClickListener {
-            val intent = Intent(this@VerifyCodeActivity,MainActivity::class.java)
+            val intent = Intent(this, MainActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
             finish()
         }
