@@ -48,6 +48,11 @@ class VerifyCodeActivity : AppCompatActivity() {
         setupBackspaceListener(binding.editText5, binding.editText4)
     }
 
+    @Deprecated("Deprecated in Java")
+    override fun onBackPressed() {
+
+    }
+
     private fun setupBackspaceListener(editText: EditText, previousEditText: EditText) {
         editText.setOnKeyListener { _, keyCode, event ->
             if (event.action == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_DEL && editText.text.isEmpty()) {
