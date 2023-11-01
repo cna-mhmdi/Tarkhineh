@@ -121,13 +121,14 @@ class VerifyCodeActivity : AppCompatActivity() {
         val totalTimeMillis = 121000
         val countDownInterval = 1000
 
-        val farsiTypeFace = ResourcesCompat.getFont(this,R.font.estedad_light)
-        countDownTimer = object : CountDownTimer(totalTimeMillis.toLong(), countDownInterval.toLong()) {
-            override fun onTick(millisUntilFinished: Long) {
-                    val second = (millisUntilFinished / 1000) % 60
-                    val minutes = (millisUntilFinished / 1000) / 60
-                    val timeFormatted = String.format("%d:%02d", minutes, second)
-                    // Convert Latin digits to Farsi digits
+        val farsiTypeFace = ResourcesCompat.getFont(this, R.font.estedad_light)
+        countDownTimer =
+            object : CountDownTimer(totalTimeMillis.toLong(), countDownInterval.toLong()) {
+                override fun onTick(millisUntilFinished: Long) {
+                    val seconds = ((millisUntilFinished - 1000) / 1000) % 60
+                    val minutes = ((millisUntilFinished - 1000) / 1000) / 60
+                    val timeFormatted = String.format("%d:%02d", minutes, seconds)
+
                     val farsiTimeFormatted = convertToPersianDigits(timeFormatted)
 
                     binding.numberCountDown.typeface = farsiTypeFace
