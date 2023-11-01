@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.KeyEvent
+import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
@@ -51,10 +52,21 @@ class VerifyCodeActivity : AppCompatActivity() {
         setupBackspaceListener(binding.editText3, binding.editText2)
         setupBackspaceListener(binding.editText4, binding.editText3)
         setupBackspaceListener(binding.editText5, binding.editText4)
-    }
 
-    @Deprecated("Deprecated in Java")
-    override fun onBackPressed() {
+
+        val focusChangeListener = View.OnFocusChangeListener { view, hasFocus ->
+            if (hasFocus) {
+                view.setBackgroundResource(R.drawable.edit_text_border_green)
+            } else {
+                view.setBackgroundResource(R.drawable.edit_text_border)
+            }
+        }
+
+        binding.editText1.onFocusChangeListener = focusChangeListener
+        binding.editText2.onFocusChangeListener = focusChangeListener
+        binding.editText3.onFocusChangeListener = focusChangeListener
+        binding.editText4.onFocusChangeListener = focusChangeListener
+        binding.editText5.onFocusChangeListener = focusChangeListener
 
     }
 
