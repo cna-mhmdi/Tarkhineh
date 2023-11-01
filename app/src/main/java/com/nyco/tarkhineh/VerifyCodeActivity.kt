@@ -1,9 +1,7 @@
 package com.nyco.tarkhineh
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
-import android.graphics.fonts.FontFamily
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.text.Editable
@@ -21,8 +19,7 @@ import com.nyco.tarkhineh.databinding.ActivityVerifyCodeBinding
 
 class VerifyCodeActivity : AppCompatActivity() {
 
-    val totalTimeMillis = 5000 // 2 minutes
-    val countDownInterval = 1000 // 1 second
+
     private var countDownTimer: CountDownTimer? = null
 
 
@@ -34,7 +31,7 @@ class VerifyCodeActivity : AppCompatActivity() {
 
         intent.let {
             val phoneNumber = it.getStringExtra(LoginActivity.NUMBER_TAG)
-            binding.txtPhoneNumber.text = getString(R.string.verify_code_desc,phoneNumber)
+            binding.txtPhoneNumber.text = getString(R.string.verify_code_desc, phoneNumber)
         }
 
         val textWatcher = object : TextWatcher {
@@ -47,7 +44,8 @@ class VerifyCodeActivity : AppCompatActivity() {
                     p0 === binding.editText3.text && p0?.length == 1 -> binding.editText4.requestFocus()
                     p0 === binding.editText4.text && p0?.length == 1 -> binding.editText5.requestFocus()
                     p0 === binding.editText5.text && p0?.length == 1 -> {
-                        val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                        val imm =
+                            getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
                         imm.hideSoftInputFromWindow(binding.editText5.windowToken, 0)
                     }
                 }
@@ -120,8 +118,8 @@ class VerifyCodeActivity : AppCompatActivity() {
 
     private fun startCountdownTimer() {
 
-        val totalTimeMillis = 120000 // 2 minutes
-        val countDownInterval = 1000 // 1 second
+        val totalTimeMillis = 121000
+        val countDownInterval = 1000
 
         val farsiTypeFace = ResourcesCompat.getFont(this,R.font.estedad_light)
         countDownTimer = object : CountDownTimer(totalTimeMillis.toLong(), countDownInterval.toLong()) {
@@ -135,27 +133,27 @@ class VerifyCodeActivity : AppCompatActivity() {
                     binding.numberCountDown.typeface = farsiTypeFace
                     binding.numberCountDown.text = farsiTimeFormatted
 
-            }
-
-            override fun onFinish() {
-                val secondText = "دریافت مجدد کد"
-                val spannableString = SpannableString(secondText)
-
-                val clickableSpan = object : ClickableSpan() {
-                    override fun onClick(p0: View) {
-                        binding.txtCountDown.text = getString(R.string.countDown)
-                        startCountdownTimer()
-                    }
                 }
 
-                val startIndex = secondText.indexOf("دریافت مجدد کد")
-                val endIndex = startIndex + "دریافت مجدد کد".length
-                spannableString.setSpan(clickableSpan, startIndex, endIndex, 0)
+                override fun onFinish() {
+                    val secondText = "دریافت مجدد کد"
+                    val spannableString = SpannableString(secondText)
 
-                binding.txtCountDown.text = spannableString
-                binding.txtCountDown.movementMethod = LinkMovementMethod.getInstance()
+                    val clickableSpan = object : ClickableSpan() {
+                        override fun onClick(p0: View) {
+                            binding.txtCountDown.text = getString(R.string.countDown)
+                            startCountdownTimer()
+                        }
+                    }
+
+                    val startIndex = secondText.indexOf("دریافت مجدد کد")
+                    val endIndex = startIndex + "دریافت مجدد کد".length
+                    spannableString.setSpan(clickableSpan, startIndex, endIndex, 0)
+
+                    binding.txtCountDown.text = spannableString
+                    binding.txtCountDown.movementMethod = LinkMovementMethod.getInstance()
+                }
             }
-        }
         countDownTimer?.start()
     }
 }
