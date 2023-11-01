@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="64dp"
         android:fontFamily="@font/estedad_bold"
-        android:text="کد تائید"
+        android:text="@string/verify_cde"
         android:textColor="@color/Gray_8"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/estedad_medium"
-        android:text="کد تایید پنج رقمی به شماره s% ارسال شد."
+        android:text="@string/verify_code_desc"
         android:textColor="@color/Gray_7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -59,10 +59,12 @@
             android:layout_height="wrap_content"
             android:cursorVisible="false"
             android:textAlignment="center"
+            android:fontFamily="@font/estedad_light"
             android:inputType="number"
             android:background="@drawable/edit_text_border"
             android:maxLength="1"
-            android:layout_marginEnd="16dp"/>
+            android:layout_marginEnd="16dp"
+            tools:ignore="Autofill,LabelFor" />
 
         <EditText
             android:id="@+id/editText2"
@@ -70,10 +72,12 @@
             android:layout_height="wrap_content"
             android:cursorVisible="false"
             android:maxLength="1"
+            android:fontFamily="@font/estedad_light"
             android:inputType="number"
             android:textAlignment="center"
             android:background="@drawable/edit_text_border"
-            android:layout_marginEnd="16dp"/>
+            android:layout_marginEnd="16dp"
+            tools:ignore="Autofill,LabelFor" />
 
         <EditText
             android:id="@+id/editText3"
@@ -81,10 +85,12 @@
             android:layout_height="wrap_content"
             android:cursorVisible="false"
             android:maxLength="1"
+            android:fontFamily="@font/estedad_light"
             android:textAlignment="center"
             android:background="@drawable/edit_text_border"
             android:inputType="number"
-            android:layout_marginEnd="16dp"/>
+            android:layout_marginEnd="16dp"
+            tools:ignore="Autofill,LabelFor" />
 
         <EditText
             android:id="@+id/editText4"
@@ -93,9 +99,11 @@
             android:cursorVisible="false"
             android:maxLength="1"
             android:textAlignment="center"
+            android:fontFamily="@font/estedad_light"
             android:background="@drawable/edit_text_border"
             android:inputType="number"
-            android:layout_marginEnd="16dp"/>
+            android:layout_marginEnd="16dp"
+            tools:ignore="Autofill,LabelFor" />
 
         <EditText
             android:id="@+id/editText5"
@@ -104,10 +112,10 @@
             android:cursorVisible="false"
             android:background="@drawable/edit_text_border"
             android:inputType="number"
+            android:fontFamily="@font/estedad_light"
             android:textAlignment="center"
-            android:maxLength="1"/>
-
-
+            android:maxLength="1"
+            tools:ignore="Autofill,LabelFor" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
