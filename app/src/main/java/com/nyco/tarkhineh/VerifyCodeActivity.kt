@@ -1,5 +1,6 @@
 package com.nyco.tarkhineh
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
 import android.text.Editable
@@ -18,6 +19,10 @@ class VerifyCodeActivity : AppCompatActivity() {
         binding = ActivityVerifyCodeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        intent.let {
+            val phoneNumber = it.getStringExtra(LoginActivity.NUMBER_TAG)
+            binding.txtPhoneNumber.text = getString(R.string.verify_code_desc,phoneNumber)
+        }
 
         val textWatcher = object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}

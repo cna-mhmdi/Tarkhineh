@@ -21,5 +21,6 @@
     <string name="CD_character">this is a normal character that doing nothing</string>
     <string name="DC_login_logo">this is applictions icon</string>
     <string name="verify_cde">کد تائید</string>
-    <string name="verify_code_desc">کد تایید پنج رقمی به شماره s% ارسال شد.</string>
+    <string name="verify_code_desc">کد تایید پنج رقمی به شماره %s ارسال شد.</string>
+
 </resources>

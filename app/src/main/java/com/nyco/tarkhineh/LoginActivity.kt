@@ -29,7 +29,7 @@ class LoginActivity : AppCompatActivity() {
         binding.btnSendCode.setOnClickListener {
             val phoneNumber = binding.editTextPhoneNumber.text.toString()
             val intent = Intent(this, VerifyCodeActivity::class.java).apply {
-                putExtra(phoneNumber, NUMBER_TAG)
+                putExtra(NUMBER_TAG,phoneNumber)
             }
             startActivity(intent)
         }
