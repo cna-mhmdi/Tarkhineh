@@ -19,11 +19,10 @@ import com.nyco.tarkhineh.databinding.ActivityVerifyCodeBinding
 
 class VerifyCodeActivity : AppCompatActivity() {
 
-
     private var countDownTimer: CountDownTimer? = null
 
-
     private lateinit var binding: ActivityVerifyCodeBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityVerifyCodeBinding.inflate(layoutInflater)
