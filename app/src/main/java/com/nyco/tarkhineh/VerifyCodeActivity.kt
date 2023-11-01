@@ -3,17 +3,28 @@ package com.nyco.tarkhineh
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
+import android.graphics.fonts.FontFamily
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.text.Editable
+import android.text.SpannableString
 import android.text.TextWatcher
+import android.text.method.LinkMovementMethod
+import android.text.style.ClickableSpan
 import android.view.KeyEvent
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.res.ResourcesCompat
 import com.nyco.tarkhineh.databinding.ActivityVerifyCodeBinding
 
 class VerifyCodeActivity : AppCompatActivity() {
+
+    val totalTimeMillis = 5000 // 2 minutes
+    val countDownInterval = 1000 // 1 second
+    private var countDownTimer: CountDownTimer? = null
+
 
     private lateinit var binding: ActivityVerifyCodeBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -81,6 +92,8 @@ class VerifyCodeActivity : AppCompatActivity() {
         binding.txtEditNumber.setOnClickListener {
             finish()
         }
+
+        startCountdownTimer()
     }
 
     private fun setupBackspaceListener(editText: EditText, previousEditText: EditText) {
@@ -91,5 +104,58 @@ class VerifyCodeActivity : AppCompatActivity() {
             }
             false
         }
+    }
+
+    private fun convertToPersianDigits(input: String): String {
+        val persianDigits = arrayOf("۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹")
+        val latinDigits = arrayOf("0", "1", "2", "3", "4", "5", "6", "7", "8", "9")
+
+        var result = input
+        for (i in 0..9) {
+            result = result.replace(latinDigits[i], persianDigits[i])
+        }
+
+        return result
+    }
+
+    private fun startCountdownTimer() {
+
+        val totalTimeMillis = 120000 // 2 minutes
+        val countDownInterval = 1000 // 1 second
+
+        val farsiTypeFace = ResourcesCompat.getFont(this,R.font.estedad_light)
+        countDownTimer = object : CountDownTimer(totalTimeMillis.toLong(), countDownInterval.toLong()) {
+            override fun onTick(millisUntilFinished: Long) {
+                    val second = (millisUntilFinished / 1000) % 60
+                    val minutes = (millisUntilFinished / 1000) / 60
+                    val timeFormatted = String.format("%d:%02d", minutes, second)
+                    // Convert Latin digits to Farsi digits
+                    val farsiTimeFormatted = convertToPersianDigits(timeFormatted)
+
+                    binding.numberCountDown.typeface = farsiTypeFace
+                    binding.numberCountDown.text = farsiTimeFormatted
+
+            }
+
+            override fun onFinish() {
+                val secondText = "دریافت مجدد کد"
+                val spannableString = SpannableString(secondText)
+
+                val clickableSpan = object : ClickableSpan() {
+                    override fun onClick(p0: View) {
+                        binding.txtCountDown.text = getString(R.string.countDown)
+                        startCountdownTimer()
+                    }
+                }
+
+                val startIndex = secondText.indexOf("دریافت مجدد کد")
+                val endIndex = startIndex + "دریافت مجدد کد".length
+                spannableString.setSpan(clickableSpan, startIndex, endIndex, 0)
+
+                binding.txtCountDown.text = spannableString
+                binding.txtCountDown.movementMethod = LinkMovementMethod.getInstance()
+            }
+        }
+        countDownTimer?.start()
     }
 }
