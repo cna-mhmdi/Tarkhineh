@@ -2,6 +2,7 @@ package com.nyco.tarkhineh
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -68,6 +69,15 @@ class VerifyCodeActivity : AppCompatActivity() {
         binding.editText4.onFocusChangeListener = focusChangeListener
         binding.editText5.onFocusChangeListener = focusChangeListener
 
+        binding.btnSendCode.setOnClickListener {
+            val intent = Intent(this@VerifyCodeActivity,MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        binding.txtEditNumber.setOnClickListener {
+            finish()
+        }
     }
 
     private fun setupBackspaceListener(editText: EditText, previousEditText: EditText) {
