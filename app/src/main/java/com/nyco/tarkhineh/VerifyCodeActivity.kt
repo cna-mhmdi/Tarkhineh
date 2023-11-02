@@ -135,6 +135,7 @@ class VerifyCodeActivity : AppCompatActivity() {
 
                 }
 
+
                 override fun onFinish() {
                     val secondText = "دریافت مجدد کد"
                     val spannableString = SpannableString(secondText)
