@@ -1,4 +1,4 @@
-package com.nyco.tarkhineh
+package com.nyco.tarkhineh.intro
 
 import android.annotation.SuppressLint
 import android.content.Intent

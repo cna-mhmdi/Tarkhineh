@@ -1,4 +1,4 @@
-package com.nyco.tarkhineh
+package com.nyco.tarkhineh.intro
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -8,6 +8,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.viewpager.widget.PagerAdapter
+import com.nyco.tarkhineh.R
 
 
 class ViewPagerAdapter(private val context: Context) : PagerAdapter() {

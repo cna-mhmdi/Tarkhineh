@@ -1,10 +1,12 @@
-package com.nyco.tarkhineh
+package com.nyco.tarkhineh.intro
 
 import android.animation.ValueAnimator
 import android.content.Intent
 import android.os.Bundle
 import android.view.animation.LinearInterpolator
 import androidx.appcompat.app.AppCompatActivity
+import com.nyco.tarkhineh.LoginActivity
+import com.nyco.tarkhineh.R
 import com.nyco.tarkhineh.databinding.ActivityOnboardingBinding
 
 class OnboardingActivity : AppCompatActivity() {

@@ -31,10 +31,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".OnboardingActivity"
+            android:name=".intro.OnboardingActivity"
             android:exported="true" />
         <activity
-            android:name=".SplashScreenActivity"
+            android:name=".intro.SplashScreenActivity"
             android:exported="true" />
         <activity
             android:name=".MainActivity"
