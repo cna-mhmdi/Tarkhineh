@@ -7,13 +7,13 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 
 class TarkhinehApplication: Application() {
 
-    private lateinit var tarkhinehRepository: TarkhinehRepository
+    lateinit var tarkhinehRepository: TarkhinehRepository
 
     override fun onCreate() {
         super.onCreate()
 
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://tarkhineh-project.iran.liara.run/tarkhineh/api/")
+            .baseUrl("https://tarkhineh-project.iran.liara.run/")
             .addConverterFactory(MoshiConverterFactory.create())
             .build()
 

@@ -9,6 +9,8 @@ import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import com.nyco.tarkhineh.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
@@ -23,15 +25,22 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.btnSendCode.isEnabled = false
+        val tarkhinehRepository = (application as TarkhinehApplication).tarkhinehRepository
+        val tarkhinehViewModel = ViewModelProvider(this,object :ViewModelProvider.Factory{
+            override fun <T : ViewModel> create(modelClass: Class<T>): T {
+                return TarkhinehViewModel(tarkhinehRepository) as T
+            }
+        }).get(TarkhinehViewModel::class.java)
 
+        binding.btnSendCode.isEnabled = false
 
         binding.btnSendCode.setOnClickListener {
             val phoneNumber = binding.editTextPhoneNumber.text.toString()
-            val intent = Intent(this, VerifyCodeActivity::class.java).apply {
-                putExtra(NUMBER_TAG, phoneNumber)
-            }
-            startActivity(intent)
+            tarkhinehViewModel.sendOTPCode(phoneNumber,this)
+//            val intent = Intent(this, VerifyCodeActivity::class.java).apply {
+//                putExtra(NUMBER_TAG, phoneNumber)
+//            }
+//            startActivity(intent)
         }
 
         /*
