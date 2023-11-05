@@ -28,11 +28,33 @@ class VerifyCodeActivity : AppCompatActivity() {
         binding = ActivityVerifyCodeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        startCountdownTimer()
+
         intent.let {
             val phoneNumber = it.getStringExtra(LoginActivity.NUMBER_TAG)
             binding.txtPhoneNumber.text = getString(R.string.verify_code_desc, phoneNumber)
         }
 
+        setupBackspaceListener(binding.editText2, binding.editText1)
+        setupBackspaceListener(binding.editText3, binding.editText2)
+        setupBackspaceListener(binding.editText4, binding.editText3)
+        setupBackspaceListener(binding.editText5, binding.editText4)
+
+        binding.btnSendCode.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
+            finish()
+        }
+
+        binding.txtEditNumber.setOnClickListener {
+            finish()
+        }
+
+        /*
+        This part is a text watcher that checks that if a one-digit number
+         is entered in the edit text, it moves the focus to the next edit text.
+         */
         val textWatcher = object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
@@ -57,12 +79,10 @@ class VerifyCodeActivity : AppCompatActivity() {
         binding.editText4.addTextChangedListener(textWatcher)
         binding.editText5.addTextChangedListener(textWatcher)
 
-        setupBackspaceListener(binding.editText2, binding.editText1)
-        setupBackspaceListener(binding.editText3, binding.editText2)
-        setupBackspaceListener(binding.editText4, binding.editText3)
-        setupBackspaceListener(binding.editText5, binding.editText4)
 
-
+        /*
+        This section changes the background of each edit text when the focus is on it
+         */
         val focusChangeListener = View.OnFocusChangeListener { view, hasFocus ->
             if (hasFocus) {
                 view.setBackgroundResource(R.drawable.edit_text_border_green)
@@ -77,22 +97,12 @@ class VerifyCodeActivity : AppCompatActivity() {
         binding.editText4.onFocusChangeListener = focusChangeListener
         binding.editText5.onFocusChangeListener = focusChangeListener
 
-        //this section may create problem in future so keep that in mind that if
-        //something happened like memory loose
-        binding.btnSendCode.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-            startActivity(intent)
-            finish()
-        }
-
-        binding.txtEditNumber.setOnClickListener {
-            finish()
-        }
-
-        startCountdownTimer()
     }
 
+    /*
+    This function is for focusing when you backspace
+     in the edit text and it moves the focus to the previous text edit text.
+     */
     private fun setupBackspaceListener(editText: EditText, previousEditText: EditText) {
         editText.setOnKeyListener { _, keyCode, event ->
             if (event.action == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_DEL && editText.text.isEmpty()) {
@@ -115,6 +125,10 @@ class VerifyCodeActivity : AppCompatActivity() {
         return result
     }
 
+    /*
+    This function is a countdown, which after reaching the end of a text
+     turns into a link, by clicking on it, this countdown starts again.
+     */
     private fun startCountdownTimer() {
 
         val totalTimeMillis = 121000
@@ -134,7 +148,6 @@ class VerifyCodeActivity : AppCompatActivity() {
                     binding.numberCountDown.text = farsiTimeFormatted
 
                 }
-
 
                 override fun onFinish() {
                     val secondText = "دریافت مجدد کد"
