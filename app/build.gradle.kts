@@ -55,6 +55,8 @@ dependencies {
     //Retrofit
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-moshi:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.6.1")
+    implementation("com.squareup.okhttp3:okhttp:4.9.0")
     //Coil&Glide
     implementation("io.coil-kt:coil:2.4.0")
     implementation("com.github.bumptech.glide:glide:4.15.1")

@@ -8,10 +8,24 @@ import android.text.TextWatcher
 import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.nyco.tarkhineh.api.TarkhinehServices
 import com.nyco.tarkhineh.databinding.ActivityLoginBinding
+import com.nyco.tarkhineh.model.OTPRequest
+import com.nyco.tarkhineh.model.OTPResponse
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.converter.moshi.MoshiConverterFactory
 
 class LoginActivity : AppCompatActivity() {
 
@@ -26,7 +40,7 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val tarkhinehRepository = (application as TarkhinehApplication).tarkhinehRepository
-        val tarkhinehViewModel = ViewModelProvider(this,object :ViewModelProvider.Factory{
+        val tarkhinehViewModel = ViewModelProvider(this, object : ViewModelProvider.Factory {
             override fun <T : ViewModel> create(modelClass: Class<T>): T {
                 return TarkhinehViewModel(tarkhinehRepository) as T
             }
@@ -36,12 +50,15 @@ class LoginActivity : AppCompatActivity() {
 
         binding.btnSendCode.setOnClickListener {
             val phoneNumber = binding.editTextPhoneNumber.text.toString()
-            tarkhinehViewModel.sendOTPCode(phoneNumber,this)
-//            val intent = Intent(this, VerifyCodeActivity::class.java).apply {
-//                putExtra(NUMBER_TAG, phoneNumber)
-//            }
-//            startActivity(intent)
+            val phone = OTPRequest(phoneNumber)
+            tarkhinehViewModel.sendOTPCode(phone, this)
+
+            val intent = Intent(this, VerifyCodeActivity::class.java).apply {
+                putExtra(NUMBER_TAG, phoneNumber)
+            }
+            startActivity(intent)
         }
+
 
         /*
         This part checks whether the number is 11 digits and starts with 09 or not.
@@ -69,11 +86,11 @@ class LoginActivity : AppCompatActivity() {
                 phonePattern.matches(binding.editTextPhoneNumber.text.toString())
             binding.btnSendCode.isEnabled = isChecked && isValidPhoneNumber
         }
-
-        /*
-        This section is used to convert a part of the text view
-         into a link to go to the rules and regulations page by clicking on it
-         */
+//
+//        /*
+//        This section is used to convert a part of the text view
+//         into a link to go to the rules and regulations page by clicking on it
+//         */
         val privacyText = binding.textViewPrivacy.text
         val spannableString = SpannableString(privacyText)
 
@@ -93,3 +110,4 @@ class LoginActivity : AppCompatActivity() {
         binding.textViewPrivacy.movementMethod = LinkMovementMethod.getInstance()
     }
 }
+
