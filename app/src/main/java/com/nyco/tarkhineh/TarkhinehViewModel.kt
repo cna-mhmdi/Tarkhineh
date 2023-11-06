@@ -2,16 +2,14 @@ package com.nyco.tarkhineh
 
 import android.content.Context
 import android.widget.Toast
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.nyco.tarkhineh.model.OTPRequest
-import com.nyco.tarkhineh.model.OTPResponse
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class TarkhinehViewModel(private val tarkhinehRepository: TarkhinehRepository):ViewModel() {
+class TarkhinehViewModel(private val tarkhinehRepository: TarkhinehRepository) : ViewModel() {
 
     fun sendOTPCode(phoneNumber: OTPRequest, context: Context) {
         viewModelScope.launch(Dispatchers.IO) {

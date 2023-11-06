@@ -4,9 +4,8 @@ import android.app.Application
 import com.nyco.tarkhineh.api.TarkhinehServices
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.converter.moshi.MoshiConverterFactory
 
-class TarkhinehApplication: Application() {
+class TarkhinehApplication : Application() {
 
     lateinit var tarkhinehRepository: TarkhinehRepository
 

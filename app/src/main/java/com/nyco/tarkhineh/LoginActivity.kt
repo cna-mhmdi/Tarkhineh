@@ -8,24 +8,11 @@ import android.text.TextWatcher
 import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.nyco.tarkhineh.api.TarkhinehServices
 import com.nyco.tarkhineh.databinding.ActivityLoginBinding
 import com.nyco.tarkhineh.model.OTPRequest
-import com.nyco.tarkhineh.model.OTPResponse
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.converter.moshi.MoshiConverterFactory
 
 class LoginActivity : AppCompatActivity() {
 
@@ -44,7 +31,7 @@ class LoginActivity : AppCompatActivity() {
             override fun <T : ViewModel> create(modelClass: Class<T>): T {
                 return TarkhinehViewModel(tarkhinehRepository) as T
             }
-        }).get(TarkhinehViewModel::class.java)
+        })[TarkhinehViewModel::class.java]
 
         binding.btnSendCode.isEnabled = false
 

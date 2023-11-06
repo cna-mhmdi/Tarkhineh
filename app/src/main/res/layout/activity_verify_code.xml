@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".VerifyCodeActivity"
-    android:background="@color/Gray_1">
+    android:background="@color/Gray_1"
+    tools:context=".VerifyCodeActivity">
 
     <ImageView
         android:id="@+id/imageView2"
@@ -41,7 +41,7 @@
         android:textColor="@color/Gray_7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"/>
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -124,9 +124,9 @@
         android:id="@+id/txt_editNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/estedad_medium"
         android:text="@string/edit_number"
-        android:layout_marginTop="8dp"
         android:textColor="@color/Primary"
         android:textSize="10sp"
         app:layout_constraintStart_toStartOf="@+id/linearLayout"
