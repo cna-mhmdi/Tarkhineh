@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.os.Handler
 import android.text.Editable
 import android.text.SpannableString
 import android.text.TextWatcher
@@ -13,9 +14,18 @@ import android.view.KeyEvent
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
+import android.widget.Toast
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.delay
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import com.nyco.tarkhineh.databinding.ActivityVerifyCodeBinding
+import com.nyco.tarkhineh.model.OTPResponse
 
 class VerifyCodeActivity : AppCompatActivity() {
 
@@ -27,6 +37,13 @@ class VerifyCodeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityVerifyCodeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+//        val tarkhinehRepository = (application as TarkhinehApplication).tarkhinehRepository
+//        val tarkhinehViewModel = ViewModelProvider(this, object : ViewModelProvider.Factory {
+//            override fun <T : ViewModel> create(modelClass: Class<T>): T {
+//                return TarkhinehViewModel(tarkhinehRepository) as T
+//            }
+//        })[TarkhinehViewModel::class.java]
 
         startCountdownTimer()
 
@@ -41,10 +58,45 @@ class VerifyCodeActivity : AppCompatActivity() {
         setupBackspaceListener(binding.editText5, binding.editText4)
 
         binding.btnSendCode.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-            startActivity(intent)
-            finish()
+
+            val otpResponse = OTPResponse()
+            val userCode = binding.editText1.text.toString() +
+                            binding.editText2.text.toString() +
+                            binding.editText3.text.toString() +
+                            binding.editText4.text.toString() +
+                            binding.editText5.text.toString()
+
+            val otpCode = otpResponse.code
+            if (userCode == otpCode){
+
+                Toast.makeText(this,"به ترخینه خوش آمدید",Toast.LENGTH_LONG).show()
+                val intent = Intent(this, MainActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                startActivity(intent)
+                finish()
+
+            }else {
+
+                val editTexts = listOf (
+                    binding.editText1 ,
+                    binding.editText2 ,
+                    binding.editText3 ,
+                    binding.editText4 ,
+                    binding.editText5
+                )
+
+                CoroutineScope(Dispatchers.Main).launch {
+                    editTexts.forEach { editText ->
+                        editText.background = ContextCompat.getDrawable(this@VerifyCodeActivity, R.drawable.edit_text_border_red)
+                    }
+
+                    delay(1000)
+
+                    editTexts.forEach { editText ->
+                        editText.background = ContextCompat.getDrawable(this@VerifyCodeActivity, R.drawable.edit_text_border)
+                    }
+                }
+            }
         }
 
         binding.txtEditNumber.setOnClickListener {
