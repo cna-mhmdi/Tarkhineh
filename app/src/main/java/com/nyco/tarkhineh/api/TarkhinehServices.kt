@@ -9,6 +9,6 @@ import retrofit2.http.POST
 interface TarkhinehServices {
 
     @POST("api/SendOTPcodes/")
-    suspend fun sendOTPCodes(@Body phoneNumber: OTPRequest): Response<OTPResponse>
+    suspend fun sendOTPCodes(@Body phoneNumber: OTPRequest): OTPResponse
 
 }

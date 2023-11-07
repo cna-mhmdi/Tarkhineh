@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
-import android.os.Handler
 import android.text.Editable
 import android.text.SpannableString
 import android.text.TextWatcher
@@ -25,11 +24,13 @@ import androidx.core.content.res.ResourcesCompat
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.nyco.tarkhineh.databinding.ActivityVerifyCodeBinding
+import com.nyco.tarkhineh.model.OTPRequest
 import com.nyco.tarkhineh.model.OTPResponse
 
 class VerifyCodeActivity : AppCompatActivity() {
 
     private var countDownTimer: CountDownTimer? = null
+    private lateinit var tarkhinehViewModel: TarkhinehViewModel
 
     private lateinit var binding: ActivityVerifyCodeBinding
 
@@ -38,12 +39,13 @@ class VerifyCodeActivity : AppCompatActivity() {
         binding = ActivityVerifyCodeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-//        val tarkhinehRepository = (application as TarkhinehApplication).tarkhinehRepository
-//        val tarkhinehViewModel = ViewModelProvider(this, object : ViewModelProvider.Factory {
-//            override fun <T : ViewModel> create(modelClass: Class<T>): T {
-//                return TarkhinehViewModel(tarkhinehRepository) as T
-//            }
-//        })[TarkhinehViewModel::class.java]
+
+        val tarkhinehRepository = (application as TarkhinehApplication).tarkhinehRepository
+        tarkhinehViewModel = ViewModelProvider(this, object : ViewModelProvider.Factory {
+            override fun <T : ViewModel> create(modelClass: Class<T>): T {
+                return TarkhinehViewModel(tarkhinehRepository) as T
+            }
+        })[TarkhinehViewModel::class.java]
 
         startCountdownTimer()
 
@@ -59,41 +61,42 @@ class VerifyCodeActivity : AppCompatActivity() {
 
         binding.btnSendCode.setOnClickListener {
 
-            val otpResponse = OTPResponse()
-            val userCode = binding.editText1.text.toString() +
-                            binding.editText2.text.toString() +
-                            binding.editText3.text.toString() +
-                            binding.editText4.text.toString() +
-                            binding.editText5.text.toString()
+            tarkhinehViewModel.otp.observe(this) {
+                val userCode = binding.editText1.text.toString() +
+                        binding.editText2.text.toString() +
+                        binding.editText3.text.toString() +
+                        binding.editText4.text.toString() +
+                        binding.editText5.text.toString()
 
-            val otpCode = otpResponse.code
-            if (userCode == otpCode){
+                Toast.makeText(this,it.code,Toast.LENGTH_LONG).show()
+                if (userCode == it.code) {
 
-                Toast.makeText(this,"به ترخینه خوش آمدید",Toast.LENGTH_LONG).show()
-                val intent = Intent(this, MainActivity::class.java)
-                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                startActivity(intent)
-                finish()
+                    Toast.makeText(this,"به ترخینه خوش آمدید",Toast.LENGTH_LONG).show()
+                    val intent = Intent(this, MainActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    startActivity(intent)
+                    finish()
 
-            }else {
+                }else {
 
-                val editTexts = listOf (
-                    binding.editText1 ,
-                    binding.editText2 ,
-                    binding.editText3 ,
-                    binding.editText4 ,
-                    binding.editText5
-                )
+                    val editTexts = listOf (
+                        binding.editText1 ,
+                        binding.editText2 ,
+                        binding.editText3 ,
+                        binding.editText4 ,
+                        binding.editText5
+                    )
 
-                CoroutineScope(Dispatchers.Main).launch {
-                    editTexts.forEach { editText ->
-                        editText.background = ContextCompat.getDrawable(this@VerifyCodeActivity, R.drawable.edit_text_border_red)
-                    }
+                    CoroutineScope(Dispatchers.Main).launch {
+                        editTexts.forEach { editText ->
+                            editText.background = ContextCompat.getDrawable(this@VerifyCodeActivity, R.drawable.edit_text_border_red)
+                        }
 
-                    delay(1000)
+                        delay(1000)
 
-                    editTexts.forEach { editText ->
-                        editText.background = ContextCompat.getDrawable(this@VerifyCodeActivity, R.drawable.edit_text_border)
+                        editTexts.forEach { editText ->
+                            editText.background = ContextCompat.getDrawable(this@VerifyCodeActivity, R.drawable.edit_text_border)
+                        }
                     }
                 }
             }
@@ -148,6 +151,10 @@ class VerifyCodeActivity : AppCompatActivity() {
         binding.editText3.onFocusChangeListener = focusChangeListener
         binding.editText4.onFocusChangeListener = focusChangeListener
         binding.editText5.onFocusChangeListener = focusChangeListener
+
+    }
+
+    override fun onBackPressed() {
 
     }
 
@@ -207,6 +214,13 @@ class VerifyCodeActivity : AppCompatActivity() {
 
                     val clickableSpan = object : ClickableSpan() {
                         override fun onClick(p0: View) {
+
+                            intent.let {
+                                val phoneNumber = it.getStringExtra(LoginActivity.NUMBER_TAG)
+                                val otpRequest = OTPRequest(phoneNumber)
+                                tarkhinehViewModel.sendOTPCode(otpRequest,this@VerifyCodeActivity)
+                            }
+
                             binding.txtCountDown.text = getString(R.string.countDown)
                             startCountdownTimer()
                         }
