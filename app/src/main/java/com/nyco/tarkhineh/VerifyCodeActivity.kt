@@ -14,10 +14,6 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.Toast
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.delay
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
@@ -25,7 +21,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.nyco.tarkhineh.databinding.ActivityVerifyCodeBinding
 import com.nyco.tarkhineh.model.OTPRequest
-import com.nyco.tarkhineh.model.OTPResponse
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class VerifyCodeActivity : AppCompatActivity() {
 
@@ -68,34 +67,40 @@ class VerifyCodeActivity : AppCompatActivity() {
                         binding.editText4.text.toString() +
                         binding.editText5.text.toString()
 
-                Toast.makeText(this,it.code,Toast.LENGTH_LONG).show()
+                Toast.makeText(this, it.code, Toast.LENGTH_LONG).show()
                 if (userCode == it.code) {
 
-                    Toast.makeText(this,"به ترخینه خوش آمدید",Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, "به ترخینه خوش آمدید", Toast.LENGTH_LONG).show()
                     val intent = Intent(this, MainActivity::class.java)
                     intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                     startActivity(intent)
                     finish()
 
-                }else {
+                } else {
 
-                    val editTexts = listOf (
-                        binding.editText1 ,
-                        binding.editText2 ,
-                        binding.editText3 ,
-                        binding.editText4 ,
+                    val editTexts = listOf(
+                        binding.editText1,
+                        binding.editText2,
+                        binding.editText3,
+                        binding.editText4,
                         binding.editText5
                     )
 
                     CoroutineScope(Dispatchers.Main).launch {
                         editTexts.forEach { editText ->
-                            editText.background = ContextCompat.getDrawable(this@VerifyCodeActivity, R.drawable.edit_text_border_red)
+                            editText.background = ContextCompat.getDrawable(
+                                this@VerifyCodeActivity,
+                                R.drawable.edit_text_border_red
+                            )
                         }
 
                         delay(1000)
 
                         editTexts.forEach { editText ->
-                            editText.background = ContextCompat.getDrawable(this@VerifyCodeActivity, R.drawable.edit_text_border)
+                            editText.background = ContextCompat.getDrawable(
+                                this@VerifyCodeActivity,
+                                R.drawable.edit_text_border
+                            )
                         }
                     }
                 }
@@ -218,7 +223,7 @@ class VerifyCodeActivity : AppCompatActivity() {
                             intent.let {
                                 val phoneNumber = it.getStringExtra(LoginActivity.NUMBER_TAG)
                                 val otpRequest = OTPRequest(phoneNumber)
-                                tarkhinehViewModel.sendOTPCode(otpRequest,this@VerifyCodeActivity)
+                                tarkhinehViewModel.sendOTPCode(otpRequest, this@VerifyCodeActivity)
                             }
 
                             binding.txtCountDown.text = getString(R.string.countDown)

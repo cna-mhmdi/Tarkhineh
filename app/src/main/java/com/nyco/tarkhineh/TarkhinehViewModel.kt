@@ -13,7 +13,7 @@ import kotlinx.coroutines.withContext
 
 class TarkhinehViewModel(private val tarkhinehRepository: TarkhinehRepository) : ViewModel() {
 
-    val otp : LiveData<OTPResponse> get() = tarkhinehRepository.otpLiveData
+    val otp: LiveData<OTPResponse> get() = tarkhinehRepository.otpLiveData
 
     fun sendOTPCode(phoneNumber: OTPRequest, context: Context) {
         viewModelScope.launch(Dispatchers.IO) {

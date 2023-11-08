@@ -74,10 +74,10 @@ class LoginActivity : AppCompatActivity() {
             binding.btnSendCode.isEnabled = isChecked && isValidPhoneNumber
         }
 
-       /*
-       This section is used to convert a part of the text view
-        into a link to go to the rules and regulations page by clicking on it
-         */
+        /*
+        This section is used to convert a part of the text view
+         into a link to go to the rules and regulations page by clicking on it
+          */
         val privacyText = binding.textViewPrivacy.text
         val spannableString = SpannableString(privacyText)
 
