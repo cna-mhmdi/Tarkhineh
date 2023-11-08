@@ -13,43 +13,12 @@ import kotlinx.coroutines.withContext
 
 class TarkhinehViewModel(private val tarkhinehRepository: TarkhinehRepository) : ViewModel() {
 
-    val otp: LiveData<OTPResponse> get() = tarkhinehRepository.otpLiveData
+    val otp: LiveData<OTPResponse> get() = tarkhinehRepository.otp
+    fun getOTPError(): LiveData<String> = tarkhinehRepository.otpError
 
-    fun sendOTPCode(phoneNumber: OTPRequest, context: Context) {
+    fun sendOTPCode(phoneNumber: OTPRequest) {
         viewModelScope.launch(Dispatchers.IO) {
-            try {
-                tarkhinehRepository.sendOtp(phoneNumber)
-
-//                if (response.isSuccessful) {
-//                    val responseData = response.body()
-//                    withContext(Dispatchers.Main) {
-//                        // Update UI with the response data (if needed)
-//                        Toast.makeText(
-//                            context,
-//                            "Response is : $responseData",
-//                            Toast.LENGTH_LONG
-//                        ).show()
-//                    }
-//                } else {
-//                    withContext(Dispatchers.Main) {
-//                        // Show error message or handle the error UI (if needed)
-//                        Toast.makeText(
-//                            context,
-//                            "Error: ${response.code()}",
-//                            Toast.LENGTH_LONG
-//                        ).show()
-//                    }
-//                }
-            } catch (e: Exception) {
-                withContext(Dispatchers.Main) {
-                    // Handle other exceptions (e.g., network error) here
-                    Toast.makeText(
-                        context,
-                        "Error fail: ${e.message}",
-                        Toast.LENGTH_LONG
-                    ).show()
-                }
-            }
+            tarkhinehRepository.sendOtp(phoneNumber)
         }
     }
 }
