@@ -75,19 +75,22 @@ class VerifyCodeActivity : AppCompatActivity() {
             intent.let {
                 val phoneNumber = it.getStringExtra(LoginActivity.NUMBER_TAG).toString()
                 val login = LoginReq(phoneNumber,userCode)
-                tarkhinehViewModel.sendLogin(login,this)
+                tarkhinehViewModel.sendLogin(login)
 
             }
 
-            tarkhinehViewModel.login.observe(this){
-                val message = it.message()
-                Log.d("THISISMESSAGEFOR",message)
+            tarkhinehViewModel.otp.observe(this){otpResponse->
+                val otpCode = otpResponse.code
+                Log.d("THISISMESSAGEFOR",otpCode)
             }
 
+            tarkhinehViewModel.login.observe(this){loginResponse->
+                val message = loginResponse.message
+                val accessToken = loginResponse.access_token
+                val refreshToken = loginResponse.refresh_token
+                Toast.makeText(this,message,Toast.LENGTH_LONG).show()
+            }
 
-//            tarkhinehViewModel.getOTPError().observe(this){ error->
-////                Toast.makeText(this@VerifyCodeActivity,error,Toast.LENGTH_SHORT).show()
-//            }
 
 //            if (userCode == otpCode) {
 //

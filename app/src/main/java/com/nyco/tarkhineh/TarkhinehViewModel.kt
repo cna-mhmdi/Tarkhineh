@@ -18,48 +18,12 @@ import retrofit2.Response
 class TarkhinehViewModel(private val tarkhinehRepository: TarkhinehRepository) : ViewModel() {
 
     val otp: LiveData<OTPResponse> get() = tarkhinehRepository.otp
-    fun getOTPError(): LiveData<String> = tarkhinehRepository.otpError
 
-    val login: LiveData<Response<LoginResponse>> get() = tarkhinehRepository.login
-    fun getLoginError(): LiveData<String> = tarkhinehRepository.loginError
+    val login: LiveData<LoginResponse> get() = tarkhinehRepository.login
 
-    fun sendLogin(loginReq: LoginReq, context:Context){
+    fun sendLogin(loginReq: LoginReq){
         viewModelScope.launch(Dispatchers.IO) {
-            try {
-                val response = tarkhinehRepository.sendLoginReq(loginReq)
-
-                if (response.isSuccessful) {
-                    val responseData = response.body()
-                    withContext(Dispatchers.Main) {
-
-                        Toast.makeText(
-                            context,
-                            "Response is : $responseData",
-                            Toast.LENGTH_LONG
-                        ).show()
-
-                    }
-                } else {
-                    withContext(Dispatchers.Main) {
-                        
-                        Toast.makeText(
-                            context,
-                            "Error: ${response.errorBody()}",
-                            Toast.LENGTH_LONG
-                        ).show()
-                        Log.d("THISISMESSAGEFOR",response.errorBody().toString())
-                    }
-                }
-            }catch (e: Exception){
-                withContext(Dispatchers.Main) {
-                    // Handle other exceptions (e.g., network error) here
-                    Toast.makeText(
-                        context,
-                        "Error fail: ${e.message}",
-                        Toast.LENGTH_LONG
-                    ).show()
-                }
-            }
+            tarkhinehRepository.sendLoginReq(loginReq)
         }
     }
 

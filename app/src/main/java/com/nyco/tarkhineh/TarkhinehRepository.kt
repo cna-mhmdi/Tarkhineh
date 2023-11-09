@@ -14,29 +14,27 @@ import retrofit2.Response
 class TarkhinehRepository(private val tarkhinehServices: TarkhinehServices) {
 
     private val otpLiveData = MutableLiveData<OTPResponse>()
-    private val otpLiveDataError = MutableLiveData<String>()
-
     val otp : LiveData<OTPResponse> get() = otpLiveData
-    val otpError: LiveData<String> get() = otpLiveDataError
 
-    private val loginLiveData = MutableLiveData<Response<LoginResponse>>()
-    private val loginLiveDataError = MutableLiveData<String>()
+    private val loginLiveData = MutableLiveData<LoginResponse>()
+    val login : LiveData<LoginResponse> get() = loginLiveData
 
-    val login : LiveData<Response<LoginResponse>> get() = loginLiveData
-    val loginError: LiveData<String> get() = loginLiveDataError
 
-    suspend fun sendLoginReq(loginReq: LoginReq): Response<LoginResponse> {
-        val login = tarkhinehServices.sendLogin(loginReq)
-        loginLiveData.postValue(login)
-           return login
+    suspend fun sendLoginReq(loginReq: LoginReq) {
+        try {
+            val login = tarkhinehServices.sendLogin(loginReq)
+            loginLiveData.postValue(login)
+        } catch (_: Exception) {
+
+        }
     }
 
     suspend fun sendOtp(phoneNumber: OTPRequest) {
         try {
             val otp = tarkhinehServices.sendOTPCodes(phoneNumber)
             otpLiveData.postValue(otp)
-        } catch (ex: Exception) {
-            otpLiveDataError.postValue("An Error occurred : ${ex.message}")
+        } catch (_: Exception) {
+
         }
     }
 }
