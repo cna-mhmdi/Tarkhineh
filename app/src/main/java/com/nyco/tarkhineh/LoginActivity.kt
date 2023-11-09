@@ -37,8 +37,8 @@ class LoginActivity : AppCompatActivity() {
 
         binding.btnSendCode.setOnClickListener {
             val phoneNumber = binding.editTextPhoneNumber.text.toString()
-            val phone = OTPRequest(phoneNumber)
-            tarkhinehViewModel.sendOTPCode(phone)
+//            val phone = OTPRequest(phoneNumber)
+//            tarkhinehViewModel.sendOTPCode(phone)
 
             val intent = Intent(this, VerifyCodeActivity::class.java).apply {
                 putExtra(NUMBER_TAG, phoneNumber)

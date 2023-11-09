@@ -9,6 +9,7 @@ import android.text.SpannableString
 import android.text.TextWatcher
 import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
+import android.util.Log
 import android.view.KeyEvent
 import android.view.View
 import android.view.inputmethod.InputMethodManager
@@ -20,6 +21,7 @@ import androidx.core.content.res.ResourcesCompat
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.nyco.tarkhineh.databinding.ActivityVerifyCodeBinding
+import com.nyco.tarkhineh.model.LoginReq
 import com.nyco.tarkhineh.model.OTPRequest
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -58,6 +60,11 @@ class VerifyCodeActivity : AppCompatActivity() {
             binding.txtPhoneNumber.text = getString(R.string.verify_code_desc, phoneNumber)
         }
 
+        tarkhinehViewModel.otp.observe(this) { otpResponse ->
+            otpCode = otpResponse.code
+            Log.d("THISISMESSAGEFOR",otpCode)
+        }
+
         binding.btnSendCode.setOnClickListener {
 
             val userCode = binding.editText1.text.toString() +
@@ -65,51 +72,59 @@ class VerifyCodeActivity : AppCompatActivity() {
                     binding.editText3.text.toString() +
                     binding.editText4.text.toString() +
                     binding.editText5.text.toString()
+            intent.let {
+                val phoneNumber = it.getStringExtra(LoginActivity.NUMBER_TAG).toString()
+                val login = LoginReq(phoneNumber,userCode)
+                tarkhinehViewModel.sendLogin(login,this)
 
-            tarkhinehViewModel.otp.observe(this) { otpResponse ->
-                otpCode = otpResponse.code
-                Toast.makeText(this@VerifyCodeActivity,otpCode,Toast.LENGTH_SHORT).show()
-            }
-            tarkhinehViewModel.getOTPError().observe(this){ error->
-                Toast.makeText(this@VerifyCodeActivity,error,Toast.LENGTH_SHORT).show()
             }
 
-            if (userCode == otpCode) {
-
-                Toast.makeText(this, "به ترخینه خوش آمدید", Toast.LENGTH_LONG).show()
-                val intent = Intent(this, MainActivity::class.java)
-                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                startActivity(intent)
-                finish()
-
-            } else {
-
-                val editTexts = listOf(
-                    binding.editText1,
-                    binding.editText2,
-                    binding.editText3,
-                    binding.editText4,
-                    binding.editText5
-                )
-
-                CoroutineScope(Dispatchers.Main).launch {
-                    editTexts.forEach { editText ->
-                        editText.background = ContextCompat.getDrawable(
-                            this@VerifyCodeActivity,
-                            R.drawable.edit_text_border_red
-                        )
-                    }
-
-                    delay(1000)
-
-                    editTexts.forEach { editText ->
-                        editText.background = ContextCompat.getDrawable(
-                            this@VerifyCodeActivity,
-                            R.drawable.edit_text_border
-                        )
-                    }
-                }
+            tarkhinehViewModel.login.observe(this){
+                val message = it.message()
+                Log.d("THISISMESSAGEFOR",message)
             }
+
+
+//            tarkhinehViewModel.getOTPError().observe(this){ error->
+////                Toast.makeText(this@VerifyCodeActivity,error,Toast.LENGTH_SHORT).show()
+//            }
+
+//            if (userCode == otpCode) {
+//
+//                Toast.makeText(this, "به ترخینه خوش آمدید", Toast.LENGTH_LONG).show()
+//                val intent = Intent(this, MainActivity::class.java)
+//                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+//                startActivity(intent)
+//                finish()
+//
+//            } else {
+//
+//                val editTexts = listOf(
+//                    binding.editText1,
+//                    binding.editText2,
+//                    binding.editText3,
+//                    binding.editText4,
+//                    binding.editText5
+//                )
+//
+//                CoroutineScope(Dispatchers.Main).launch {
+//                    editTexts.forEach { editText ->
+//                        editText.background = ContextCompat.getDrawable(
+//                            this@VerifyCodeActivity,
+//                            R.drawable.edit_text_border_red
+//                        )
+//                    }
+//
+//                    delay(1000)
+//
+//                    editTexts.forEach { editText ->
+//                        editText.background = ContextCompat.getDrawable(
+//                            this@VerifyCodeActivity,
+//                            R.drawable.edit_text_border
+//                        )
+//                    }
+//                }
+//            }
         }
 
         binding.txtEditNumber.setOnClickListener {
