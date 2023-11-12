@@ -9,12 +9,10 @@ import android.text.SpannableString
 import android.text.TextWatcher
 import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
-import android.util.Log
 import android.view.KeyEvent
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
@@ -22,7 +20,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.nyco.tarkhineh.databinding.ActivityVerifyCodeBinding
 import com.nyco.tarkhineh.model.LoginReq
-import com.nyco.tarkhineh.model.LoginResponse
 import com.nyco.tarkhineh.model.OTPRequest
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -31,7 +28,7 @@ import kotlinx.coroutines.launch
 
 class VerifyCodeActivity : AppCompatActivity() {
 
-    companion object{
+    companion object {
         const val CALLAPINYCO = "CALL_FOR_TAG"
     }
 
@@ -70,12 +67,12 @@ class VerifyCodeActivity : AppCompatActivity() {
                     binding.editText4.text.toString() +
                     binding.editText5.text.toString()
 
-            val login = LoginReq(phoneNumber,userCode)
+            val login = LoginReq(phoneNumber, userCode)
             tarkhinehViewModel.sendLogin(login)
 
-            tarkhinehViewModel.login.observe(this) {loginResponse->
+            tarkhinehViewModel.login.observe(this) { loginResponse ->
 
-                if (loginResponse.isSuccessful){
+                if (loginResponse.isSuccessful) {
 
                     val message = loginResponse.body()?.message
                     val accessToken = loginResponse.body()?.access_token
@@ -86,7 +83,7 @@ class VerifyCodeActivity : AppCompatActivity() {
                     startActivity(intent)
                     finish()
 
-                }else {
+                } else {
 
                     val editTexts = listOf(
                         binding.editText1,
