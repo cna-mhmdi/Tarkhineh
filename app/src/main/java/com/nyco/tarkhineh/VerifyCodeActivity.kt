@@ -22,6 +22,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.nyco.tarkhineh.databinding.ActivityVerifyCodeBinding
 import com.nyco.tarkhineh.model.LoginReq
+import com.nyco.tarkhineh.model.LoginResponse
 import com.nyco.tarkhineh.model.OTPRequest
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -30,16 +31,26 @@ import kotlinx.coroutines.launch
 
 class VerifyCodeActivity : AppCompatActivity() {
 
+    companion object{
+        const val CALLAPINYCO = "CALL_FOR_TAG"
+    }
+
     private var countDownTimer: CountDownTimer? = null
     private lateinit var tarkhinehViewModel: TarkhinehViewModel
 
+    private lateinit var phoneNumber: String
+
     private lateinit var binding: ActivityVerifyCodeBinding
-    private lateinit var otpCode: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityVerifyCodeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        intent.let {
+            phoneNumber = it.getStringExtra(LoginActivity.NUMBER_TAG).toString()
+            binding.txtPhoneNumber.text = getString(R.string.verify_code_desc, phoneNumber)
+        }
 
         startCountdownTimer()
 
@@ -55,15 +66,11 @@ class VerifyCodeActivity : AppCompatActivity() {
             }
         })[TarkhinehViewModel::class.java]
 
-        intent.let {
-            val phoneNumber = it.getStringExtra(LoginActivity.NUMBER_TAG)
-            binding.txtPhoneNumber.text = getString(R.string.verify_code_desc, phoneNumber)
-        }
-
-        tarkhinehViewModel.otp.observe(this) { otpResponse ->
-            otpCode = otpResponse.code
-            Log.d("THISISMESSAGEFOR",otpCode)
-        }
+//        tarkhinehViewModel.otp.observe(this) { otpResponse ->
+//            val otpCode = otpResponse.code
+//            Log.d(CALLAPINYCO,otpCode)
+//        }
+        binding.btnSendCode.isEnabled = false
 
         binding.btnSendCode.setOnClickListener {
 
@@ -72,62 +79,60 @@ class VerifyCodeActivity : AppCompatActivity() {
                     binding.editText3.text.toString() +
                     binding.editText4.text.toString() +
                     binding.editText5.text.toString()
-            intent.let {
-                val phoneNumber = it.getStringExtra(LoginActivity.NUMBER_TAG).toString()
-                val login = LoginReq(phoneNumber,userCode)
-                tarkhinehViewModel.sendLogin(login)
 
+            val login = LoginReq(phoneNumber,userCode)
+            tarkhinehViewModel.sendLogin(login)
+
+            tarkhinehViewModel.login.observe(this) {loginResponse->
+//                val message = loginResponse.message
+//                val accessToken = loginResponse.access_token
+//                val refreshToken = loginResponse.refresh_token
+                if (loginResponse.isSuccessful){
+                    Log.d(CALLAPINYCO,"success section is ${loginResponse.body()}")
+                    Log.d(CALLAPINYCO,"success section is ${loginResponse.body()?.access_token}")
+                    Log.d(CALLAPINYCO,"success section is ${loginResponse.body()?.refresh_token}")
+
+                    val intent = Intent(this, MainActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    startActivity(intent)
+                    finish()
+
+                }else {
+                    Log.d(CALLAPINYCO,"else section is ${loginResponse.body()}")
+                    Log.d(CALLAPINYCO,"else section is ${loginResponse.code()}")
+
+
+                    val editTexts = listOf(
+                        binding.editText1,
+                        binding.editText2,
+                        binding.editText3,
+                        binding.editText4,
+                        binding.editText5
+                    )
+
+                    editTexts.forEach {
+                        it.text = null
+                    }
+
+                    CoroutineScope(Dispatchers.Main).launch {
+                        editTexts.forEach { editText ->
+                            editText.background = ContextCompat.getDrawable(
+                                this@VerifyCodeActivity,
+                                R.drawable.edit_text_border_red
+                            )
+                        }
+
+                        delay(1000)
+
+                        editTexts.forEach { editText ->
+                            editText.background = ContextCompat.getDrawable(
+                                this@VerifyCodeActivity,
+                                R.drawable.edit_text_border
+                            )
+                        }
+                    }
+                }
             }
-
-            tarkhinehViewModel.otp.observe(this){otpResponse->
-                val otpCode = otpResponse.code
-                Log.d("THISISMESSAGEFOR",otpCode)
-            }
-
-            tarkhinehViewModel.login.observe(this){loginResponse->
-                val message = loginResponse.message
-                val accessToken = loginResponse.access_token
-                val refreshToken = loginResponse.refresh_token
-                Toast.makeText(this,message,Toast.LENGTH_LONG).show()
-            }
-
-
-//            if (userCode == otpCode) {
-//
-//                Toast.makeText(this, "به ترخینه خوش آمدید", Toast.LENGTH_LONG).show()
-//                val intent = Intent(this, MainActivity::class.java)
-//                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-//                startActivity(intent)
-//                finish()
-//
-//            } else {
-//
-//                val editTexts = listOf(
-//                    binding.editText1,
-//                    binding.editText2,
-//                    binding.editText3,
-//                    binding.editText4,
-//                    binding.editText5
-//                )
-//
-//                CoroutineScope(Dispatchers.Main).launch {
-//                    editTexts.forEach { editText ->
-//                        editText.background = ContextCompat.getDrawable(
-//                            this@VerifyCodeActivity,
-//                            R.drawable.edit_text_border_red
-//                        )
-//                    }
-//
-//                    delay(1000)
-//
-//                    editTexts.forEach { editText ->
-//                        editText.background = ContextCompat.getDrawable(
-//                            this@VerifyCodeActivity,
-//                            R.drawable.edit_text_border
-//                        )
-//                    }
-//                }
-//            }
         }
 
         binding.txtEditNumber.setOnClickListener {
@@ -148,6 +153,8 @@ class VerifyCodeActivity : AppCompatActivity() {
                     p0 === binding.editText3.text && p0?.length == 1 -> binding.editText4.requestFocus()
                     p0 === binding.editText4.text && p0?.length == 1 -> binding.editText5.requestFocus()
                     p0 === binding.editText5.text && p0?.length == 1 -> {
+
+                        binding.btnSendCode.isEnabled = true
                         val imm =
                             getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
                         imm.hideSoftInputFromWindow(binding.editText5.windowToken, 0)

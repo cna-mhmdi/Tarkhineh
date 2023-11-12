@@ -16,17 +16,14 @@ class TarkhinehRepository(private val tarkhinehServices: TarkhinehServices) {
     private val otpLiveData = MutableLiveData<OTPResponse>()
     val otp : LiveData<OTPResponse> get() = otpLiveData
 
-    private val loginLiveData = MutableLiveData<LoginResponse>()
-    val login : LiveData<LoginResponse> get() = loginLiveData
+    private val loginLiveData = MutableLiveData<Response<LoginResponse>>()
+    val login : LiveData<Response<LoginResponse>> get() = loginLiveData
 
 
-    suspend fun sendLoginReq(loginReq: LoginReq) {
-        try {
-            val login = tarkhinehServices.sendLogin(loginReq)
-            loginLiveData.postValue(login)
-        } catch (_: Exception) {
-
-        }
+    suspend fun sendLoginReq(loginReq: LoginReq): Response<LoginResponse> {
+        val login = tarkhinehServices.sendLogin(loginReq)
+        loginLiveData.postValue(login)
+        return login
     }
 
     suspend fun sendOtp(phoneNumber: OTPRequest) {

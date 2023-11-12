@@ -19,7 +19,7 @@ class TarkhinehViewModel(private val tarkhinehRepository: TarkhinehRepository) :
 
     val otp: LiveData<OTPResponse> get() = tarkhinehRepository.otp
 
-    val login: LiveData<LoginResponse> get() = tarkhinehRepository.login
+    val login: LiveData<Response<LoginResponse>> get() = tarkhinehRepository.login
 
     fun sendLogin(loginReq: LoginReq){
         viewModelScope.launch(Dispatchers.IO) {
