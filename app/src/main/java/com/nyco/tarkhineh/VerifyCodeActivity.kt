@@ -27,6 +27,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
+@Suppress("UNCHECKED_CAST")
 class VerifyCodeActivity : AppCompatActivity() {
 
     companion object {
@@ -172,6 +173,7 @@ class VerifyCodeActivity : AppCompatActivity() {
 
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onBackPressed() {
 
     }
