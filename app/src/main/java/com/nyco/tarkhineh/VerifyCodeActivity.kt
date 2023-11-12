@@ -47,17 +47,13 @@ class VerifyCodeActivity : AppCompatActivity() {
         binding = ActivityVerifyCodeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        startCountdownTimer()
+        binding.btnSendCode.isEnabled = false
+
         intent.let {
             phoneNumber = it.getStringExtra(LoginActivity.NUMBER_TAG).toString()
             binding.txtPhoneNumber.text = getString(R.string.verify_code_desc, phoneNumber)
         }
-
-        startCountdownTimer()
-
-        setupBackspaceListener(binding.editText2, binding.editText1)
-        setupBackspaceListener(binding.editText3, binding.editText2)
-        setupBackspaceListener(binding.editText4, binding.editText3)
-        setupBackspaceListener(binding.editText5, binding.editText4)
 
         val tarkhinehRepository = (application as TarkhinehApplication).tarkhinehRepository
         tarkhinehViewModel = ViewModelProvider(this, object : ViewModelProvider.Factory {
@@ -65,12 +61,6 @@ class VerifyCodeActivity : AppCompatActivity() {
                 return TarkhinehViewModel(tarkhinehRepository) as T
             }
         })[TarkhinehViewModel::class.java]
-
-//        tarkhinehViewModel.otp.observe(this) { otpResponse ->
-//            val otpCode = otpResponse.code
-//            Log.d(CALLAPINYCO,otpCode)
-//        }
-        binding.btnSendCode.isEnabled = false
 
         binding.btnSendCode.setOnClickListener {
 
@@ -84,13 +74,12 @@ class VerifyCodeActivity : AppCompatActivity() {
             tarkhinehViewModel.sendLogin(login)
 
             tarkhinehViewModel.login.observe(this) {loginResponse->
-//                val message = loginResponse.message
-//                val accessToken = loginResponse.access_token
-//                val refreshToken = loginResponse.refresh_token
+
                 if (loginResponse.isSuccessful){
-                    Log.d(CALLAPINYCO,"success section is ${loginResponse.body()}")
-                    Log.d(CALLAPINYCO,"success section is ${loginResponse.body()?.access_token}")
-                    Log.d(CALLAPINYCO,"success section is ${loginResponse.body()?.refresh_token}")
+
+                    val message = loginResponse.body()?.message
+                    val accessToken = loginResponse.body()?.access_token
+                    val refreshToken = loginResponse.body()?.refresh_token
 
                     val intent = Intent(this, MainActivity::class.java)
                     intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
@@ -98,9 +87,6 @@ class VerifyCodeActivity : AppCompatActivity() {
                     finish()
 
                 }else {
-                    Log.d(CALLAPINYCO,"else section is ${loginResponse.body()}")
-                    Log.d(CALLAPINYCO,"else section is ${loginResponse.code()}")
-
 
                     val editTexts = listOf(
                         binding.editText1,
@@ -139,10 +125,6 @@ class VerifyCodeActivity : AppCompatActivity() {
             finish()
         }
 
-        /*
-        This part is a text watcher that checks that if a one-digit number
-         is entered in the edit text, it moves the focus to the next edit text.
-         */
         val textWatcher = object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
@@ -163,16 +145,6 @@ class VerifyCodeActivity : AppCompatActivity() {
             }
         }
 
-        binding.editText1.addTextChangedListener(textWatcher)
-        binding.editText2.addTextChangedListener(textWatcher)
-        binding.editText3.addTextChangedListener(textWatcher)
-        binding.editText4.addTextChangedListener(textWatcher)
-        binding.editText5.addTextChangedListener(textWatcher)
-
-
-        /*
-        This section changes the background of each edit text when the focus is on it
-         */
         val focusChangeListener = View.OnFocusChangeListener { view, hasFocus ->
             if (hasFocus) {
                 view.setBackgroundResource(R.drawable.edit_text_border_green)
@@ -180,6 +152,17 @@ class VerifyCodeActivity : AppCompatActivity() {
                 view.setBackgroundResource(R.drawable.edit_text_border)
             }
         }
+
+        setupBackspaceListener(binding.editText2, binding.editText1)
+        setupBackspaceListener(binding.editText3, binding.editText2)
+        setupBackspaceListener(binding.editText4, binding.editText3)
+        setupBackspaceListener(binding.editText5, binding.editText4)
+
+        binding.editText1.addTextChangedListener(textWatcher)
+        binding.editText2.addTextChangedListener(textWatcher)
+        binding.editText3.addTextChangedListener(textWatcher)
+        binding.editText4.addTextChangedListener(textWatcher)
+        binding.editText5.addTextChangedListener(textWatcher)
 
         binding.editText1.onFocusChangeListener = focusChangeListener
         binding.editText2.onFocusChangeListener = focusChangeListener
@@ -193,10 +176,6 @@ class VerifyCodeActivity : AppCompatActivity() {
 
     }
 
-    /*
-    This function is for focusing when you backspace
-     in the edit text and it moves the focus to the previous text edit text.
-     */
     private fun setupBackspaceListener(editText: EditText, previousEditText: EditText) {
         editText.setOnKeyListener { _, keyCode, event ->
             if (event.action == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_DEL && editText.text.isEmpty()) {
@@ -219,10 +198,6 @@ class VerifyCodeActivity : AppCompatActivity() {
         return result
     }
 
-    /*
-    This function is a countdown, which after reaching the end of a text
-     turns into a link, by clicking on it, this countdown starts again.
-     */
     private fun startCountdownTimer() {
 
         val totalTimeMillis = 121000
@@ -232,15 +207,13 @@ class VerifyCodeActivity : AppCompatActivity() {
         countDownTimer =
             object : CountDownTimer(totalTimeMillis.toLong(), countDownInterval.toLong()) {
                 override fun onTick(millisUntilFinished: Long) {
+
                     val seconds = ((millisUntilFinished - 1000) / 1000) % 60
                     val minutes = ((millisUntilFinished - 1000) / 1000) / 60
                     val timeFormatted = String.format("%d:%02d", minutes, seconds)
-
                     val farsiTimeFormatted = convertToPersianDigits(timeFormatted)
-
                     binding.numberCountDown.typeface = farsiTypeFace
                     binding.numberCountDown.text = farsiTimeFormatted
-
                 }
 
                 override fun onFinish() {
@@ -250,12 +223,8 @@ class VerifyCodeActivity : AppCompatActivity() {
                     val clickableSpan = object : ClickableSpan() {
                         override fun onClick(p0: View) {
 
-                            intent.let {
-                                val phoneNumber = it.getStringExtra(LoginActivity.NUMBER_TAG)
-                                val otpRequest = OTPRequest(phoneNumber)
-                                tarkhinehViewModel.sendOTPCode(otpRequest)
-                            }
-
+                            val otpRequest = OTPRequest(phoneNumber)
+                            tarkhinehViewModel.sendOTPCode(otpRequest)
                             binding.txtCountDown.text = getString(R.string.countDown)
                             startCountdownTimer()
                         }
@@ -264,12 +233,10 @@ class VerifyCodeActivity : AppCompatActivity() {
                     val startIndex = secondText.indexOf("دریافت مجدد کد")
                     val endIndex = startIndex + "دریافت مجدد کد".length
                     spannableString.setSpan(clickableSpan, startIndex, endIndex, 0)
-
                     binding.txtCountDown.text = spannableString
                     binding.txtCountDown.movementMethod = LinkMovementMethod.getInstance()
                 }
             }
         countDownTimer?.start()
-
     }
 }
