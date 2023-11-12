@@ -9,14 +9,13 @@ import com.nyco.tarkhineh.model.OTPRequest
 import com.nyco.tarkhineh.model.OTPResponse
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import retrofit2.Response
 
 class TarkhinehViewModel(private val tarkhinehRepository: TarkhinehRepository) : ViewModel() {
 
     val otp: LiveData<OTPResponse> get() = tarkhinehRepository.otp
 
     val login: LiveData<LoginResponse> get() = tarkhinehRepository.login
-    fun getLoginError():LiveData<String> = tarkhinehRepository.loginError
+    fun getLoginError(): LiveData<String> = tarkhinehRepository.loginError
 
     fun sendLogin(loginReq: LoginReq) {
         viewModelScope.launch(Dispatchers.IO) {

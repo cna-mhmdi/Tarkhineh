@@ -77,7 +77,7 @@ class VerifyCodeActivity : AppCompatActivity() {
                 val accessToken = loginResponse.access_token
                 val refreshToken = loginResponse.refresh_token
 
-                Toast.makeText(this@VerifyCodeActivity,accessToken,Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@VerifyCodeActivity, accessToken, Toast.LENGTH_SHORT).show()
 
                 val intent = Intent(this, MainActivity::class.java)
                 intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
@@ -86,8 +86,8 @@ class VerifyCodeActivity : AppCompatActivity() {
 
             }
 
-            tarkhinehViewModel.getLoginError().observe(this){ error->
-                Toast.makeText(this@VerifyCodeActivity,error,Toast.LENGTH_SHORT).show()
+            tarkhinehViewModel.getLoginError().observe(this) { error ->
+                Toast.makeText(this@VerifyCodeActivity, error, Toast.LENGTH_SHORT).show()
 
                 val editTexts = listOf(
                     binding.editText1,
