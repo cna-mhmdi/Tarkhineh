@@ -13,6 +13,7 @@ import android.view.KeyEvent
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
@@ -72,47 +73,49 @@ class VerifyCodeActivity : AppCompatActivity() {
 
             tarkhinehViewModel.login.observe(this) { loginResponse ->
 
-                if (loginResponse.isSuccessful) {
+                val message = loginResponse.message
+                val accessToken = loginResponse.access_token
+                val refreshToken = loginResponse.refresh_token
 
-                    val message = loginResponse.body()?.message
-                    val accessToken = loginResponse.body()?.access_token
-                    val refreshToken = loginResponse.body()?.refresh_token
+                Toast.makeText(this@VerifyCodeActivity,accessToken,Toast.LENGTH_SHORT).show()
 
-                    val intent = Intent(this, MainActivity::class.java)
-                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                    startActivity(intent)
-                    finish()
+                val intent = Intent(this, MainActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                startActivity(intent)
+                finish()
 
-                } else {
+            }
 
-                    val editTexts = listOf(
-                        binding.editText1,
-                        binding.editText2,
-                        binding.editText3,
-                        binding.editText4,
-                        binding.editText5
-                    )
+            tarkhinehViewModel.getLoginError().observe(this){ error->
+                Toast.makeText(this@VerifyCodeActivity,error,Toast.LENGTH_SHORT).show()
 
-                    editTexts.forEach {
-                        it.text = null
+                val editTexts = listOf(
+                    binding.editText1,
+                    binding.editText2,
+                    binding.editText3,
+                    binding.editText4,
+                    binding.editText5
+                )
+
+                editTexts.forEach {
+                    it.text = null
+                }
+
+                CoroutineScope(Dispatchers.Main).launch {
+                    editTexts.forEach { editText ->
+                        editText.background = ContextCompat.getDrawable(
+                            this@VerifyCodeActivity,
+                            R.drawable.edit_text_border_red
+                        )
                     }
 
-                    CoroutineScope(Dispatchers.Main).launch {
-                        editTexts.forEach { editText ->
-                            editText.background = ContextCompat.getDrawable(
-                                this@VerifyCodeActivity,
-                                R.drawable.edit_text_border_red
-                            )
-                        }
+                    delay(1000)
 
-                        delay(1000)
-
-                        editTexts.forEach { editText ->
-                            editText.background = ContextCompat.getDrawable(
-                                this@VerifyCodeActivity,
-                                R.drawable.edit_text_border
-                            )
-                        }
+                    editTexts.forEach { editText ->
+                        editText.background = ContextCompat.getDrawable(
+                            this@VerifyCodeActivity,
+                            R.drawable.edit_text_border
+                        )
                     }
                 }
             }

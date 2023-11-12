@@ -14,6 +14,6 @@ interface TarkhinehServices {
     suspend fun sendOTPCodes(@Body phoneNumber: OTPRequest): OTPResponse
 
     @POST("api/users/")
-    suspend fun sendLogin(@Body loginReq: LoginReq): Response<LoginResponse>
+    suspend fun sendLogin(@Body loginReq: LoginReq): LoginResponse
 
 }
