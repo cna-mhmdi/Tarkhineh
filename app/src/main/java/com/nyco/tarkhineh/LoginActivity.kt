@@ -8,6 +8,7 @@ import android.text.TextWatcher
 import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -39,6 +40,14 @@ class LoginActivity : AppCompatActivity() {
             val phoneNumber = binding.editTextPhoneNumber.text.toString()
             val phone = OTPRequest(phoneNumber)
             tarkhinehViewModel.sendOTPCode(phone)
+
+            tarkhinehViewModel.otp.observe(this){ otpResponse->
+                Toast.makeText(this,otpResponse.code,Toast.LENGTH_SHORT).show()
+            }
+
+            tarkhinehViewModel.getOtpError().observe(this){ error->
+                Toast.makeText(this,error,Toast.LENGTH_SHORT).show()
+            }
 
             val intent = Intent(this, VerifyCodeActivity::class.java).apply {
                 putExtra(NUMBER_TAG, phoneNumber)

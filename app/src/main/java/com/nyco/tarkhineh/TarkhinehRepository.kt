@@ -11,7 +11,10 @@ import com.nyco.tarkhineh.model.OTPResponse
 class TarkhinehRepository(private val tarkhinehServices: TarkhinehServices) {
 
     private val otpLiveData = MutableLiveData<OTPResponse>()
+    private val otpErrorLiveData = MutableLiveData<String>()
+
     val otp: LiveData<OTPResponse> get() = otpLiveData
+    val otpError: LiveData<String> get() = otpErrorLiveData
 
     private val loginLiveData = MutableLiveData<LoginResponse>()
     private val loginErrorLiveData = MutableLiveData<String>()
@@ -25,7 +28,7 @@ class TarkhinehRepository(private val tarkhinehServices: TarkhinehServices) {
             val login = tarkhinehServices.sendLogin(loginReq)
             loginLiveData.postValue(login)
         } catch (ex: Exception) {
-            loginErrorLiveData.postValue("error happend ${ex.message}")
+            loginErrorLiveData.postValue("Login Error: ${ex.message}")
         }
     }
 
@@ -33,7 +36,8 @@ class TarkhinehRepository(private val tarkhinehServices: TarkhinehServices) {
         try {
             val otp = tarkhinehServices.sendOTPCodes(phoneNumber)
             otpLiveData.postValue(otp)
-        } catch (_: Exception) {
+        } catch (ex: Exception) {
+            otpErrorLiveData.postValue("OTP Error: ${ex.message}")
 
         }
     }

@@ -9,10 +9,10 @@ import retrofit2.http.POST
 
 interface TarkhinehServices {
 
-    @POST("api/SendOTPcodes/")
+    @POST("accounts/api/SendOTPcodes/")
     suspend fun sendOTPCodes(@Body phoneNumber: OTPRequest): OTPResponse
 
-    @POST("api/users/")
+    @POST("accounts/api/users/")
     suspend fun sendLogin(@Body loginReq: LoginReq): LoginResponse
 
 }

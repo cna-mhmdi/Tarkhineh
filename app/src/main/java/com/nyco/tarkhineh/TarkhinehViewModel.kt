@@ -13,6 +13,7 @@ import kotlinx.coroutines.launch
 class TarkhinehViewModel(private val tarkhinehRepository: TarkhinehRepository) : ViewModel() {
 
     val otp: LiveData<OTPResponse> get() = tarkhinehRepository.otp
+    fun getOtpError(): LiveData<String> = tarkhinehRepository.otpError
 
     val login: LiveData<LoginResponse> get() = tarkhinehRepository.login
     fun getLoginError(): LiveData<String> = tarkhinehRepository.loginError
