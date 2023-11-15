@@ -172,7 +172,7 @@
 
     </LinearLayout>
 
-    <com.nyco.tarkhineh.ui.LoadingButton
+    <Button
         android:id="@+id/btn_sendCode"
         android:layout_width="320dp"
         android:layout_height="45dp"

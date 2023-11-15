@@ -60,10 +60,8 @@ class VerifyCodeActivity : AppCompatActivity() {
                 return TarkhinehViewModel(tarkhinehRepository) as T
             }
         })[TarkhinehViewModel::class.java]
-        binding.btnSendCode.startProgressAnimation()
+
         binding.btnSendCode.setOnClickListener {
-
-
 
             val userCode = binding.editText1.text.toString() +
                     binding.editText2.text.toString() +
