@@ -43,14 +43,6 @@ class LoginActivity : AppCompatActivity() {
             val phone = OTPRequest(phoneNumber)
             tarkhinehViewModel.sendOTPCode(phone)
 
-            tarkhinehViewModel.otp.observe(this){ otpResponse->
-                Toast.makeText(this,otpResponse.code,Toast.LENGTH_SHORT).show()
-            }
-
-            tarkhinehViewModel.getOtpError().observe(this){ error->
-                Toast.makeText(this,error,Toast.LENGTH_SHORT).show()
-            }
-
             val intent = Intent(this, VerifyCodeActivity::class.java).apply {
                 putExtra(NUMBER_TAG, phoneNumber)
             }
