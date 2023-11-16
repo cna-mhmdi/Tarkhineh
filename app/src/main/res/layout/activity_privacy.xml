@@ -6,7 +6,7 @@
     android:background="#ffffff"
     android:gravity="top|center"
     android:orientation="vertical"
-    tools:context=".PrivacyActivity">
+    tools:context=".intro.PrivacyActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/privacy_toolbar"

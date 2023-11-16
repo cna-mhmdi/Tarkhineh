@@ -1,4 +1,4 @@
-package com.nyco.tarkhineh
+package com.nyco.tarkhineh.intro
 
 import android.content.Intent
 import android.os.Bundle
@@ -12,6 +12,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.nyco.tarkhineh.TarkhinehApplication
+import com.nyco.tarkhineh.TarkhinehViewModel
 import com.nyco.tarkhineh.databinding.ActivityLoginBinding
 import com.nyco.tarkhineh.model.OTPRequest
 

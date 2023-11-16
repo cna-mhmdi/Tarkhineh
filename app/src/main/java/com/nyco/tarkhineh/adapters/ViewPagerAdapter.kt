@@ -1,4 +1,4 @@
-package com.nyco.tarkhineh.intro
+package com.nyco.tarkhineh.adapters
 
 import android.content.Context
 import android.view.LayoutInflater

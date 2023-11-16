@@ -1,4 +1,4 @@
-package com.nyco.tarkhineh
+package com.nyco.tarkhineh.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseExpandableListAdapter
 import android.widget.TextView
+import com.nyco.tarkhineh.R
 
 class ExpandableListAdapter(private val context: Context) : BaseExpandableListAdapter() {
     private val titles: List<String> = listOf(

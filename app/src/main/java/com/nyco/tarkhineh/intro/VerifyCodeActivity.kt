@@ -1,4 +1,4 @@
-package com.nyco.tarkhineh
+package com.nyco.tarkhineh.intro
 
 import android.content.Context
 import android.content.Intent
@@ -19,6 +19,9 @@ import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.nyco.tarkhineh.R
+import com.nyco.tarkhineh.TarkhinehApplication
+import com.nyco.tarkhineh.TarkhinehViewModel
 import com.nyco.tarkhineh.databinding.ActivityVerifyCodeBinding
 import com.nyco.tarkhineh.model.LoginReq
 import com.nyco.tarkhineh.model.OTPRequest

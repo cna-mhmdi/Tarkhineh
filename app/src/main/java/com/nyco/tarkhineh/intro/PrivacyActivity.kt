@@ -1,7 +1,9 @@
-package com.nyco.tarkhineh
+package com.nyco.tarkhineh.intro
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.nyco.tarkhineh.R
+import com.nyco.tarkhineh.adapters.ExpandableListAdapter
 import com.nyco.tarkhineh.databinding.ActivityPrivacyBinding
 
 class PrivacyActivity : AppCompatActivity() {
