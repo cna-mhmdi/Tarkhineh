@@ -16,11 +16,11 @@
         android:theme="@style/Base.Theme.Tarkhineh"
         tools:targetApi="31">
         <activity
-            android:name=".intro.PrivacyActivity"
+            android:name=".ktx.PrivacyActivity"
             android:exported="false"
-            android:parentActivityName=".intro.LoginActivity"/>
+            android:parentActivityName=".ktx.LoginActivity"/>
         <activity
-            android:name=".intro.VerifyCodeActivity"
+            android:name=".ktx.VerifyCodeActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,18 +29,18 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".intro.LoginActivity"
+            android:name=".ktx.LoginActivity"
             android:exported="true">
 
         </activity>
         <activity
-            android:name=".intro.OnboardingActivity"
+            android:name=".ktx.OnboardingActivity"
             android:exported="true" />
         <activity
-            android:name=".intro.SplashScreenActivity"
+            android:name=".ktx.SplashScreenActivity"
             android:exported="true" />
         <activity
-            android:name=".intro.MainActivity"
+            android:name=".ktx.MainActivity"
             android:exported="true" />
     </application>
 

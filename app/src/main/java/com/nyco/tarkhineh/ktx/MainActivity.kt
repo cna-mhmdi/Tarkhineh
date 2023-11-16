@@ -1,4 +1,4 @@
-package com.nyco.tarkhineh.intro
+package com.nyco.tarkhineh.ktx
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
