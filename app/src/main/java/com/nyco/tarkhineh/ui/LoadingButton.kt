@@ -1,23 +1,16 @@
 package com.nyco.tarkhineh.ui
 
+import android.animation.ValueAnimator
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.Rect
-import android.graphics.RectF
-import android.util.AttributeSet
-import android.view.View
-import android.view.animation.AccelerateDecelerateInterpolator
-import android.animation.ValueAnimator
-import android.annotation.SuppressLint
-import android.graphics.drawable.PaintDrawable
-import android.graphics.drawable.ShapeDrawable
-import android.graphics.drawable.shapes.RoundRectShape
 import android.os.Handler
 import android.os.Looper
+import android.util.AttributeSet
+import android.view.View
 import android.view.animation.LinearInterpolator
-import com.nyco.tarkhineh.R
 import kotlin.math.min
 
 class LoadingButton(context: Context, attrs: AttributeSet) : View(context, attrs) {
@@ -61,8 +54,10 @@ class LoadingButton(context: Context, attrs: AttributeSet) : View(context, attrs
 
             val useCenter = false
 
-            canvas.drawArc(centerX - radius, centerY - radius, centerX + radius, centerY + radius,
-                -45f, sweepAngle, useCenter, progressPaint)
+            canvas.drawArc(
+                centerX - radius, centerY - radius, centerX + radius, centerY + radius,
+                -45f, sweepAngle, useCenter, progressPaint
+            )
         }
     }
 

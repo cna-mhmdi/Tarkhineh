@@ -18,10 +18,10 @@
         <activity
             android:name=".ktx.PrivacyActivity"
             android:exported="false"
-            android:parentActivityName=".ktx.LoginActivity"/>
+            android:parentActivityName=".ktx.LoginActivity" />
         <activity
             android:name=".ktx.VerifyCodeActivity"
-            android:exported="true" >
+            android:exported="true">
 
         </activity>
         <activity

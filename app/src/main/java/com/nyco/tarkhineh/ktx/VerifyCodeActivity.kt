@@ -2,7 +2,6 @@ package com.nyco.tarkhineh.ktx
 
 import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.text.Editable
@@ -65,12 +64,12 @@ class VerifyCodeActivity : AppCompatActivity() {
             }
         })[TarkhinehViewModel::class.java]
 
-        tarkhinehViewModel.otp.observe(this){ otpResponse->
-            Toast.makeText(this,otpResponse.code,Toast.LENGTH_SHORT).show()
+        tarkhinehViewModel.otp.observe(this) { otpResponse ->
+            Toast.makeText(this, otpResponse.code, Toast.LENGTH_SHORT).show()
         }
 
-        tarkhinehViewModel.getOtpError().observe(this){ error->
-            Toast.makeText(this,error,Toast.LENGTH_SHORT).show()
+        tarkhinehViewModel.getOtpError().observe(this) { error ->
+            Toast.makeText(this, error, Toast.LENGTH_SHORT).show()
         }
 
         binding.btnSendCode.setOnClickListener {
@@ -90,10 +89,10 @@ class VerifyCodeActivity : AppCompatActivity() {
                 val accessToken = loginResponse.access_token
                 val refreshToken = loginResponse.refresh_token
 
-                val sharedPreferences = context.getSharedPreferences("TOKENS",Context.MODE_PRIVATE)
+                val sharedPreferences = context.getSharedPreferences("TOKENS", Context.MODE_PRIVATE)
                 val editor = sharedPreferences.edit()
-                editor.putString("access_token",accessToken)
-                editor.putString("refresh_token",refreshToken)
+                editor.putString("access_token", accessToken)
+                editor.putString("refresh_token", refreshToken)
                 editor.apply()
 
                 Toast.makeText(this@VerifyCodeActivity, message, Toast.LENGTH_SHORT).show()
