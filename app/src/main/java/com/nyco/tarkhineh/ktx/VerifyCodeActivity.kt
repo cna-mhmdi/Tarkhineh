@@ -93,6 +93,8 @@ class VerifyCodeActivity : AppCompatActivity() {
             tarkhinehViewModel.getLoginError().observe(this) { error ->
                 Toast.makeText(this@VerifyCodeActivity, error, Toast.LENGTH_SHORT).show()
 
+                binding.btnSendCode.isEnabled = false
+
                 val editTexts = listOf(
                     binding.editText1,
                     binding.editText2,
