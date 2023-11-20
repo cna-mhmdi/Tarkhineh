@@ -3,12 +3,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.HomeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/main_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="56dp"
+        app:title=""
+        android:background="@color/Primary">
+
+        <ImageView
+            android:layout_width="102dp"
+            android:layout_height="32dp"
+            android:layout_gravity="right"
+            android:layout_marginEnd="20dp"
+            android:src="@drawable/app_logo"
+            android:contentDescription="this is app logo"/>
+
+        <ImageButton
+            android:layout_width="68dp"
+            android:layout_height="22dp"
+            android:layout_marginStart="20dp"
+            android:backgroundTint="@color/Shade_4"
+            android:src="@drawable/branches"
+            android:clickable="true"
+            android:focusable="true"
+            android:contentDescription="شعبه ها" />
+
+
+    </androidx.appcompat.widget.Toolbar>
 
 </FrameLayout>
