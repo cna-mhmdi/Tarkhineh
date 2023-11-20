@@ -1,8 +1,6 @@
 package com.nyco.tarkhineh.ktx
 
-import android.content.Context
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
@@ -26,7 +24,8 @@ class MainActivity : AppCompatActivity() {
 //        Toast.makeText(this, "access token is : $accessToken", Toast.LENGTH_SHORT).show()
 //        Toast.makeText(this, "refresh token is : $refreshToken", Toast.LENGTH_SHORT).show()
 
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
 
         findViewById<BottomNavigationView>(R.id.nav_view)?.setupWithNavController(navController)
