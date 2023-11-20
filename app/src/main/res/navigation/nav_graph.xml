@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.nyco.tarkhineh.fragments.HomeFragment"
+        android:label="خونه"
+        tools:layout="@layout/fragment_home"/>
+
+    <fragment
+        android:id="@+id/nav_search"
+        android:name="com.nyco.tarkhineh.fragments.SearchFragment"
+        android:label="جستجو"
+        tools:layout="@layout/fragment_search"/>
+
+    <fragment
+        android:id="@+id/nav_shop"
+        android:name="com.nyco.tarkhineh.fragments.ShopFragment"
+        android:label="سبد حرید"
+        tools:layout="@layout/fragment_shop"/>
+
+    <fragment
+        android:id="@+id/nav_receipt"
+        android:name="com.nyco.tarkhineh.fragments.ReceiptFragment"
+        android:label="سفارشات"
+        tools:layout="@layout/fragment_receipt"/>
+
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="com.nyco.tarkhineh.fragments.ProfileFragment"
+        android:label="پروفایل"
+        tools:layout="@layout/fragment_profile"/>
+
+</navigation>

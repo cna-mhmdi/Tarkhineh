@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/home_nav_icon"
+        android:title="خانه"/>
+    <item
+        android:id="@+id/nav_search"
+        android:icon="@drawable/search"
+        android:title="جستجو"/>
+    <item
+        android:id="@+id/nav_shop"
+        android:icon="@drawable/shopping_cart_nav_icon"
+        android:title="سبد خرید"/>
+    <item
+        android:id="@+id/nav_receipt"
+        android:icon="@drawable/receipt_nav_icon"
+        android:title="سفارشات"/>
+    <item
+        android:id="@+id/nav_profile"
+        android:icon="@drawable/user_nav_icon"
+        android:title="پروفایل"/>
+</menu>
