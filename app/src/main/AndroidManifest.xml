@@ -16,19 +16,18 @@
         android:theme="@style/Base.Theme.Tarkhineh"
         tools:targetApi="31">
         <activity
+            android:name=".ktx.FaqsActivity"
+            android:exported="false" />
+        <activity
             android:name=".ktx.PrivacyActivity"
             android:exported="false"
             android:parentActivityName=".ktx.LoginActivity" />
         <activity
             android:name=".ktx.VerifyCodeActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".ktx.LoginActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".ktx.OnboardingActivity"
             android:exported="true" />
@@ -37,7 +36,7 @@
             android:exported="true" />
         <activity
             android:name=".ktx.MainActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
