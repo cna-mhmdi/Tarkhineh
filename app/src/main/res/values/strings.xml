@@ -28,5 +28,21 @@
     <string name="Login">ورود</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="username">اطلاعات حساب کاربری</string>
+    <string name="CD_username">this is username</string>
+    <string name="favorite">علاقمندی‌ها</string>
+    <string name="CD_favorite">this is favorite</string>
+    <string name="locations">آدرس‌ها</string>
+    <string name="CD_locations">this is locations</string>
+    <string name="FAQs">سوالات متداول</string>
+    <string name="CD_faqs">this is FAQs</string>
+    <string name="privacy">قوانین</string>
+    <string name="CD_privacy">this is privacy</string>
+    <string name="about">تماس با ما</string>
+    <string name="CD_about">this is about</string>
+    <string name="logout">خروج</string>
+    <string name="CD_logout">this is logout</string>
+    <string name="CD_profile">this is user profile</string>
+    <string name="profile_name">کاربر ترخینه</string>
 
 </resources>
