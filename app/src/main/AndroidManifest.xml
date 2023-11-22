@@ -16,6 +16,9 @@
         android:theme="@style/Base.Theme.Tarkhineh"
         tools:targetApi="31">
         <activity
+            android:name=".ktx.UserInfoActivity"
+            android:exported="false" />
+        <activity
             android:name=".ktx.FaqsActivity"
             android:exported="false" />
         <activity
@@ -24,15 +27,20 @@
             android:parentActivityName=".ktx.LoginActivity" />
         <activity
             android:name=".ktx.VerifyCodeActivity"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".ktx.LoginActivity"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".ktx.OnboardingActivity"
             android:exported="true" />
         <activity
             android:name=".ktx.SplashScreenActivity"
+            android:exported="true">
+
+        </activity>
+        <activity
+            android:name=".ktx.MainActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -40,10 +48,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".ktx.MainActivity"
-            android:exported="true"/>
-
     </application>
 
 </manifest>
