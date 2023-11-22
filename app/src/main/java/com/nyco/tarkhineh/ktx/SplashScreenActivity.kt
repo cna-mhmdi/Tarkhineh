@@ -1,6 +1,7 @@
 package com.nyco.tarkhineh.ktx
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -20,10 +21,16 @@ class SplashScreenActivity : AppCompatActivity() {
         binding = ActivitySplashScreenBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val sharedPreferences = this.getSharedPreferences("ONBOARDING",Context.MODE_PRIVATE)
+        val onboarding = sharedPreferences.getBoolean("onBoarding",false)
+
         CoroutineScope(Dispatchers.Main).launch {
             delay(3000)
-            val intent = Intent(this@SplashScreenActivity, OnboardingActivity::class.java)
-            startActivity(intent)
+            if (!onboarding){
+                startActivity(Intent(this@SplashScreenActivity,OnboardingActivity::class.java))
+            }else{
+                startActivity(Intent(this@SplashScreenActivity,LoginActivity::class.java))
+            }
             finish()
         }
     }
