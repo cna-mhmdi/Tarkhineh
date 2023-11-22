@@ -1,13 +1,9 @@
 package com.nyco.tarkhineh.ktx
 
 import android.annotation.SuppressLint
-import android.graphics.Color
-import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import androidx.annotation.RequiresApi
-import androidx.core.content.ContextCompat
+import androidx.appcompat.app.AppCompatActivity
 import com.nyco.tarkhineh.R
 import com.nyco.tarkhineh.databinding.ActivityUserInfoBinding
 
@@ -23,7 +19,7 @@ class UserInfoActivity : AppCompatActivity() {
         binding = ActivityUserInfoBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val editTexts = listOf (
+        val editTexts = listOf(
             binding.editTextFirstName,
             binding.editTextLastName,
             binding.editTextEmail,
@@ -45,19 +41,19 @@ class UserInfoActivity : AppCompatActivity() {
 
         binding.editInfo.setOnClickListener {
             isButtonEnable = !isButtonEnable
-            if (isButtonEnable){
+            if (isButtonEnable) {
                 binding.editInfo.text = "اعمال تغییرات"
                 editTexts.forEach {
                     it.isEnabled = true
                     it.isFocusableInTouchMode = true
                 }
-            }else{
+            } else {
                 binding.editInfo.text = "ویرایش اطلاعات"
                 editTexts.forEach {
                     it.isEnabled = false
                     it.isFocusableInTouchMode = false
                 }
-                Toast.makeText(this,"تغییرات اعمال شد",Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "تغییرات اعمال شد", Toast.LENGTH_SHORT).show()
             }
         }
     }

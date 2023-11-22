@@ -14,6 +14,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -27,7 +28,7 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/userInfo_toolbar" >
+        app:layout_constraintTop_toBottomOf="@+id/userInfo_toolbar">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -51,8 +52,8 @@
                     android:id="@+id/editText_firstName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="12sp"
-                    android:fontFamily="@font/estedad_medium" />
+                    android:fontFamily="@font/estedad_medium"
+                    android:textSize="12sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -73,8 +74,8 @@
                     android:id="@+id/editText_lastName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="12sp"
-                    android:fontFamily="@font/estedad_medium" />
+                    android:fontFamily="@font/estedad_medium"
+                    android:textSize="12sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -90,12 +91,13 @@
                 app:layout_constraintEnd_toEndOf="@+id/layout_lastName"
                 app:layout_constraintStart_toStartOf="@+id/layout_lastName"
                 app:layout_constraintTop_toBottomOf="@+id/layout_lastName">
+
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/editText_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="12sp"
-                    android:fontFamily="@font/estedad_medium"/>
+                    android:fontFamily="@font/estedad_medium"
+                    android:textSize="12sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -111,12 +113,13 @@
                 app:layout_constraintEnd_toEndOf="@+id/layout_email"
                 app:layout_constraintStart_toStartOf="@+id/layout_email"
                 app:layout_constraintTop_toBottomOf="@+id/layout_email">
+
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/editText_phoneNumber"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="12sp"
-                    android:fontFamily="@font/estedad_medium"/>
+                    android:fontFamily="@font/estedad_medium"
+                    android:textSize="12sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -132,12 +135,13 @@
                 app:layout_constraintEnd_toEndOf="@+id/layout_phoneNumber"
                 app:layout_constraintStart_toStartOf="@+id/layout_phoneNumber"
                 app:layout_constraintTop_toBottomOf="@+id/layout_phoneNumber">
+
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/editText_birthDay"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="12sp"
-                    android:fontFamily="@font/estedad_medium"/>
+                    android:fontFamily="@font/estedad_medium"
+                    android:textSize="12sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -153,12 +157,13 @@
                 app:layout_constraintEnd_toEndOf="@+id/layout_birthDay"
                 app:layout_constraintStart_toStartOf="@+id/layout_birthDay"
                 app:layout_constraintTop_toBottomOf="@+id/layout_birthDay">
+
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/editText_displayName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="12sp"
-                    android:fontFamily="@font/estedad_medium"/>
+                    android:fontFamily="@font/estedad_medium"
+                    android:textSize="12sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button
@@ -172,7 +177,7 @@
                 app:cornerRadius="4dp"
                 app:layout_constraintEnd_toEndOf="@+id/layout_displayName"
                 app:layout_constraintStart_toStartOf="@+id/layout_displayName"
-                app:layout_constraintTop_toBottomOf="@+id/layout_displayName"/>
+                app:layout_constraintTop_toBottomOf="@+id/layout_displayName" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
