@@ -22,11 +22,11 @@
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_marginTop="24dp"
+                android:contentDescription="@string/CD_profile"
                 android:src="@drawable/profile"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:contentDescription="@string/CD_profile" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/userName"
@@ -53,10 +53,10 @@
                 android:layout_width="320dp"
                 android:layout_height="25dp"
                 android:layout_marginTop="24dp"
-                android:gravity="center_vertical|right"
-                android:orientation="horizontal"
                 android:clickable="true"
                 android:focusable="true"
+                android:gravity="center_vertical|right"
+                android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -74,10 +74,10 @@
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:src="@drawable/user"
-                    app:tint="@color/Gray_8"
                     android:layout_marginStart="4dp"
-                    android:contentDescription="@string/CD_username" />
+                    android:contentDescription="@string/CD_username"
+                    android:src="@drawable/user"
+                    app:tint="@color/Gray_8" />
             </LinearLayout>
 
             <LinearLayout
@@ -85,10 +85,10 @@
                 android:layout_width="320dp"
                 android:layout_height="25dp"
                 android:layout_marginTop="16dp"
-                android:gravity="center_vertical|right"
-                android:orientation="horizontal"
                 android:clickable="true"
                 android:focusable="true"
+                android:gravity="center_vertical|right"
+                android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/user_information"
@@ -106,10 +106,10 @@
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:src="@drawable/heart"
-                    app:tint="@color/Gray_8"
                     android:layout_marginStart="4dp"
-                    android:contentDescription="@string/CD_favorite" />
+                    android:contentDescription="@string/CD_favorite"
+                    android:src="@drawable/heart"
+                    app:tint="@color/Gray_8" />
             </LinearLayout>
 
             <LinearLayout
@@ -117,10 +117,10 @@
                 android:layout_width="320dp"
                 android:layout_height="25dp"
                 android:layout_marginTop="16dp"
-                android:gravity="center_vertical|right"
-                android:orientation="horizontal"
                 android:clickable="true"
                 android:focusable="true"
+                android:gravity="center_vertical|right"
+                android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/user_favorite"
@@ -138,10 +138,10 @@
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:src="@drawable/location"
-                    app:tint="@color/Gray_8"
                     android:layout_marginStart="4dp"
-                    android:contentDescription="@string/CD_locations" />
+                    android:contentDescription="@string/CD_locations"
+                    android:src="@drawable/location"
+                    app:tint="@color/Gray_8" />
             </LinearLayout>
 
             <LinearLayout
@@ -149,10 +149,10 @@
                 android:layout_width="320dp"
                 android:layout_height="25dp"
                 android:layout_marginTop="16dp"
-                android:gravity="center_vertical|right"
-                android:orientation="horizontal"
                 android:clickable="true"
                 android:focusable="true"
+                android:gravity="center_vertical|right"
+                android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/user_locations"
@@ -170,10 +170,10 @@
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:src="@drawable/message_question"
-                    app:tint="@color/Gray_8"
                     android:layout_marginStart="4dp"
-                    android:contentDescription="@string/CD_faqs" />
+                    android:contentDescription="@string/CD_faqs"
+                    android:src="@drawable/message_question"
+                    app:tint="@color/Gray_8" />
             </LinearLayout>
 
             <LinearLayout
@@ -181,10 +181,10 @@
                 android:layout_width="320dp"
                 android:layout_height="25dp"
                 android:layout_marginTop="16dp"
-                android:gravity="center_vertical|right"
-                android:orientation="horizontal"
                 android:clickable="true"
                 android:focusable="true"
+                android:gravity="center_vertical|right"
+                android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/app_faqs"
@@ -202,10 +202,10 @@
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:src="@drawable/info"
-                    app:tint="@color/Gray_8"
                     android:layout_marginStart="4dp"
-                    android:contentDescription="@string/CD_privacy" />
+                    android:contentDescription="@string/CD_privacy"
+                    android:src="@drawable/info"
+                    app:tint="@color/Gray_8" />
             </LinearLayout>
 
             <LinearLayout
@@ -213,10 +213,10 @@
                 android:layout_width="320dp"
                 android:layout_height="25dp"
                 android:layout_marginTop="16dp"
-                android:gravity="center_vertical|right"
-                android:orientation="horizontal"
                 android:clickable="true"
                 android:focusable="true"
+                android:gravity="center_vertical|right"
+                android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/app_privacy"
@@ -234,10 +234,10 @@
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:src="@drawable/phone"
-                    app:tint="@color/Gray_8"
                     android:layout_marginStart="4dp"
-                    android:contentDescription="@string/CD_about" />
+                    android:contentDescription="@string/CD_about"
+                    android:src="@drawable/phone"
+                    app:tint="@color/Gray_8" />
             </LinearLayout>
 
             <LinearLayout
@@ -245,10 +245,10 @@
                 android:layout_width="320dp"
                 android:layout_height="25dp"
                 android:layout_marginTop="16dp"
-                android:gravity="center_vertical|right"
-                android:orientation="horizontal"
                 android:clickable="true"
                 android:focusable="true"
+                android:gravity="center_vertical|right"
+                android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/app_calling"
@@ -266,9 +266,9 @@
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:src="@drawable/logout"
                     android:layout_marginStart="4dp"
-                    android:contentDescription="@string/CD_logout" />
+                    android:contentDescription="@string/CD_logout"
+                    android:src="@drawable/logout" />
             </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>

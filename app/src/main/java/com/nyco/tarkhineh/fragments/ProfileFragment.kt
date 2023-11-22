@@ -5,9 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.nyco.tarkhineh.R
 import com.nyco.tarkhineh.databinding.FragmentProfileBinding
 import com.nyco.tarkhineh.ktx.FaqsActivity
 import com.nyco.tarkhineh.ktx.PrivacyActivity
@@ -22,7 +20,7 @@ class ProfileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        _binding = FragmentProfileBinding.inflate(inflater,container,false)
+        _binding = FragmentProfileBinding.inflate(inflater, container, false)
 
         binding.userInformation.setOnClickListener {
 
@@ -34,10 +32,10 @@ class ProfileFragment : Fragment() {
 
         }
         binding.appFaqs.setOnClickListener {
-            startActivity(Intent(requireContext(),FaqsActivity::class.java))
+            startActivity(Intent(requireContext(), FaqsActivity::class.java))
         }
         binding.appPrivacy.setOnClickListener {
-            startActivity(Intent(requireContext(),PrivacyActivity::class.java))
+            startActivity(Intent(requireContext(), PrivacyActivity::class.java))
         }
         binding.appCalling.setOnClickListener {
 

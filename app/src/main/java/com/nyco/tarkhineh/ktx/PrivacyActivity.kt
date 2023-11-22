@@ -37,7 +37,7 @@ class PrivacyActivity : AppCompatActivity() {
         binding = ActivityPrivacyBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val adapter = ExpandableListAdapter(this,titles,bodies)
+        val adapter = ExpandableListAdapter(this, titles, bodies)
         binding.expandablePrivacy.setAdapter(adapter)
 
         setSupportActionBar(binding.privacyToolbar)

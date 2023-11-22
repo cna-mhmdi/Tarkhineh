@@ -1,7 +1,7 @@
 package com.nyco.tarkhineh.ktx
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.nyco.tarkhineh.R
 import com.nyco.tarkhineh.adapters.ExpandableListAdapter
 import com.nyco.tarkhineh.databinding.ActivityFaqsBinding
@@ -32,7 +32,7 @@ class FaqsActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
-        val adapter = ExpandableListAdapter(this,titles,bodies)
+        val adapter = ExpandableListAdapter(this, titles, bodies)
         binding.expandableFaqs.setAdapter(adapter)
 
         setSupportActionBar(binding.faqsToolbar)

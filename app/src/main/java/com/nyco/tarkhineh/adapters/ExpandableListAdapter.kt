@@ -8,7 +8,11 @@ import android.widget.BaseExpandableListAdapter
 import android.widget.TextView
 import com.nyco.tarkhineh.R
 
-class ExpandableListAdapter(private val context: Context, private val titles:List<String>, private val bodies:List<String>) : BaseExpandableListAdapter() {
+class ExpandableListAdapter(
+    private val context: Context,
+    private val titles: List<String>,
+    private val bodies: List<String>
+) : BaseExpandableListAdapter() {
 
 
     override fun getGroup(groupPosition: Int): Any {

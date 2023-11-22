@@ -1,12 +1,10 @@
 package com.nyco.tarkhineh.fragments
 
-import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.denzcoskun.imageslider.constants.ScaleTypes
 import com.denzcoskun.imageslider.models.SlideModel
@@ -35,11 +33,10 @@ class HomeFragment : Fragment() {
         imageList.add(SlideModel(R.drawable.slider4))
         imageList.add(SlideModel(R.drawable.slider5))
         imageList.add(SlideModel(R.drawable.slider6))
-        binding.mainImageSlider.setImageList(imageList,ScaleTypes.CENTER_INSIDE)
+        binding.mainImageSlider.setImageList(imageList, ScaleTypes.CENTER_INSIDE)
 
         return binding.root
     }
-
 
 
     override fun onDestroyView() {
