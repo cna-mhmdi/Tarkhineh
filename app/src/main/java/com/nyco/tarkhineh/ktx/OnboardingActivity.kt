@@ -47,9 +47,10 @@ class OnboardingActivity : AppCompatActivity() {
                 binding.onBoardingViewPager.setCurrentItem(getItem(1), true)
             } else {
 
-                val sharedPreferences = this.getSharedPreferences("ONBOARDING", Context.MODE_PRIVATE)
+                val sharedPreferences =
+                    this.getSharedPreferences("ONBOARDING", Context.MODE_PRIVATE)
                 val editor = sharedPreferences.edit()
-                editor.putBoolean("onBoarding",true)
+                editor.putBoolean("onBoarding", true)
                 editor.apply()
 
                 val intent = Intent(this@OnboardingActivity, LoginActivity::class.java)

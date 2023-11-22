@@ -21,15 +21,15 @@ class SplashScreenActivity : AppCompatActivity() {
         binding = ActivitySplashScreenBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val sharedPreferences = this.getSharedPreferences("ONBOARDING",Context.MODE_PRIVATE)
-        val onboarding = sharedPreferences.getBoolean("onBoarding",false)
+        val sharedPreferences = this.getSharedPreferences("ONBOARDING", Context.MODE_PRIVATE)
+        val onboarding = sharedPreferences.getBoolean("onBoarding", false)
 
         CoroutineScope(Dispatchers.Main).launch {
             delay(3000)
-            if (!onboarding){
-                startActivity(Intent(this@SplashScreenActivity,OnboardingActivity::class.java))
-            }else{
-                startActivity(Intent(this@SplashScreenActivity,LoginActivity::class.java))
+            if (!onboarding) {
+                startActivity(Intent(this@SplashScreenActivity, OnboardingActivity::class.java))
+            } else {
+                startActivity(Intent(this@SplashScreenActivity, LoginActivity::class.java))
             }
             finish()
         }
