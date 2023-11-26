@@ -7,6 +7,7 @@ import com.nyco.tarkhineh.model.LoginReq
 import com.nyco.tarkhineh.model.LoginResponse
 import com.nyco.tarkhineh.model.OTPRequest
 import com.nyco.tarkhineh.model.OTPResponse
+import com.nyco.tarkhineh.model.UserProfile
 
 class TarkhinehRepository(private val tarkhinehServices: TarkhinehServices) {
 
@@ -22,6 +23,20 @@ class TarkhinehRepository(private val tarkhinehServices: TarkhinehServices) {
     val login: LiveData<LoginResponse> get() = loginLiveData
     val loginError: LiveData<String> get() = loginErrorLiveData
 
+    private val userLiveData = MutableLiveData<UserProfile>()
+    private val userErrorLiveData = MutableLiveData<String>()
+
+    val users: LiveData<UserProfile> get() = userLiveData
+    val userError: LiveData<String> get() = userErrorLiveData
+
+    suspend fun getUsersDetail(accessToken: String){
+        try {
+            val usersDetail = tarkhinehServices.getUsersDetail(accessToken)
+            userLiveData.postValue(usersDetail)
+        }catch (ex:Exception){
+            userErrorLiveData.postValue("user detail error : ${ex.message}")
+        }
+    }
 
     suspend fun sendLoginReq(loginReq: LoginReq) {
         try {

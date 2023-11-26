@@ -2,9 +2,14 @@ package com.nyco.tarkhineh.ktx
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.text.Editable
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import com.nyco.tarkhineh.R
+import com.nyco.tarkhineh.TarkhinehApplication
+import com.nyco.tarkhineh.TarkhinehViewModel
 import com.nyco.tarkhineh.databinding.ActivityUserInfoBinding
 
 class UserInfoActivity : AppCompatActivity() {
@@ -37,6 +42,21 @@ class UserInfoActivity : AppCompatActivity() {
         editTexts.forEach {
             it.isEnabled = false
             it.isFocusableInTouchMode = false
+        }
+
+        val tarkhinehRepository = (application as TarkhinehApplication).tarkhinehRepository
+        val tarkhinehViewModel = ViewModelProvider(this,object : ViewModelProvider.Factory{
+            override fun <T : ViewModel> create(modelClass: Class<T>): T {
+                return TarkhinehViewModel(tarkhinehRepository) as T
+            }
+        })[TarkhinehViewModel::class.java]
+
+        tarkhinehViewModel.users.observe(this){ userProfile ->
+            binding.editTextFirstName.text = Editable.Factory.getInstance().newEditable(userProfile.date_joined)
+        }
+
+        tarkhinehViewModel.getUsersError().observe(this){error->
+            Toast.makeText(this,error,Toast.LENGTH_LONG).show()
         }
 
         binding.editInfo.setOnClickListener {

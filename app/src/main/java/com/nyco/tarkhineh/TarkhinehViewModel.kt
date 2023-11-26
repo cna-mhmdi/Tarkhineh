@@ -7,6 +7,7 @@ import com.nyco.tarkhineh.model.LoginReq
 import com.nyco.tarkhineh.model.LoginResponse
 import com.nyco.tarkhineh.model.OTPRequest
 import com.nyco.tarkhineh.model.OTPResponse
+import com.nyco.tarkhineh.model.UserProfile
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -17,6 +18,15 @@ class TarkhinehViewModel(private val tarkhinehRepository: TarkhinehRepository) :
 
     val login: LiveData<LoginResponse> get() = tarkhinehRepository.login
     fun getLoginError(): LiveData<String> = tarkhinehRepository.loginError
+
+    val users: LiveData<UserProfile> get() = tarkhinehRepository.users
+    fun getUsersError(): LiveData<String> = tarkhinehRepository.userError
+
+    fun getUsersDetail(accessToken: String){
+        viewModelScope.launch(Dispatchers.IO){
+            tarkhinehRepository.getUsersDetail(accessToken)
+        }
+    }
 
     fun sendLogin(loginReq: LoginReq) {
         viewModelScope.launch(Dispatchers.IO) {
