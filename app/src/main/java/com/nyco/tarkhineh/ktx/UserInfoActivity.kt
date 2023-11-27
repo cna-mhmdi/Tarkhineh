@@ -52,7 +52,12 @@ class UserInfoActivity : AppCompatActivity() {
         })[TarkhinehViewModel::class.java]
 
         tarkhinehViewModel.users.observe(this){ userProfile ->
-            binding.editTextFirstName.text = Editable.Factory.getInstance().newEditable(userProfile.date_joined)
+            binding.editTextFirstName.text = Editable.Factory.getInstance().newEditable(userProfile.first_name ?: "")
+            binding.editTextLastName.text = Editable.Factory.getInstance().newEditable(userProfile.last_name ?: "")
+            binding.editTextEmail.text = Editable.Factory.getInstance().newEditable(userProfile.email ?: "")
+            binding.editTextPhoneNumber.text = Editable.Factory.getInstance().newEditable(userProfile.phone_number ?: "")
+            binding.editTextBirthDay.text = Editable.Factory.getInstance().newEditable(userProfile.date_birth ?: "")
+            binding.editTextDisplayName.text = Editable.Factory.getInstance().newEditable(userProfile.nick_name ?: "")
         }
 
         tarkhinehViewModel.getUsersError().observe(this){error->

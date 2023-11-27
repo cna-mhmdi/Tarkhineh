@@ -24,15 +24,15 @@ data class LoginResponse(
 
 data class UserProfile(
     val id: Int,
-    val first_name: String,
+    val first_name: String?,
     val last_name: String?,
     val email: String?,
-    val is_staff: Boolean,
-    val is_active: Boolean,
-    val date_joined: String,
+    val is_staff: Boolean?,
+    val is_active: Boolean?,
+    val date_joined: String?,
     val nick_name: String?,
     val date_birth: String?,
     val username: String?,
-    val phone_number: String,
-    val avavtar: String
+    val phone_number: String?,
+    val avavtar: String?
 )
