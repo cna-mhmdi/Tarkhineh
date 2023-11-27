@@ -7,6 +7,7 @@ import com.nyco.tarkhineh.model.LoginReq
 import com.nyco.tarkhineh.model.LoginResponse
 import com.nyco.tarkhineh.model.OTPRequest
 import com.nyco.tarkhineh.model.OTPResponse
+import com.nyco.tarkhineh.model.UpdateUser
 import com.nyco.tarkhineh.model.UserProfile
 
 class TarkhinehRepository(private val tarkhinehServices: TarkhinehServices) {
@@ -28,6 +29,21 @@ class TarkhinehRepository(private val tarkhinehServices: TarkhinehServices) {
 
     val users: LiveData<UserProfile> get() = userLiveData
     val userError: LiveData<String> get() = userErrorLiveData
+
+    private val updateUserLiveData = MutableLiveData<UpdateUser>()
+    private val updateUserErrorLiveData = MutableLiveData<String>()
+
+    val updateUser: LiveData<UpdateUser> get() = updateUserLiveData
+    val updateUserError: LiveData<String> get() = updateUserErrorLiveData
+
+    suspend fun updateUserDetail(accessToken: String,user: UpdateUser){
+        try {
+            val userDetail = tarkhinehServices.updateUsersDetail(accessToken,user)
+            updateUserLiveData.postValue(userDetail.newData)
+        }catch (ex:Exception){
+            updateUserErrorLiveData.postValue("update User error : ${ex.message}")
+        }
+    }
 
     suspend fun getUsersDetail(accessToken: String){
         try {

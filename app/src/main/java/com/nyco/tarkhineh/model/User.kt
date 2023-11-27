@@ -1,7 +1,9 @@
 package com.nyco.tarkhineh.model
 
+import android.net.Uri
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
+import java.io.File
 
 data class OTPRequest(val phoneNumber: String?)
 
@@ -23,16 +25,23 @@ data class LoginResponse(
 )
 
 data class UserProfile(
-    val id: Int,
     val first_name: String?,
     val last_name: String?,
     val email: String?,
-    val is_staff: Boolean?,
-    val is_active: Boolean?,
-    val date_joined: String?,
     val nick_name: String?,
     val date_birth: String?,
-    val username: String?,
     val phone_number: String?,
-    val avavtar: String?
+)
+
+data class SaveDataResponse(
+    val message: String,
+    val newData: UpdateUser
+)
+
+data class UpdateUser(
+    val first_name: String?,
+    val last_name: String?,
+    val email: String?,
+    val date_birth: String?,
+    val nick_name: String?,
 )

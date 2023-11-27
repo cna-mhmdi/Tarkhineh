@@ -36,12 +36,7 @@ class ProfileFragment : Fragment() {
             }
         })[TarkhinehViewModel::class.java]
 
-        val sharedPreferences = activity?.getSharedPreferences("TOKENS", Context.MODE_PRIVATE)
-        val accessToken = sharedPreferences?.getString("access_token", null)
-        Toast.makeText(requireContext(),accessToken,Toast.LENGTH_SHORT).show()
-        val completeToken = if (accessToken != null) "Bearer $accessToken" else null
 
-        tarkhinehViewModel.getUsersDetail(completeToken!!)
 
         binding.userInformation.setOnClickListener {
             startActivity(Intent(requireContext(), UserInfoActivity::class.java))

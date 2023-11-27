@@ -1,8 +1,10 @@
 package com.nyco.tarkhineh.ktx
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.os.Bundle
 import android.text.Editable
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
@@ -11,6 +13,8 @@ import com.nyco.tarkhineh.R
 import com.nyco.tarkhineh.TarkhinehApplication
 import com.nyco.tarkhineh.TarkhinehViewModel
 import com.nyco.tarkhineh.databinding.ActivityUserInfoBinding
+import com.nyco.tarkhineh.model.UpdateUser
+import com.nyco.tarkhineh.model.UserProfile
 
 class UserInfoActivity : AppCompatActivity() {
 
@@ -51,6 +55,13 @@ class UserInfoActivity : AppCompatActivity() {
             }
         })[TarkhinehViewModel::class.java]
 
+        val sharedPreferences = this.getSharedPreferences("TOKENS", Context.MODE_PRIVATE)
+        val accessToken = sharedPreferences?.getString("access_token", null)
+        val completeToken = if (accessToken != null) "Bearer $accessToken" else null
+//        Log.d("accessTOKENISNYCO",completeToken.toString())
+
+        tarkhinehViewModel.getUsersDetail(completeToken!!)
+
         tarkhinehViewModel.users.observe(this){ userProfile ->
             binding.editTextFirstName.text = Editable.Factory.getInstance().newEditable(userProfile.first_name ?: "")
             binding.editTextLastName.text = Editable.Factory.getInstance().newEditable(userProfile.last_name ?: "")
@@ -60,9 +71,9 @@ class UserInfoActivity : AppCompatActivity() {
             binding.editTextDisplayName.text = Editable.Factory.getInstance().newEditable(userProfile.nick_name ?: "")
         }
 
-        tarkhinehViewModel.getUsersError().observe(this){error->
-            Toast.makeText(this,error,Toast.LENGTH_LONG).show()
-        }
+//        tarkhinehViewModel.getUsersError().observe(this){error->
+//            Toast.makeText(this,error,Toast.LENGTH_LONG).show()
+//        }
 
         binding.editInfo.setOnClickListener {
             isButtonEnable = !isButtonEnable
@@ -78,8 +89,34 @@ class UserInfoActivity : AppCompatActivity() {
                     it.isEnabled = false
                     it.isFocusableInTouchMode = false
                 }
-                Toast.makeText(this, "تغییرات اعمال شد", Toast.LENGTH_SHORT).show()
+
+                val updateUser = UpdateUser(
+                    editTexts[0].text.toString(),
+                    editTexts[1].text.toString(),
+                    editTexts[2].text.toString(),
+                    editTexts[4].text.toString(),
+                    editTexts[5].text.toString(),
+                )
+
+                Toast.makeText(this,updateUser.toString(),Toast.LENGTH_LONG).show()
+                Log.d("accessTOKENISNYCO",updateUser.toString())
+
+                tarkhinehViewModel.updateUserDetail(completeToken,updateUser)
+
+                tarkhinehViewModel.updateUser.observe(this){ updateUser->
+                    Toast.makeText(this, "تغییرات اعمال شد", Toast.LENGTH_SHORT).show()
+
+                }
+
+                tarkhinehViewModel.getUpdateUserError().observe(this){ error->
+                    Toast.makeText(this, error, Toast.LENGTH_SHORT).show()
+                }
             }
         }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 }
