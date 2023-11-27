@@ -53,7 +53,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/estedad_medium"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    android:inputType="textPersonName"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -75,7 +76,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/estedad_medium"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    android:inputType="textPersonName"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -97,7 +99,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/estedad_medium"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    android:inputType="textEmailAddress"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -119,7 +122,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/estedad_medium"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    android:inputType="phone"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -129,7 +133,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:focusable="true"
-                android:hint="تاریخ تولد"
+                android:hint="تاریخ تولد مثال: 1370/09/09"
                 app:boxStrokeColor="@color/Gray_8"
                 app:hintTextColor="@color/Gray_8"
                 app:layout_constraintEnd_toEndOf="@+id/layout_phoneNumber"
@@ -141,7 +145,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/estedad_medium"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    android:inputType="date"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -163,7 +168,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/estedad_medium"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    android:inputType="text"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button
