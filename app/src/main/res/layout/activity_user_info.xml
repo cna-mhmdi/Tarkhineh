@@ -123,6 +123,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/estedad_medium"
                     android:textSize="12sp"
+                    android:maxLength="11"
                     android:inputType="phone"/>
             </com.google.android.material.textfield.TextInputLayout>
 

@@ -5,6 +5,7 @@ import android.content.Context
 import android.os.Bundle
 import android.text.Editable
 import android.util.Log
+import android.util.Patterns
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
@@ -84,32 +85,44 @@ class UserInfoActivity : AppCompatActivity() {
                     it.isFocusableInTouchMode = true
                 }
             } else {
-                binding.editInfo.text = "ویرایش اطلاعات"
-                editTexts.forEach {
-                    it.isEnabled = false
-                    it.isFocusableInTouchMode = false
-                }
+                val email = editTexts[2].text.toString().trim()
+                if (email.isEmpty() || !Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+                    editTexts[2].error = "ایمیل معتبر وارد کنید!"
+                    isButtonEnable = true
+                }else{
+                    val phonePattern = "^09\\d{9}$".toRegex()
+                    if (!phonePattern.matches(editTexts[3].text.toString().trim())){
+                        editTexts[3].error = "شماره همراه معتبر وارد کنید!"
+                        isButtonEnable = true
+                    } else{
+                        binding.editInfo.text = "ویرایش اطلاعات"
+                        editTexts.forEach {
+                            it.isEnabled = false
+                            it.isFocusableInTouchMode = false
+                        }
 
-                val updateUser = UpdateUser(
-                    editTexts[0].text.toString(),
-                    editTexts[1].text.toString(),
-                    editTexts[2].text.toString(),
-                    editTexts[4].text.toString(),
-                    editTexts[5].text.toString(),
-                )
+                        val updateUser = UpdateUser(
+                            editTexts[0].text.toString().trim(),
+                            editTexts[1].text.toString().trim(),
+                            editTexts[2].text.toString().trim(),
+                            editTexts[4].text.toString().trim(),
+                            editTexts[5].text.toString().trim(),
+                        )
 
-                Toast.makeText(this,updateUser.toString(),Toast.LENGTH_LONG).show()
-                Log.d("accessTOKENISNYCO",updateUser.toString())
+                        Toast.makeText(this,updateUser.toString(),Toast.LENGTH_LONG).show()
+                        Log.d("accessTOKENISNYCO",updateUser.toString())
 
-                tarkhinehViewModel.updateUserDetail(completeToken,updateUser)
+                        tarkhinehViewModel.updateUserDetail(completeToken,updateUser)
 
-                tarkhinehViewModel.updateUser.observe(this){ updateUser->
-                    Toast.makeText(this, "تغییرات اعمال شد", Toast.LENGTH_SHORT).show()
+                        tarkhinehViewModel.updateUser.observe(this){ updateUser->
+                            Toast.makeText(this, "تغییرات اعمال شد", Toast.LENGTH_SHORT).show()
 
-                }
+                        }
 
-                tarkhinehViewModel.getUpdateUserError().observe(this){ error->
-                    Toast.makeText(this, error, Toast.LENGTH_SHORT).show()
+                        tarkhinehViewModel.getUpdateUserError().observe(this){ error->
+                            Toast.makeText(this, error, Toast.LENGTH_SHORT).show()
+                        }
+                    }
                 }
             }
         }
