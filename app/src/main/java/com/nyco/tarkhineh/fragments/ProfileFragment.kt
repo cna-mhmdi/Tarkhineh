@@ -16,6 +16,9 @@ import com.nyco.tarkhineh.databinding.FragmentProfileBinding
 import com.nyco.tarkhineh.ktx.FaqsActivity
 import com.nyco.tarkhineh.ktx.PrivacyActivity
 import com.nyco.tarkhineh.ktx.UserInfoActivity
+import com.nyco.tarkhineh.model.SaveDataResponse
+import com.nyco.tarkhineh.model.UpdateUser
+import com.nyco.tarkhineh.model.UserProfile
 
 class ProfileFragment : Fragment() {
 
@@ -36,7 +39,10 @@ class ProfileFragment : Fragment() {
             }
         })[TarkhinehViewModel::class.java]
 
+        val sharedPreferences = requireContext().getSharedPreferences("NICKNAME", Context.MODE_PRIVATE)
+        val nickName = sharedPreferences?.getString("NickName", null)
 
+        binding.userName.text = nickName ?: "کاربر ترخینه"
 
         binding.userInformation.setOnClickListener {
             startActivity(Intent(requireContext(), UserInfoActivity::class.java))

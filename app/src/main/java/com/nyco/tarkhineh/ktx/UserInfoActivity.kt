@@ -59,7 +59,6 @@ class UserInfoActivity : AppCompatActivity() {
         val sharedPreferences = this.getSharedPreferences("TOKENS", Context.MODE_PRIVATE)
         val accessToken = sharedPreferences?.getString("access_token", null)
         val completeToken = if (accessToken != null) "Bearer $accessToken" else null
-//        Log.d("accessTOKENISNYCO",completeToken.toString())
 
         tarkhinehViewModel.getUsersDetail(completeToken!!)
 
@@ -71,10 +70,6 @@ class UserInfoActivity : AppCompatActivity() {
             binding.editTextBirthDay.text = Editable.Factory.getInstance().newEditable(userProfile.date_birth ?: "")
             binding.editTextDisplayName.text = Editable.Factory.getInstance().newEditable(userProfile.nick_name ?: "")
         }
-
-//        tarkhinehViewModel.getUsersError().observe(this){error->
-//            Toast.makeText(this,error,Toast.LENGTH_LONG).show()
-//        }
 
         binding.editInfo.setOnClickListener {
             isButtonEnable = !isButtonEnable
@@ -102,21 +97,22 @@ class UserInfoActivity : AppCompatActivity() {
                         }
 
                         val updateUser = UpdateUser(
-                            editTexts[0].text.toString().trim(),
-                            editTexts[1].text.toString().trim(),
-                            editTexts[2].text.toString().trim(),
-                            editTexts[4].text.toString().trim(),
-                            editTexts[5].text.toString().trim(),
+                            editTexts[0].text.toString(),
+                            editTexts[1].text.toString(),
+                            editTexts[2].text.toString(),
+                            editTexts[4].text.toString(),
+                            editTexts[5].text.toString(),
                         )
-
-                        Toast.makeText(this,updateUser.toString(),Toast.LENGTH_LONG).show()
-                        Log.d("accessTOKENISNYCO",updateUser.toString())
 
                         tarkhinehViewModel.updateUserDetail(completeToken,updateUser)
 
                         tarkhinehViewModel.updateUser.observe(this){ updateUser->
                             Toast.makeText(this, "تغییرات اعمال شد", Toast.LENGTH_SHORT).show()
 
+                            val sharedPreferencesNickname = this.getSharedPreferences("NICKNAME", Context.MODE_PRIVATE)
+                            val editor = sharedPreferencesNickname.edit()
+                            editor.putString("NickName", binding.editTextDisplayName.text.toString())
+                            editor.apply()
                         }
 
                         tarkhinehViewModel.getUpdateUserError().observe(this){ error->

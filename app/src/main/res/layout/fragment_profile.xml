@@ -30,12 +30,13 @@
 
             <TextView
                 android:id="@+id/userName"
-                android:layout_width="67dp"
+                android:layout_width="wrap_content"
                 android:layout_height="25dp"
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/estedad_medium"
                 android:text="@string/profile_name"
                 android:textColor="@color/white"
+                android:gravity="center"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="@+id/user_profile"
                 app:layout_constraintStart_toStartOf="@+id/user_profile"
