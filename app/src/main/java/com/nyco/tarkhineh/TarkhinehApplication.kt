@@ -13,7 +13,7 @@ class TarkhinehApplication : Application() {
         super.onCreate()
 
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://tarkhineh-project.iran.liara.run/")
+            .baseUrl("https://tarkhineh--project.iran.liara.run/")
             .addConverterFactory(MoshiConverterFactory.create())
             .build()
 
