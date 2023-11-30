@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="320dp"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:background="@color/Gray_3">
+        <ImageView
+            android:id="@+id/icon_close"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="24dp"
+            android:layout_gravity="center"
+            android:src="@drawable/close" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="خروج"
+            android:layout_gravity="center"
+            android:layout_marginStart="95dp"
+            android:textColor="@color/Gray_8"
+            android:textSize="14sp"
+            android:fontFamily="@font/estedad_medium"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/dialog_background2">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="آیا مایل به خروج از حساب کاربری خود هستید؟"
+                android:textColor="@color/Gray_8"
+                android:fontFamily="@font/estedad_medium"
+                android:textSize="12sp"/>
+        </LinearLayout>
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:paddingBottom="12dp"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/btn_logout"
+                android:layout_width="96dp"
+                android:layout_height="36dp"
+                android:layout_marginEnd="16dp"
+                android:backgroundTint="@color/Error_extralight"
+                android:text="خروج"
+                android:textSize="10sp"
+                android:textColor="@color/Error"
+                app:cornerRadius="4dp" />
+
+            <Button
+                android:id="@+id/btn_back"
+                android:layout_width="96dp"
+                android:layout_height="36dp"
+                android:fontFamily="@font/estedad_medium"
+                android:text="بازگشت"
+                android:textColor="@color/Primary"
+                android:textSize="10sp"
+                app:cornerRadius="4dp"
+                app:strokeColor="@color/Primary"
+                app:strokeWidth="1dp"
+                android:backgroundTint="@color/white"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+
+
+
+
+
+</LinearLayout>
