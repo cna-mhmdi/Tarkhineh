@@ -18,6 +18,7 @@ import com.nyco.tarkhineh.TarkhinehApplication
 import com.nyco.tarkhineh.TarkhinehViewModel
 import com.nyco.tarkhineh.databinding.FragmentProfileBinding
 import com.nyco.tarkhineh.databinding.LayoutDialogLogoutBinding
+import com.nyco.tarkhineh.ktx.AboutUsActivity
 import com.nyco.tarkhineh.ktx.FaqsActivity
 import com.nyco.tarkhineh.ktx.LoginActivity
 import com.nyco.tarkhineh.ktx.PrivacyActivity
@@ -62,7 +63,7 @@ class ProfileFragment : Fragment() {
             startActivity(Intent(requireContext(), PrivacyActivity::class.java))
         }
         binding.appCalling.setOnClickListener {
-
+            startActivity(Intent(requireContext(), AboutUsActivity::class.java))
         }
         binding.appLogout.setOnClickListener {
             showLogoutDialog()
