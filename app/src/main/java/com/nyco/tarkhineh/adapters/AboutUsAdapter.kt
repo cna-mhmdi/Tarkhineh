@@ -11,8 +11,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.nyco.tarkhineh.R
 import com.nyco.tarkhineh.model.Branches
 
-class AboutUsAdapter(private val items: List<Branches>, private val context: Context)
+class AboutUsAdapter(private val context: Context)
     :RecyclerView.Adapter<AboutUsAdapter.ViewHolder>() {
+
+    private val items = mutableListOf<Branches>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.layout_about_us_item,parent,false)
@@ -21,12 +23,7 @@ class AboutUsAdapter(private val items: List<Branches>, private val context: Con
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val currentItem = items[position]
-
-        holder.branchNameTextView.text = currentItem.branchName
-        holder.branchLocationTextView.text = currentItem.branchLocation
-        holder.branchPhoneTextView.text = currentItem.branchPhone
-        holder.branchWorkTimeTextView.text = currentItem.branchWorkTime
-
+        holder.bind(currentItem)
         holder.btnBranch.setOnClickListener {
             Toast.makeText(context,currentItem.branchName,Toast.LENGTH_SHORT).show()
         }
@@ -36,11 +33,24 @@ class AboutUsAdapter(private val items: List<Branches>, private val context: Con
         return items.size
     }
 
+    fun addBranch(item: List<Branches>){
+        this.items.clear()
+        this.items.addAll(item)
+        notifyDataSetChanged()
+    }
+
     inner class ViewHolder(itemView: View):RecyclerView.ViewHolder(itemView) {
         val branchNameTextView: TextView = itemView.findViewById(R.id.nameBranch)
         val branchLocationTextView: TextView = itemView.findViewById(R.id.locationBranch)
         val branchPhoneTextView: TextView = itemView.findViewById(R.id.phoneBranch)
         val branchWorkTimeTextView: TextView = itemView.findViewById(R.id.workTimeBranch)
         val btnBranch: Button = itemView.findViewById(R.id.btn_Branch)
+
+        fun bind(item: Branches){
+            branchNameTextView.text = item.branchName
+            branchLocationTextView.text = item.branchLocation
+            branchPhoneTextView.text = item.branchPhone
+            branchWorkTimeTextView.text = item.branchWorkTime
+        }
     }
 }
