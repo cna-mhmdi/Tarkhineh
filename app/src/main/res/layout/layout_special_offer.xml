@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:background="@color/Tint_1">
 
     <TextView
@@ -16,21 +16,21 @@
         android:fontFamily="@font/estedad_black"
         android:gravity="center_vertical"
         android:paddingEnd="20dp"
-        android:text="پیشنهاد ویژه"
+        android:text="@string/title_special_offer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="RtlSymmetry" />
+        tools:ignore="RtlHardcoded,RtlSymmetry" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_specialOffer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:orientation="horizontal"
-        tools:listitem="@layout/layout_recycler_item"
         android:scrollbars="none"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
         app:reverseLayout="true"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        tools:listitem="@layout/layout_recycler_item" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

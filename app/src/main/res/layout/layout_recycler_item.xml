@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="168dp"
     android:layout_height="231dp"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:elevation="4dp"
-    android:layout_marginEnd="8dp"
     android:layout_marginStart="8dp"
-    android:layout_marginBottom="16dp">
+    android:layout_marginEnd="8dp"
+    android:layout_marginBottom="16dp"
+    android:elevation="4dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,8 +18,9 @@
             android:id="@+id/img_food"
             android:layout_width="match_parent"
             android:layout_height="109dp"
-            android:src="@color/Gray_8"/>
-        
+            android:src="@color/Gray_8"
+            android:contentDescription="@string/CD_foodImage" />
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -30,7 +31,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:fontFamily="@font/estedad_medium"
-                android:text="اسم عذا"
+                android:text="@string/food_name"
                 android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -46,12 +47,13 @@
                 android:background="@drawable/background_discount"
                 android:fontFamily="@font/estedad_medium"
                 android:gravity="center"
-                android:text="%8"
+                android:text="@string/food_discount"
                 android:textColor="@color/Error"
                 android:textSize="10sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="SmallSp" />
 
             <TextView
                 android:id="@+id/txt_food_discount_sum"
@@ -60,11 +62,12 @@
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="31dp"
                 android:fontFamily="@font/estedad_medium"
-                android:text="۲۰۰۰۰۰"
+                android:text="@string/food_dis_sum"
                 android:textColor="@color/Gray_5"
                 android:textSize="10sp"
                 app:layout_constraintStart_toEndOf="@+id/txt_food_discount"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="SmallSp" />
 
             <TextView
                 android:id="@+id/txt_food_price"
@@ -74,11 +77,12 @@
                 android:layout_marginTop="4dp"
                 android:layout_marginBottom="53dp"
                 android:fontFamily="@font/estedad_medium"
-                android:text="240.000 تومان"
+                android:text="@string/food_price"
                 android:textSize="10sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txt_food_discount" />
+                app:layout_constraintTop_toBottomOf="@+id/txt_food_discount"
+                tools:ignore="SmallSp" />
 
             <ImageView
                 android:id="@+id/img_addToFavorite"
@@ -88,7 +92,8 @@
                 android:layout_marginEnd="13dp"
                 android:src="@drawable/app_heart"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:contentDescription="@string/CD_addToFavorite" />
 
             <LinearLayout
                 android:layout_width="40dp"
@@ -105,7 +110,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="4dp"
-                    android:text="5"
+                    android:text="@string/food_star"
                     android:textColor="@color/Gray_8"
                     android:textSize="12sp" />
 
@@ -113,22 +118,24 @@
                     android:id="@+id/imageView4"
                     android:layout_width="12dp"
                     android:layout_height="12dp"
-                    android:src="@drawable/star_rate" />
+                    android:src="@drawable/star_rate"
+                    android:contentDescription="@string/star_img" />
             </LinearLayout>
 
             <Button
                 android:id="@+id/btn_addToShoppingCard"
                 android:layout_width="152dp"
                 android:layout_height="38dp"
-                android:backgroundTint="@color/Primary"
                 android:layout_marginBottom="8dp"
-                android:text="افزدون به سبد خرید"
+                android:backgroundTint="@color/Primary"
+                android:fontFamily="@font/estedad_medium"
+                android:text="@string/add_to_shopping_card"
                 android:textSize="10sp"
                 app:cornerRadius="4dp"
-                android:fontFamily="@font/estedad_medium"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="SmallSp" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>

@@ -44,5 +44,15 @@
     <string name="CD_logout">this is logout</string>
     <string name="CD_profile">this is user profile</string>
     <string name="profile_name">کاربر ترخینه</string>
+    <string name="title_special_offer">پیشنهاد ویژه</string>
+    <string name="CD_foodImage">this is foods image</string>
+    <string name="food_name">اسم عذا</string>
+    <string name="food_discount">%8</string>
+    <string name="food_dis_sum">۲۰۰۰۰۰</string>
+    <string name="food_price">240.000 تومان</string>
+    <string name="CD_addToFavorite">click this to add this food into your favorite section</string>
+    <string name="food_star">5</string>
+    <string name="star_img">star img</string>
+    <string name="add_to_shopping_card">افزدون به سبد خرید</string>
 
 </resources>
