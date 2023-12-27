@@ -26,14 +26,14 @@ class TarkhinehViewModel(private val tarkhinehRepository: TarkhinehRepository) :
     val updateUser: LiveData<UpdateUser> get() = tarkhinehRepository.updateUser
     fun getUpdateUserError(): LiveData<String> = tarkhinehRepository.updateUserError
 
-    fun updateUserDetail(accessToken: String, user: UpdateUser){
-        viewModelScope.launch(Dispatchers.IO){
-            tarkhinehRepository.updateUserDetail(accessToken,user)
+    fun updateUserDetail(accessToken: String, user: UpdateUser) {
+        viewModelScope.launch(Dispatchers.IO) {
+            tarkhinehRepository.updateUserDetail(accessToken, user)
         }
     }
 
-    fun getUsersDetail(accessToken: String){
-        viewModelScope.launch(Dispatchers.IO){
+    fun getUsersDetail(accessToken: String) {
+        viewModelScope.launch(Dispatchers.IO) {
             tarkhinehRepository.getUsersDetail(accessToken)
         }
     }

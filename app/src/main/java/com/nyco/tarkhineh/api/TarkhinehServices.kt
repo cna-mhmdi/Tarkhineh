@@ -12,7 +12,6 @@ import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.POST
 import retrofit2.http.PUT
-import retrofit2.http.Query
 
 interface TarkhinehServices {
 
@@ -28,6 +27,7 @@ interface TarkhinehServices {
     @PUT("accounts/api/users/detail/")
     suspend fun updateUsersDetail(
         @Header("Authorization") accessToken: String,
-        @Body updateUser: UpdateUser): SaveDataResponse
+        @Body updateUser: UpdateUser
+    ): SaveDataResponse
 
 }

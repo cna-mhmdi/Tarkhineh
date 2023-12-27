@@ -36,20 +36,20 @@ class TarkhinehRepository(private val tarkhinehServices: TarkhinehServices) {
     val updateUser: LiveData<UpdateUser> get() = updateUserLiveData
     val updateUserError: LiveData<String> get() = updateUserErrorLiveData
 
-    suspend fun updateUserDetail(accessToken: String,user: UpdateUser){
+    suspend fun updateUserDetail(accessToken: String, user: UpdateUser) {
         try {
-            val userDetail = tarkhinehServices.updateUsersDetail(accessToken,user)
+            val userDetail = tarkhinehServices.updateUsersDetail(accessToken, user)
             updateUserLiveData.postValue(userDetail.newData)
-        }catch (ex:Exception){
+        } catch (ex: Exception) {
             updateUserErrorLiveData.postValue("update User error : ${ex.message}")
         }
     }
 
-    suspend fun getUsersDetail(accessToken: String){
+    suspend fun getUsersDetail(accessToken: String) {
         try {
             val usersDetail = tarkhinehServices.getUsersDetail(accessToken)
             userLiveData.postValue(usersDetail)
-        }catch (ex:Exception){
+        } catch (ex: Exception) {
             userErrorLiveData.postValue("user detail error : ${ex.message}")
         }
     }

@@ -1,10 +1,5 @@
 package com.nyco.tarkhineh.model
 
-import android.net.Uri
-import android.os.Parcelable
-import kotlinx.parcelize.Parcelize
-import java.io.File
-
 data class OTPRequest(val phoneNumber: String?)
 
 data class OTPResponse(

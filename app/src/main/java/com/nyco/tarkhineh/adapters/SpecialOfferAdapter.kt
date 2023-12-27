@@ -8,17 +8,19 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.Adapter
 import com.nyco.tarkhineh.R
 import com.nyco.tarkhineh.model.FoodOffers
 
-class SpecialOfferAdapter(private val clickListener: SpecialOfferClickListener,private val context: Context)
-    :RecyclerView.Adapter<SpecialOfferAdapter.SpecialOfferViewHolder>() {
+class SpecialOfferAdapter(
+    private val clickListener: SpecialOfferClickListener,
+    private val context: Context
+) : RecyclerView.Adapter<SpecialOfferAdapter.SpecialOfferViewHolder>() {
 
     private val foodOffers = mutableListOf<FoodOffers>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SpecialOfferViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.layout_recycler_item,parent,false)
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.layout_recycler_item, parent, false)
         return SpecialOfferViewHolder(view)
     }
 
@@ -32,33 +34,34 @@ class SpecialOfferAdapter(private val clickListener: SpecialOfferClickListener,p
         return foodOffers.size
     }
 
-    fun addOffers(offersList: List<FoodOffers>){
+    fun addOffers(offersList: List<FoodOffers>) {
         this.foodOffers.clear()
         this.foodOffers.addAll(offersList)
         notifyDataSetChanged()
     }
 
-    inner class SpecialOfferViewHolder(itemView: View):RecyclerView.ViewHolder(itemView) {
-        private val foodName : TextView by lazy { itemView.findViewById(R.id.txt_foodName) }
-        private val foodDiscount : TextView by lazy { itemView.findViewById(R.id.txt_food_discount) }
-        private val foodPrice : TextView by lazy { itemView.findViewById(R.id.txt_food_price) }
-        private val foodStar : TextView by lazy { itemView.findViewById(R.id.txt_starCount) }
+    inner class SpecialOfferViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        private val foodName: TextView by lazy { itemView.findViewById(R.id.txt_foodName) }
+        private val foodDiscount: TextView by lazy { itemView.findViewById(R.id.txt_food_discount) }
+        private val foodPrice: TextView by lazy { itemView.findViewById(R.id.txt_food_price) }
+        private val foodStar: TextView by lazy { itemView.findViewById(R.id.txt_starCount) }
 
         private val addToFavorite: ImageView by lazy { itemView.findViewById(R.id.img_addToFavorite) }
 
-        fun bind(offers : FoodOffers) {
+        fun bind(offers: FoodOffers) {
             foodName.text = offers.foodName
             foodDiscount.text = offers.foodDiscount
             foodPrice.text = offers.foodPrice
             foodStar.text = offers.foodStar
 
             addToFavorite.setOnClickListener {
-                Toast.makeText(context,"${offers.foodName} added to favorite",Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "${offers.foodName} added to favorite", Toast.LENGTH_SHORT)
+                    .show()
             }
         }
     }
 
-    interface SpecialOfferClickListener{
+    interface SpecialOfferClickListener {
         fun onOfferClick(offers: FoodOffers)
     }
 }

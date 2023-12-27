@@ -1,7 +1,7 @@
 package com.nyco.tarkhineh.ktx
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.nyco.tarkhineh.R
@@ -21,8 +21,18 @@ class AboutUsActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val branchList = listOf(
-            Branches("شعبه اکباتان", "آدرس: شهرک اکباتان، فاز ۳، مجتمع تجاری کوروش، طبقه سوم", "۰۲۱-۵۴۸۹۱۲۵۰-۵۱", "ساعت کاری: همه\u200Cروزه از ساعت"),
-            Branches("شعبه چالوس", "چالوس، خیابان ۱۷ شهریور، بعد کوچه کوروش، جنب داروخانه دکتر میلانی", "0911", "3"),
+            Branches(
+                "شعبه اکباتان",
+                "آدرس: شهرک اکباتان، فاز ۳، مجتمع تجاری کوروش، طبقه سوم",
+                "۰۲۱-۵۴۸۹۱۲۵۰-۵۱",
+                "ساعت کاری: همه\u200Cروزه از ساعت"
+            ),
+            Branches(
+                "شعبه چالوس",
+                "چالوس، خیابان ۱۷ شهریور، بعد کوچه کوروش، جنب داروخانه دکتر میلانی",
+                "0911",
+                "3"
+            ),
             Branches("شعبه چالوس", "خیابان اقدسیه ، نرسیده به میدان خیام، پلاک ۸", "0913", "3")
         )
 

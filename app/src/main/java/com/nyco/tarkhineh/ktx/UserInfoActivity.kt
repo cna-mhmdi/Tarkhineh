@@ -5,9 +5,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.Editable
-import android.util.Log
 import android.util.Patterns
-import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.LifecycleOwner
@@ -22,7 +20,6 @@ import com.nyco.tarkhineh.TarkhinehRepository
 import com.nyco.tarkhineh.TarkhinehViewModel
 import com.nyco.tarkhineh.databinding.ActivityUserInfoBinding
 import com.nyco.tarkhineh.model.UpdateUser
-import com.nyco.tarkhineh.model.UserProfile
 
 class UserInfoActivity : AppCompatActivity() {
 
@@ -53,13 +50,13 @@ class UserInfoActivity : AppCompatActivity() {
         )
 
         tarkhinehRepository = (application as TarkhinehApplication).tarkhinehRepository
-        tarkhinehViewModel = ViewModelProvider(this,object : ViewModelProvider.Factory{
+        tarkhinehViewModel = ViewModelProvider(this, object : ViewModelProvider.Factory {
             override fun <T : ViewModel> create(modelClass: Class<T>): T {
                 return TarkhinehViewModel(tarkhinehRepository) as T
             }
         })[TarkhinehViewModel::class.java]
 
-        sharedPreferences= this.getSharedPreferences("TOKENS", Context.MODE_PRIVATE)
+        sharedPreferences = this.getSharedPreferences("TOKENS", Context.MODE_PRIVATE)
         val accessToken = sharedPreferences.getString("access_token", null)
         completeToken = if (accessToken != null) "Bearer $accessToken" else null
 
@@ -76,13 +73,19 @@ class UserInfoActivity : AppCompatActivity() {
 
         tarkhinehViewModel.getUsersDetail(completeToken!!)
 
-        tarkhinehViewModel.users.observe(this){ userProfile ->
-            binding.editTextFirstName.text = Editable.Factory.getInstance().newEditable(userProfile.first_name ?: "")
-            binding.editTextLastName.text = Editable.Factory.getInstance().newEditable(userProfile.last_name ?: "")
-            binding.editTextEmail.text = Editable.Factory.getInstance().newEditable(userProfile.email ?: "")
-            binding.editTextPhoneNumber.text = Editable.Factory.getInstance().newEditable(userProfile.phone_number ?: "")
-            binding.editTextBirthDay.text = Editable.Factory.getInstance().newEditable(userProfile.date_birth ?: "")
-            binding.editTextDisplayName.text = Editable.Factory.getInstance().newEditable(userProfile.nick_name ?: "")
+        tarkhinehViewModel.users.observe(this) { userProfile ->
+            binding.editTextFirstName.text =
+                Editable.Factory.getInstance().newEditable(userProfile.first_name ?: "")
+            binding.editTextLastName.text =
+                Editable.Factory.getInstance().newEditable(userProfile.last_name ?: "")
+            binding.editTextEmail.text =
+                Editable.Factory.getInstance().newEditable(userProfile.email ?: "")
+            binding.editTextPhoneNumber.text =
+                Editable.Factory.getInstance().newEditable(userProfile.phone_number ?: "")
+            binding.editTextBirthDay.text =
+                Editable.Factory.getInstance().newEditable(userProfile.date_birth ?: "")
+            binding.editTextDisplayName.text =
+                Editable.Factory.getInstance().newEditable(userProfile.nick_name ?: "")
         }
 
         binding.editInfo.setOnClickListener {
@@ -154,12 +157,13 @@ class UserInfoActivity : AppCompatActivity() {
 
         tarkhinehViewModel.updateUser.observeOnce(this) { updateUser ->
 
-                Toast.makeText(this, "تغییرات اعمال شد", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "تغییرات اعمال شد", Toast.LENGTH_SHORT).show()
 
-                val sharedPreferencesNickname = this.getSharedPreferences("NICKNAME", Context.MODE_PRIVATE)
-                val editor = sharedPreferencesNickname.edit()
-                editor.putString("NickName", binding.editTextDisplayName.text.toString())
-                editor.apply()
+            val sharedPreferencesNickname =
+                this.getSharedPreferences("NICKNAME", Context.MODE_PRIVATE)
+            val editor = sharedPreferencesNickname.edit()
+            editor.putString("NickName", binding.editTextDisplayName.text.toString())
+            editor.apply()
 
         }
 
