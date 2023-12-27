@@ -9,17 +9,30 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.RecyclerView
 import com.denzcoskun.imageslider.constants.ScaleTypes
 import com.denzcoskun.imageslider.models.SlideModel
 import com.nyco.tarkhineh.R
+import com.nyco.tarkhineh.adapters.SpecialOfferAdapter
 import com.nyco.tarkhineh.databinding.FragmentHomeBinding
 import com.nyco.tarkhineh.ktx.PrivacyActivity
+import com.nyco.tarkhineh.model.FoodOffers
 
 class HomeFragment : Fragment() {
 
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
+
+    private lateinit var recyclerSpecialOffer: RecyclerView
+
+    private val specialOfferAdapter by lazy {
+        SpecialOfferAdapter(object : SpecialOfferAdapter.SpecialOfferClickListener{
+            override fun onOfferClick(offers: FoodOffers) {
+                openSpecialOffer(offers)
+            }
+        }, requireContext())
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,6 +58,20 @@ class HomeFragment : Fragment() {
         binding.layoutMainMenu.layoutDessert.setOnClickListener {  }
         binding.layoutMainMenu.layoutDessert.setOnClickListener {  }
 
+        val foodOffersList = listOf(
+            FoodOffers("Special Pizza", "20%", "$10.99", "4.5"),
+            FoodOffers("Burger Combo", "15%", "$8.99", "4.0"),
+            FoodOffers("Pasta Delight", "25%", "$12.99", "4.7"),
+            FoodOffers("Sushi Feast", "10%", "$15.99", "4.2"),
+            FoodOffers("Dessert Delicacy", "30%", "$5.99", "4.8")
+        )
+
+        recyclerSpecialOffer = binding.layoutSpecialOffer.recyclerSpecialOffer
+        recyclerSpecialOffer.adapter = specialOfferAdapter
+
+        specialOfferAdapter.addOffers(foodOffersList)
+
+
         return binding.root
     }
 
@@ -53,4 +80,9 @@ class HomeFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
+    private fun openSpecialOffer(offers: FoodOffers){
+        Toast.makeText(requireContext(),offers.foodName,Toast.LENGTH_SHORT).show()
+    }
+
 }

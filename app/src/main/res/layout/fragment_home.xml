@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginBottom="65dp"
     tools:context=".fragments.HomeFragment">
 
     <LinearLayout
@@ -60,7 +61,11 @@
             <include
                 android:id="@+id/layout_main_menu"
                 layout="@layout/layout_main_menu"/>
-        </LinearLayout>
 
+            <include
+                android:id="@+id/layout_special_offer"
+                layout="@layout/layout_special_offer"/>
+
+        </LinearLayout>
     </LinearLayout>
-</FrameLayout>
+</ScrollView>
