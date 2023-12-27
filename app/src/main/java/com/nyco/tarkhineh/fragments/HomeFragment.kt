@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.denzcoskun.imageslider.constants.ScaleTypes
 import com.denzcoskun.imageslider.models.SlideModel
@@ -59,11 +60,11 @@ class HomeFragment : Fragment() {
         binding.layoutMainMenu.layoutDessert.setOnClickListener {  }
 
         val foodOffersList = listOf(
-            FoodOffers("Special Pizza", "20%", "$10.99", "4.5"),
-            FoodOffers("Burger Combo", "15%", "$8.99", "4.0"),
-            FoodOffers("Pasta Delight", "25%", "$12.99", "4.7"),
-            FoodOffers("Sushi Feast", "10%", "$15.99", "4.2"),
-            FoodOffers("Dessert Delicacy", "30%", "$5.99", "4.8")
+            FoodOffers("پیتزا ویژه", "۲۰%", "۱۲.۲۰ تومان", "۴.۵"),
+            FoodOffers("کمبو برگر", "۲۰%", "۱۲.۲۰ تومان", "۴.۵"),
+            FoodOffers("لذت پاستا", "۲۰%", "۱۲.۲۰۰ تومان", "۴.۵"),
+            FoodOffers("جشنواره سوشی", "۲۰%", "۱۲.۲۰۲.۲۰ تومان", "۴.۵"),
+            FoodOffers("خوشمزه دسر", "۲۰%", "۱۲.۲۰.۲۰ تومان", "۴.۵")
         )
 
         recyclerSpecialOffer = binding.layoutSpecialOffer.recyclerSpecialOffer

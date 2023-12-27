@@ -5,7 +5,8 @@
     android:layout_height="231dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:elevation="4dp"
-    android:layout_marginStart="16dp"
+    android:layout_marginEnd="8dp"
+    android:layout_marginStart="8dp"
     android:layout_marginBottom="16dp">
 
     <LinearLayout
@@ -59,7 +60,7 @@
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="31dp"
                 android:fontFamily="@font/estedad_medium"
-                android:text="200.000"
+                android:text="۲۰۰۰۰۰"
                 android:textColor="@color/Gray_5"
                 android:textSize="10sp"
                 app:layout_constraintStart_toEndOf="@+id/txt_food_discount"
@@ -83,22 +84,21 @@
                 android:id="@+id/img_addToFavorite"
                 android:layout_width="16dp"
                 android:layout_height="16dp"
-                android:layout_marginStart="56dp"
                 android:layout_marginTop="31dp"
                 android:layout_marginEnd="13dp"
                 android:src="@drawable/app_heart"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/txt_food_discount_sum"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <LinearLayout
                 android:layout_width="40dp"
                 android:layout_height="24dp"
-                android:layout_marginStart="54dp"
-                android:orientation="horizontal"
+                android:layout_marginEnd="2dp"
                 android:gravity="center"
-                app:layout_constraintStart_toEndOf="@+id/txt_food_price"
-                app:layout_constraintTop_toBottomOf="@+id/img_addToFavorite">
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/img_addToFavorite"
+                tools:ignore="UseCompoundDrawables">
 
                 <TextView
                     android:id="@+id/txt_starCount"

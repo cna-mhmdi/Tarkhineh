@@ -30,7 +30,7 @@
         android:orientation="horizontal"
         tools:listitem="@layout/layout_recycler_item"
         android:scrollbars="none"
-        android:layoutDirection="rtl"
+        app:reverseLayout="true"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
