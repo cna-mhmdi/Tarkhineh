@@ -11,9 +11,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.denzcoskun.imageslider.constants.ScaleTypes
 import com.denzcoskun.imageslider.models.SlideModel
 import com.nyco.tarkhineh.R
+import com.nyco.tarkhineh.adapters.PopularFoodAdapter
 import com.nyco.tarkhineh.adapters.SpecialOfferAdapter
 import com.nyco.tarkhineh.databinding.FragmentHomeBinding
 import com.nyco.tarkhineh.model.FoodOffers
+import com.nyco.tarkhineh.model.PopFoods
 
 class HomeFragment : Fragment() {
 
@@ -22,13 +24,21 @@ class HomeFragment : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var recyclerSpecialOffer: RecyclerView
+    private lateinit var recyclerPopFoods: RecyclerView
 
     private val specialOfferAdapter by lazy {
         SpecialOfferAdapter(object : SpecialOfferAdapter.SpecialOfferClickListener {
             override fun onOfferClick(offers: FoodOffers) {
-                openSpecialOffer(offers)
+                Toast.makeText(requireContext(), offers.foodName, Toast.LENGTH_SHORT).show()
             }
         }, requireContext())
+    }
+    private val popularFoodAdapter by lazy {
+        PopularFoodAdapter(object : PopularFoodAdapter.PopularFoodsClickListener{
+            override fun onPopFoodClick(popFoods: PopFoods) {
+                Toast.makeText(requireContext(), popFoods.foodName, Toast.LENGTH_SHORT).show()
+            }
+        },requireContext())
     }
 
     override fun onCreateView(
@@ -65,8 +75,19 @@ class HomeFragment : Fragment() {
 
         recyclerSpecialOffer = binding.layoutSpecialOffer.recyclerSpecialOffer
         recyclerSpecialOffer.adapter = specialOfferAdapter
-
         specialOfferAdapter.addOffers(foodOffersList)
+
+        val popFoodList = listOf(
+            PopFoods("پیتزا ویژه", "۲۰%", "۱۲.۲۰ تومان", "۴.۵"),
+            PopFoods("کمبو برگر", "۲۰%", "۱۲.۲۰ تومان", "۴.۵"),
+            PopFoods("لذت پاستا", "۲۰%", "۱۲.۲۰۰ تومان", "۴.۵"),
+            PopFoods("جشنواره سوشی", "۲۰%", "۱۲.۲۰۲.۲۰ تومان", "۴.۵"),
+            PopFoods("خوشمزه دسر", "۲۰%", "۱۲.۲۰.۲۰ تومان", "۴.۵")
+        )
+
+        recyclerPopFoods = binding.layoutPopularFood.recyclerPopularFood
+        recyclerPopFoods.adapter = popularFoodAdapter
+        popularFoodAdapter.addPopFood(popFoodList)
 
 
         return binding.root
@@ -76,10 +97,6 @@ class HomeFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-    }
-
-    private fun openSpecialOffer(offers: FoodOffers) {
-        Toast.makeText(requireContext(), offers.foodName, Toast.LENGTH_SHORT).show()
     }
 
 }

@@ -6,3 +6,10 @@ data class FoodOffers(
     val foodPrice: String = "",
     val foodStar: String = "",
 )
+
+data class PopFoods(
+    val foodName: String = "",
+    val foodDiscount: String = "",
+    val foodPrice: String = "",
+    val foodStar: String = "",
+)

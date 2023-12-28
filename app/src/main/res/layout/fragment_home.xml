@@ -66,6 +66,10 @@
                 android:id="@+id/layout_special_offer"
                 layout="@layout/layout_special_offer" />
 
+            <include
+                android:id="@+id/layout_popular_food"
+                layout="@layout/layout_popular_food"/>
+
         </LinearLayout>
     </LinearLayout>
 </ScrollView>
