@@ -55,5 +55,6 @@
     <string name="star_img">star img</string>
     <string name="add_to_shopping_card">افزدون به سبد خرید</string>
     <string name="popular_food">غذاهای محبوب</string>
+    <string name="non_persian_food">غذاهای غیر ایرانی</string>
 
 </resources>

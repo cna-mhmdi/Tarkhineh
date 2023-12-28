@@ -13,3 +13,10 @@ data class PopFoods(
     val foodPrice: String = "",
     val foodStar: String = "",
 )
+
+data class NonPersianFood(
+    val foodName: String = "",
+    val foodDiscount: String = "",
+    val foodPrice: String = "",
+    val foodStar: String = "",
+)

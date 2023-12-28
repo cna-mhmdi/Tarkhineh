@@ -11,10 +11,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.denzcoskun.imageslider.constants.ScaleTypes
 import com.denzcoskun.imageslider.models.SlideModel
 import com.nyco.tarkhineh.R
+import com.nyco.tarkhineh.adapters.NonPersianFoodAdapter
 import com.nyco.tarkhineh.adapters.PopularFoodAdapter
 import com.nyco.tarkhineh.adapters.SpecialOfferAdapter
 import com.nyco.tarkhineh.databinding.FragmentHomeBinding
 import com.nyco.tarkhineh.model.FoodOffers
+import com.nyco.tarkhineh.model.NonPersianFood
 import com.nyco.tarkhineh.model.PopFoods
 
 class HomeFragment : Fragment() {
@@ -25,6 +27,15 @@ class HomeFragment : Fragment() {
 
     private lateinit var recyclerSpecialOffer: RecyclerView
     private lateinit var recyclerPopFoods: RecyclerView
+    private lateinit var recyclerNonPersianFoods: RecyclerView
+
+    private val nonPersianFoodAdapter by lazy {
+        NonPersianFoodAdapter(object : NonPersianFoodAdapter.NonPersianFoodsClickListener{
+            override fun onNonPersianFoodClick(nonPersianFood: NonPersianFood) {
+                Toast.makeText(requireContext(), nonPersianFood.foodName, Toast.LENGTH_SHORT).show()
+            }
+        },requireContext())
+    }
 
     private val specialOfferAdapter by lazy {
         SpecialOfferAdapter(object : SpecialOfferAdapter.SpecialOfferClickListener {
@@ -88,6 +99,18 @@ class HomeFragment : Fragment() {
         recyclerPopFoods = binding.layoutPopularFood.recyclerPopularFood
         recyclerPopFoods.adapter = popularFoodAdapter
         popularFoodAdapter.addPopFood(popFoodList)
+
+        val nonPersianFoodList = listOf(
+            NonPersianFood("پیتزا ویژه", "۲۰%", "۱۲.۲۰ تومان", "۴.۵"),
+            NonPersianFood("کمبو برگر", "۲۰%", "۱۲.۲۰ تومان", "۴.۵"),
+            NonPersianFood("لذت پاستا", "۲۰%", "۱۲.۲۰۰ تومان", "۴.۵"),
+            NonPersianFood("جشنواره سوشی", "۲۰%", "۱۲.۲۰۲.۲۰ تومان", "۴.۵"),
+            NonPersianFood("خوشمزه دسر", "۲۰%", "۱۲.۲۰.۲۰ تومان", "۴.۵")
+        )
+
+        recyclerNonPersianFoods = binding.layoutNonPersianFood.recyclerNonPersianFood
+        recyclerNonPersianFoods.adapter = nonPersianFoodAdapter
+        nonPersianFoodAdapter.addNonFood(nonPersianFoodList)
 
 
         return binding.root
