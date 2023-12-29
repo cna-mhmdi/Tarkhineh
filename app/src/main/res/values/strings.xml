@@ -56,5 +56,6 @@
     <string name="add_to_shopping_card">افزدون به سبد خرید</string>
     <string name="popular_food">غذاهای محبوب</string>
     <string name="non_persian_food">غذاهای غیر ایرانی</string>
+    <string name="toolbar_menu_title">منوی رستوران</string>
 
 </resources>

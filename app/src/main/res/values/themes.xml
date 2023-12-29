@@ -8,4 +8,8 @@
     </style>
 
     <style name="Theme.Tarkhineh" parent="Base.Theme.Tarkhineh" />
+
+    <style name="tabLayout_font" parent="@android:style/TextAppearance.Widget.TabWidget">
+        <item name="fontFamily">@font/estedad_medium</item>
+    </style>
 </resources>

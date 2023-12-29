@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ktx.MenuActivity"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/menu_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/Primary">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|top"
+            android:fontFamily="@font/estedad_bold"
+            android:text="@string/toolbar_menu_title"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/manu_tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tabRippleColor="@android:color/transparent"
+        android:layoutDirection="rtl"
+        app:tabGravity="start"
+        app:tabMode="scrollable"
+        android:backgroundTint="@color/Gray_3"
+        app:tabIndicatorColor="@color/Primary"
+        app:tabSelectedTextColor="@color/Primary"
+        app:tabTextColor="@color/Gray_7"
+        app:tabTextAppearance="@style/tabLayout_font"/>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/menu_viewPager"
+        android:layout_width="match_parent"
+        android:layoutDirection="locale"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+</LinearLayout>

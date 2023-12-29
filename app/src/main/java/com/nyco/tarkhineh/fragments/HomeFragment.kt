@@ -1,5 +1,6 @@
 package com.nyco.tarkhineh.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -15,6 +16,7 @@ import com.nyco.tarkhineh.adapters.NonPersianFoodAdapter
 import com.nyco.tarkhineh.adapters.PopularFoodAdapter
 import com.nyco.tarkhineh.adapters.SpecialOfferAdapter
 import com.nyco.tarkhineh.databinding.FragmentHomeBinding
+import com.nyco.tarkhineh.ktx.MenuActivity
 import com.nyco.tarkhineh.model.FoodOffers
 import com.nyco.tarkhineh.model.NonPersianFood
 import com.nyco.tarkhineh.model.PopFoods
@@ -69,12 +71,10 @@ class HomeFragment : Fragment() {
         imageList.add(SlideModel(R.drawable.slider5))
         imageList.add(SlideModel(R.drawable.slider6))
         binding.mainImageSlider.setImageList(imageList, ScaleTypes.CENTER_INSIDE)
-        binding.layoutMainMenu.layoutMainCourse.setOnClickListener {
-//            startActivity(Intent(requireContext(),PrivacyActivity::class.java))
-        }
-        binding.layoutMainMenu.layoutAppetizer.setOnClickListener { }
-        binding.layoutMainMenu.layoutDessert.setOnClickListener { }
-        binding.layoutMainMenu.layoutDessert.setOnClickListener { }
+        binding.layoutMainMenu.layoutMainCourse.setOnClickListener { startActivity(Intent(requireContext(),MenuActivity::class.java))}
+        binding.layoutMainMenu.layoutAppetizer.setOnClickListener { startActivity(Intent(requireContext(),MenuActivity::class.java))}
+        binding.layoutMainMenu.layoutDessert.setOnClickListener { startActivity(Intent(requireContext(),MenuActivity::class.java))}
+        binding.layoutMainMenu.layoutDessert.setOnClickListener { startActivity(Intent(requireContext(),MenuActivity::class.java))}
 
         val foodOffersList = listOf(
             FoodOffers("پیتزا ویژه", "۲۰%", "۱۲.۲۰ تومان", "۴.۵"),

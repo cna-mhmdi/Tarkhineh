@@ -73,5 +73,7 @@ dependencies {
     implementation("androidx.navigation:navigation-ui-ktx:2.7.1")
     //imageSlider
     implementation("com.github.denzcoskun:ImageSlideshow:0.1.2")
-
+    //view pager
+    implementation("androidx.viewpager:viewpager:1.0.0")
+    implementation("com.duolingo.open:rtl-viewpager:2.0.0")
 }

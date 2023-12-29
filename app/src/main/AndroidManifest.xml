@@ -16,6 +16,9 @@
         android:theme="@style/Base.Theme.Tarkhineh"
         tools:targetApi="31">
         <activity
+            android:name=".ktx.MenuActivity"
+            android:exported="false" />
+        <activity
             android:name=".ktx.AboutUsActivity"
             android:exported="false" />
         <activity
@@ -33,13 +36,13 @@
             android:exported="true" />
         <activity
             android:name=".ktx.LoginActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".ktx.OnboardingActivity"
             android:exported="true" />
         <activity
             android:name=".ktx.SplashScreenActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".ktx.MainActivity"
             android:exported="true">
