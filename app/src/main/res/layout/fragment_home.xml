@@ -68,11 +68,11 @@
 
             <include
                 android:id="@+id/layout_popular_food"
-                layout="@layout/layout_popular_food"/>
+                layout="@layout/layout_popular_food" />
 
             <include
                 android:id="@+id/layout_non_persian_food"
-                layout="@layout/layout_non_persian_food"/>
+                layout="@layout/layout_non_persian_food" />
 
         </LinearLayout>
     </LinearLayout>

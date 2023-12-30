@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ktx.MenuActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".ktx.MenuActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/menu_toolbar"
@@ -27,21 +27,21 @@
         android:id="@+id/manu_tabLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:tabRippleColor="@android:color/transparent"
+        android:backgroundTint="@color/Gray_3"
         android:layoutDirection="rtl"
         app:tabGravity="start"
-        app:tabMode="scrollable"
-        android:backgroundTint="@color/Gray_3"
         app:tabIndicatorColor="@color/Primary"
+        app:tabMode="scrollable"
+        app:tabRippleColor="@android:color/transparent"
         app:tabSelectedTextColor="@color/Primary"
-        app:tabTextColor="@color/Gray_7"
-        app:tabTextAppearance="@style/tabLayout_font"/>
+        app:tabTextAppearance="@style/tabLayout_font"
+        app:tabTextColor="@color/Gray_7" />
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/menu_viewPager"
         android:layout_width="match_parent"
-        android:layoutDirection="locale"
         android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:layout_weight="1"
+        android:layoutDirection="locale" />
 
 </LinearLayout>

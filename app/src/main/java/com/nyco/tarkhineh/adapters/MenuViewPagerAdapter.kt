@@ -8,14 +8,14 @@ import com.nyco.tarkhineh.fragments.BeveragesFragment
 import com.nyco.tarkhineh.fragments.DessertFragment
 import com.nyco.tarkhineh.fragments.MainCourseFragment
 
-class MenuViewPagerAdapter(fm :FragmentManager):FragmentPagerAdapter(fm) {
+class MenuViewPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
 
     override fun getItem(position: Int): Fragment {
-        return when(position) {
-            0-> MainCourseFragment()
-            1-> AppetizerFragment()
-            2-> DessertFragment()
-            3-> BeveragesFragment()
+        return when (position) {
+            0 -> MainCourseFragment()
+            1 -> AppetizerFragment()
+            2 -> DessertFragment()
+            3 -> BeveragesFragment()
 
             else -> throw IllegalArgumentException("Invalid position $position")
         }

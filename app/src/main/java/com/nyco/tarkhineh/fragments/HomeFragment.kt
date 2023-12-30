@@ -28,11 +28,11 @@ class HomeFragment : Fragment() {
     private lateinit var recyclerNonPersianFoods: RecyclerView
 
     private val mainAdapter by lazy {
-        MainAdapter(object : MainAdapter.MainFoodsClickListener{
+        MainAdapter(object : MainAdapter.MainFoodsClickListener {
             override fun onMainFoodsClick(mainFood: MainFood) {
                 Toast.makeText(requireContext(), mainFood.foodName, Toast.LENGTH_SHORT).show()
             }
-        },requireContext())
+        }, requireContext())
     }
 
     override fun onCreateView(
@@ -52,10 +52,38 @@ class HomeFragment : Fragment() {
         imageList.add(SlideModel(R.drawable.slider5))
         imageList.add(SlideModel(R.drawable.slider6))
         binding.mainImageSlider.setImageList(imageList, ScaleTypes.CENTER_INSIDE)
-        binding.layoutMainMenu.layoutMainCourse.setOnClickListener { startActivity(Intent(requireContext(),MenuActivity::class.java))}
-        binding.layoutMainMenu.layoutAppetizer.setOnClickListener { startActivity(Intent(requireContext(),MenuActivity::class.java))}
-        binding.layoutMainMenu.layoutDessert.setOnClickListener { startActivity(Intent(requireContext(),MenuActivity::class.java))}
-        binding.layoutMainMenu.layoutDessert.setOnClickListener { startActivity(Intent(requireContext(),MenuActivity::class.java))}
+        binding.layoutMainMenu.layoutMainCourse.setOnClickListener {
+            startActivity(
+                Intent(
+                    requireContext(),
+                    MenuActivity::class.java
+                )
+            )
+        }
+        binding.layoutMainMenu.layoutAppetizer.setOnClickListener {
+            startActivity(
+                Intent(
+                    requireContext(),
+                    MenuActivity::class.java
+                )
+            )
+        }
+        binding.layoutMainMenu.layoutDessert.setOnClickListener {
+            startActivity(
+                Intent(
+                    requireContext(),
+                    MenuActivity::class.java
+                )
+            )
+        }
+        binding.layoutMainMenu.layoutDessert.setOnClickListener {
+            startActivity(
+                Intent(
+                    requireContext(),
+                    MenuActivity::class.java
+                )
+            )
+        }
 
         val foodList = listOf(
             MainFood("پیتزا ویژه", "۲۰%", "۱۲.۲۰ تومان", "۴.۵"),

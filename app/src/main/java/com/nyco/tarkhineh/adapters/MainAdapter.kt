@@ -56,7 +56,11 @@ class MainAdapter(
             foodStar.text = mainFood.foodStar
 
             addToFavorite.setOnClickListener {
-                Toast.makeText(context, "${mainFood.foodName} added to favorite", Toast.LENGTH_SHORT)
+                Toast.makeText(
+                    context,
+                    "${mainFood.foodName} added to favorite",
+                    Toast.LENGTH_SHORT
+                )
                     .show()
             }
         }
