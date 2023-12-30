@@ -57,7 +57,7 @@ class HomeFragment : Fragment() {
         binding.layoutMainMenu.layoutDessert.setOnClickListener { startActivity(Intent(requireContext(),MenuActivity::class.java))}
         binding.layoutMainMenu.layoutDessert.setOnClickListener { startActivity(Intent(requireContext(),MenuActivity::class.java))}
 
-        val foodOffersList = listOf(
+        val foodList = listOf(
             MainFood("پیتزا ویژه", "۲۰%", "۱۲.۲۰ تومان", "۴.۵"),
             MainFood("کمبو برگر", "۲۰%", "۱۲.۲۰ تومان", "۴.۵"),
             MainFood("لذت پاستا", "۲۰%", "۱۲.۲۰۰ تومان", "۴.۵"),
@@ -67,31 +67,15 @@ class HomeFragment : Fragment() {
 
         recyclerSpecialOffer = binding.layoutSpecialOffer.recyclerSpecialOffer
         recyclerSpecialOffer.adapter = mainAdapter
-        mainAdapter.addMainFood(foodOffersList)
-
-        val popFoodList = listOf(
-            MainFood("پیتزا ویژه", "۲۰%", "۱۲.۲۰ تومان", "۴.۵"),
-            MainFood("کمبو برگر", "۲۰%", "۱۲.۲۰ تومان", "۴.۵"),
-            MainFood("لذت پاستا", "۲۰%", "۱۲.۲۰۰ تومان", "۴.۵"),
-            MainFood("جشنواره سوشی", "۲۰%", "۱۲.۲۰۲.۲۰ تومان", "۴.۵"),
-            MainFood("خوشمزه دسر", "۲۰%", "۱۲.۲۰.۲۰ تومان", "۴.۵")
-        )
+        mainAdapter.addMainFood(foodList)
 
         recyclerPopFoods = binding.layoutPopularFood.recyclerPopularFood
         recyclerPopFoods.adapter = mainAdapter
-        mainAdapter.addMainFood(popFoodList)
-
-        val nonPersianFoodList = listOf(
-            MainFood("پیتزا ویژه", "۲۰%", "۱۲.۲۰ تومان", "۴.۵"),
-            MainFood("کمبو برگر", "۲۰%", "۱۲.۲۰ تومان", "۴.۵"),
-            MainFood("لذت پاستا", "۲۰%", "۱۲.۲۰۰ تومان", "۴.۵"),
-            MainFood("جشنواره سوشی", "۲۰%", "۱۲.۲۰۲.۲۰ تومان", "۴.۵"),
-            MainFood("خوشمزه دسر", "۲۰%", "۱۲.۲۰.۲۰ تومان", "۴.۵")
-        )
+        mainAdapter.addMainFood(foodList)
 
         recyclerNonPersianFoods = binding.layoutNonPersianFood.recyclerNonPersianFood
         recyclerNonPersianFoods.adapter = mainAdapter
-        mainAdapter.addMainFood(nonPersianFoodList)
+        mainAdapter.addMainFood(foodList)
 
         return binding.root
     }
