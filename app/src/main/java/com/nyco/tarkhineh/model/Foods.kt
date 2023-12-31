@@ -6,3 +6,10 @@ data class MainFood(
     val foodPrice: String = "",
     val foodStar: String = "",
 )
+
+data class MenuFood(
+    val foodName: String = "",
+    val foodDesc: String = "",
+    val foodDiscount: String = "",
+    val foodPrice: String = "",
+)

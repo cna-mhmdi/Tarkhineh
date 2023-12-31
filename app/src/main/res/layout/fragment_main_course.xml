@@ -1,14 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".fragments.MainCourseFragment">
+    android:layout_height="wrap_content"
+    tools:context=".fragments.MainCourseFragment"
+    android:orientation="vertical">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="hello_blank_fragment4" />
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
 
-</FrameLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include
+                android:id="@+id/layout_menu_rec_1"
+                layout="@layout/layout_menu_rec_1" />
+
+            <include
+                android:id="@+id/layout_menu_rec_2"
+                layout="@layout/layout_menu_rec_2"/>
+
+            <include
+                android:id="@+id/layout_menu_rec_3"
+                layout="@layout/layout_menu_rec_3"/>
+
+            <include
+                android:id="@+id/layout_menu_rec_4"
+                layout="@layout/layout_menu_rec_4"/>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

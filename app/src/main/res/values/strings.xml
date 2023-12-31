@@ -48,7 +48,7 @@
     <string name="CD_foodImage">this is foods image</string>
     <string name="food_name">اسم عذا</string>
     <string name="food_discount">%8</string>
-    <string name="food_dis_sum">۲۰۰۰۰۰</string>
+    <string name="food_dis_sum">۲۰۰.۰۰۰</string>
     <string name="food_price">240.000 تومان</string>
     <string name="CD_addToFavorite">click this to add this food into your favorite section</string>
     <string name="food_star">5</string>
@@ -57,5 +57,6 @@
     <string name="popular_food">غذاهای محبوب</string>
     <string name="non_persian_food">غذاهای غیر ایرانی</string>
     <string name="toolbar_menu_title">منوی رستوران</string>
+    <string name="sample_for_food_sesc">این یک متن تست برای توضیحات عذا است</string>
 
 </resources>
