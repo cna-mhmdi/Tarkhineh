@@ -12,4 +12,8 @@
     <style name="tabLayout_font" parent="@android:style/TextAppearance.Widget.TabWidget">
         <item name="fontFamily">@font/estedad_medium</item>
     </style>
+
+    <style name="chip_font" parent="Widget.MaterialComponents.Chip.Choice">
+        <item name="android:fontFamily">@font/estedad_medium</item>
+    </style>
 </resources>

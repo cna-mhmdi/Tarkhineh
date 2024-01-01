@@ -3,8 +3,78 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.MainCourseFragment"
     android:orientation="vertical">
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.chip.ChipGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:chipSpacingVertical="1dp"
+            android:layout_gravity="end"
+            android:layout_marginStart="20dp"
+            app:singleLine="true"
+            android:layoutDirection="rtl"
+            app:singleSelection="true">
+            
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_mainCourse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:chipBackgroundColor="@color/Gray_3"
+                app:chipStrokeColor="@android:color/transparent"
+                app:chipCornerRadius="8dp"
+                style="@style/chip_font"
+                app:rippleColor="@color/Tint_2"
+                android:text="غذای ایرانی"
+                android:textColor="@color/Gray_8"/>
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_noPersian"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:chipBackgroundColor="@color/Gray_3"
+                app:chipStrokeColor="@android:color/transparent"
+                app:chipCornerRadius="8dp"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                app:rippleColor="@color/Tint_2"
+                android:text="غذای غیر ایرانی"
+                android:textColor="@color/Gray_8"
+                android:fontFamily="@font/estedad_medium"/>
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_pitza"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:chipBackgroundColor="@color/Gray_3"
+                app:chipStrokeColor="@android:color/transparent"
+                app:chipCornerRadius="8dp"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                app:rippleColor="@color/Tint_2"
+                android:text="پیتزا"
+                android:textColor="@color/Gray_8"
+                android:fontFamily="@font/estedad_medium"/>
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_sandwich"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:chipBackgroundColor="@color/Gray_3"
+                app:chipStrokeColor="@android:color/transparent"
+                app:chipCornerRadius="8dp"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                app:rippleColor="@color/Tint_2"
+                android:text="ساندویچ"
+                android:textColor="@color/Gray_8"
+                android:fontFamily="@font/estedad_medium"/>
+
+        </com.google.android.material.chip.ChipGroup>
+
+    </HorizontalScrollView>
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
