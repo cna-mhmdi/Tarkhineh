@@ -58,5 +58,7 @@
     <string name="non_persian_food">غذاهای غیر ایرانی</string>
     <string name="toolbar_menu_title">منوی رستوران</string>
     <string name="sample_for_food_sesc">این یک متن تست برای توضیحات عذا است</string>
+    <string name="detail_food">جزئیات محصول</string>
+    <string name="CD_shoping_card">this is shoping card</string>
 
 </resources>

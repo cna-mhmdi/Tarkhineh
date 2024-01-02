@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ktx.DetailFoodActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/privacy_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/Primary">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|top"
+            android:fontFamily="@font/estedad_bold"
+            android:text="@string/detail_food"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+    </androidx.appcompat.widget.Toolbar>
+    
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="16dp">
+
+                <ImageView
+                    android:id="@+id/img_food"
+                    android:layout_width="match_parent"
+                    android:layout_height="205dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:src="@color/Tint_2"
+                    android:contentDescription="@string/CD_foodImage" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="16dp"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:id="@+id/btn_ShopingCard"
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/shopping_cart"
+                    android:contentDescription="@string/CD_shoping_card" />
+
+                <ImageView
+                    android:id="@+id/btn_addToFavorite"
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/app_heart"
+                    android:layout_marginStart="16dp"
+                    android:contentDescription="@string/CD_addToFavorite" />
+
+                <TextView
+                    android:id="@+id/txt_foodName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="نام غذا"
+                    android:textColor="@color/Gray_8"
+                    android:fontFamily="@font/estedad_black"
+                    android:textSize="16sp"/>
+            </LinearLayout>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="16dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="4dp"
+                android:backgroundTint="@color/white">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="8dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="محتویات"
+                        android:fontFamily="@font/estedad_medium"
+                        android:textSize="14sp"
+                        android:textColor="@color/Gray_8"/>
+
+                    <TextView
+                        android:id="@+id/txt_foodDesc"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:maxLines="2"
+                        android:ellipsize="end"
+                        android:text=" این متن تست برای محتویات است این متن تست برای محتویات است این متن تست برای محتویات است این متن تست برای محتویات است "
+                        android:textSize="10sp"
+                        android:textColor="@color/Gray_7"
+                        android:fontFamily="@font/estedad_medium"/>
+
+                    <com.google.android.material.divider.MaterialDivider
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="9dp"
+                        android:gravity="center_vertical">
+
+                        <LinearLayout
+                            android:layout_width="80dp"
+                            android:layout_height="16dp"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_marginStart="8dp">
+
+                            <ImageView
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                android:src="@drawable/star_rate"
+                                android:contentDescription="@string/CD_faqs"/>
+
+                            <ImageView
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                android:src="@drawable/star_rate"
+                                android:contentDescription="@string/CD_faqs"/>
+
+                            <ImageView
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                android:src="@drawable/star_rate"
+                                android:contentDescription="@string/CD_faqs"/>
+
+                            <ImageView
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                android:src="@drawable/star_rate"
+                                android:contentDescription="@string/CD_faqs"/>
+
+                            <ImageView
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                android:src="@drawable/star_rate"
+                                android:contentDescription="@string/CD_faqs"/>
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="(۶۲ نظر)"
+                            android:fontFamily="@font/estedad_medium"
+                            android:textSize="10sp"
+                            android:textColor="@color/Gray_7"
+                            android:layout_marginStart="4dp"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="start"
+                            android:text="امتیاز"
+                            android:textColor="@color/Gray_8"
+                            android:textSize="14sp"
+                            android:fontFamily="@font/estedad_medium"/>
+
+                    </LinearLayout>
+
+                    <com.google.android.material.divider.MaterialDivider
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="4dp">
+
+                        <TextView
+                            android:id="@+id/txt_foodPrice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/food_price"
+                            android:textColor="@color/Gray_8"
+                            android:fontFamily="@font/estedad_medium"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="قیمت"
+                            android:textColor="@color/Gray_8"
+                            android:fontFamily="@font/estedad_medium"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="24dp"
+                android:gravity="center">
+                
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center|center_vertical">
+                    
+                    <Button
+                        android:id="@+id/btn_decrease"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        app:cornerRadius="4dp"
+                        android:text="-"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        android:padding="1dp"
+                        android:fontFamily="@font/estedad_medium"
+                        android:backgroundTint="@color/Primary"/>
+                    
+                    <TextView
+                        android:id="@+id/txt_orderCount"
+                        android:layout_width="6dp"
+                        android:layout_height="29dp"
+                        android:fontFamily="@font/estedad_medium"
+                        android:text="۱"
+                        android:textSize="16sp"
+                        android:textColor="@color/Primary"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginStart="8dp"/>
+                    
+                    <Button
+                        android:id="@+id/btn_increase"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        app:cornerRadius="4dp"
+                        android:text="+"
+                        android:fontFamily="@font/estedad_medium"
+                        android:textSize="16sp"
+                        android:padding="1dp"
+                        android:backgroundTint="@color/Primary"/>
+
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btn_addToShoppingCard"
+                    android:layout_width="152dp"
+                    android:layout_height="40dp"
+                    android:backgroundTint="@color/Primary"
+                    android:fontFamily="@font/estedad_medium"
+                    android:text="افزدون به سبد خرید"
+                    android:paddingVertical="1dp"
+                    android:textSize="12sp"
+                    app:cornerRadius="4dp"/>
+                
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
