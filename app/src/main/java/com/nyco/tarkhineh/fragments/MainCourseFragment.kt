@@ -5,9 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.View.OnClickListener
 import android.view.ViewGroup
+import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
+import com.nyco.tarkhineh.R
 import com.nyco.tarkhineh.adapters.MenuAdapter
 import com.nyco.tarkhineh.databinding.FragmentMainCourseBinding
 import com.nyco.tarkhineh.model.MenuFood
@@ -107,7 +109,47 @@ class MainCourseFragment : Fragment() {
         recyclerView4.adapter = menuAdapter4
         menuAdapter4.addMenuFood(menuList4)
 
+        binding.menuChipGroup.setOnCheckedChangeListener{_,chipId->
+            if (chipId != View.NO_ID){
+                when(chipId) {
+                    R.id.chip_mainCourse -> {
+                        filterRecycler(binding.layoutMenuRec1.menuRecycler1, binding.layoutMenuRec1.recyclerTitle)
+                    }
+                    R.id.chip_noPersian -> {
+                        filterRecycler(binding.layoutMenuRec2.menuRecycler2, binding.layoutMenuRec2.recyclerTitle)
+                    }
+                    R.id.chip_pitza -> {
+                        filterRecycler(binding.layoutMenuRec3.menuRecycler3, binding.layoutMenuRec3.recyclerTitle)
+                    }
+                    R.id.chip_sandwich -> {
+                        filterRecycler(binding.layoutMenuRec4.menuRecycler4, binding.layoutMenuRec4.recyclerTitle)
+                    }
+                }
+            }
+        }
+
         return binding.root
+    }
+
+    private fun filterRecycler (rec : RecyclerView, txt : TextView) {
+        val allRecs = listOf(
+            binding.layoutMenuRec1.menuRecycler1,
+            binding.layoutMenuRec2.menuRecycler2,
+            binding.layoutMenuRec3.menuRecycler3,
+            binding.layoutMenuRec4.menuRecycler4,
+        )
+
+        val allTxt = listOf(
+            binding.layoutMenuRec1.recyclerTitle,
+            binding.layoutMenuRec2.recyclerTitle,
+            binding.layoutMenuRec3.recyclerTitle,
+            binding.layoutMenuRec4.recyclerTitle,
+        )
+
+        for ((index, rv) in allRecs.withIndex()){
+            rv.visibility = if (rv == rec) View.VISIBLE else View.GONE
+            allTxt[index].visibility = if (rv == rec) View.VISIBLE else View.GONE
+        }
     }
 
     override fun onDestroyView() {
