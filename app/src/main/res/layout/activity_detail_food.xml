@@ -8,7 +8,7 @@
     tools:context=".ktx.DetailFoodActivity">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/privacy_toolbar"
+        android:id="@+id/detailFood_toolbar"
         android:layout_width="match_parent"
         android:layout_height="56dp"
         android:background="@color/Primary">

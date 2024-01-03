@@ -13,3 +13,8 @@ data class MenuFood(
     val foodDiscount: String = "",
     val foodPrice: String = "",
 )
+
+data class SearchFood(
+    val foodName: String = "",
+    val foodCategory: String = ""
+)
