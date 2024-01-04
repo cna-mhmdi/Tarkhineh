@@ -39,8 +39,6 @@ class SearchFragment : Fragment() {
 //        searchAdapter.addSearchFood()
 
 
-
-
         return binding.root
     }
 
