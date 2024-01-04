@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragments.MainCourseFragment"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".fragments.MainCourseFragment">
 
     <HorizontalScrollView
         android:layout_width="match_parent"
@@ -15,63 +15,63 @@
             android:id="@+id/menu_chipGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:chipSpacingVertical="1dp"
             android:layout_gravity="end"
             android:layout_marginStart="20dp"
-            app:singleLine="true"
             android:layoutDirection="rtl"
+            app:chipSpacingVertical="1dp"
+            app:singleLine="true"
             app:singleSelection="true">
-            
+
             <com.google.android.material.chip.Chip
                 android:id="@+id/chip_mainCourse"
+                style="@style/chip_font"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:chipBackgroundColor="@color/Gray_3"
-                app:chipStrokeColor="@android:color/transparent"
-                app:chipCornerRadius="8dp"
-                style="@style/chip_font"
-                app:rippleColor="@color/Tint_2"
                 android:text="غذای ایرانی"
-                android:textColor="@color/Gray_8"/>
+                android:textColor="@color/Gray_8"
+                app:chipBackgroundColor="@color/Gray_3"
+                app:chipCornerRadius="8dp"
+                app:chipStrokeColor="@android:color/transparent"
+                app:rippleColor="@color/Tint_2" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chip_noPersian"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:chipBackgroundColor="@color/Gray_3"
-                app:chipStrokeColor="@android:color/transparent"
-                app:chipCornerRadius="8dp"
-                style="@style/Widget.MaterialComponents.Chip.Choice"
-                app:rippleColor="@color/Tint_2"
+                android:fontFamily="@font/estedad_medium"
                 android:text="غذای غیر ایرانی"
                 android:textColor="@color/Gray_8"
-                android:fontFamily="@font/estedad_medium"/>
+                app:chipBackgroundColor="@color/Gray_3"
+                app:chipCornerRadius="8dp"
+                app:chipStrokeColor="@android:color/transparent"
+                app:rippleColor="@color/Tint_2" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chip_pitza"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:chipBackgroundColor="@color/Gray_3"
-                app:chipStrokeColor="@android:color/transparent"
-                app:chipCornerRadius="8dp"
-                style="@style/Widget.MaterialComponents.Chip.Choice"
-                app:rippleColor="@color/Tint_2"
+                android:fontFamily="@font/estedad_medium"
                 android:text="پیتزا"
                 android:textColor="@color/Gray_8"
-                android:fontFamily="@font/estedad_medium"/>
+                app:chipBackgroundColor="@color/Gray_3"
+                app:chipCornerRadius="8dp"
+                app:chipStrokeColor="@android:color/transparent"
+                app:rippleColor="@color/Tint_2" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chip_sandwich"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:chipBackgroundColor="@color/Gray_3"
-                app:chipStrokeColor="@android:color/transparent"
-                app:chipCornerRadius="8dp"
-                style="@style/Widget.MaterialComponents.Chip.Choice"
-                app:rippleColor="@color/Tint_2"
+                android:fontFamily="@font/estedad_medium"
                 android:text="ساندویچ"
                 android:textColor="@color/Gray_8"
-                android:fontFamily="@font/estedad_medium"/>
+                app:chipBackgroundColor="@color/Gray_3"
+                app:chipCornerRadius="8dp"
+                app:chipStrokeColor="@android:color/transparent"
+                app:rippleColor="@color/Tint_2" />
 
         </com.google.android.material.chip.ChipGroup>
 
@@ -93,15 +93,15 @@
 
             <include
                 android:id="@+id/layout_menu_rec_2"
-                layout="@layout/layout_menu_rec_2"/>
+                layout="@layout/layout_menu_rec_2" />
 
             <include
                 android:id="@+id/layout_menu_rec_3"
-                layout="@layout/layout_menu_rec_3"/>
+                layout="@layout/layout_menu_rec_3" />
 
             <include
                 android:id="@+id/layout_menu_rec_4"
-                layout="@layout/layout_menu_rec_4"/>
+                layout="@layout/layout_menu_rec_4" />
 
         </LinearLayout>
 

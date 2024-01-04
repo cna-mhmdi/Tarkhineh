@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.SearchFragment">
 
     <androidx.appcompat.widget.Toolbar
@@ -30,28 +30,28 @@
         style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:focusable="true"
-        android:layout_marginTop="24dp"
         android:layout_marginStart="20dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="20dp"
+        android:focusable="true"
         android:hint="جستجو"
         app:boxStrokeColor="@color/Primary"
         app:hintTextColor="@color/Primary"
-        app:startIconDrawable="@drawable/search"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/search_toolbar">
+        app:layout_constraintTop_toBottomOf="@+id/search_toolbar"
+        app:startIconDrawable="@drawable/search">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/editText_phoneNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:cursorVisible="false"
-            android:padding="1dp"
-            android:textSize="10sp"
-            android:maxLines="1"
+            android:fontFamily="@font/estedad_medium"
             android:inputType="textPersonName"
-            android:fontFamily="@font/estedad_medium"/>
+            android:maxLines="1"
+            android:padding="1dp"
+            android:textSize="10sp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -59,14 +59,14 @@
         android:id="@+id/recycler_search"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
         android:layout_marginStart="20dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="20dp"
-        app:reverseLayout="true"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:listitem="@layout/layout_search_rec_item"
-        app:layout_constraintTop_toBottomOf="@+id/layout_phoneNumber" />
+        app:layout_constraintTop_toBottomOf="@+id/layout_phoneNumber"
+        app:reverseLayout="true"
+        tools:listitem="@layout/layout_search_rec_item" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,48 +2,48 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="42dp"
-    android:orientation="horizontal"
+    android:layout_marginBottom="12dp"
     android:gravity="center_vertical"
-    android:layout_marginBottom="12dp">
+    android:orientation="horizontal">
 
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="42dp"
+        android:layout_marginEnd="12dp"
         android:layout_weight="1"
-        android:orientation="vertical"
-        android:layout_marginEnd="12dp">
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/txt_SearchFoodName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/estedad_medium"
+            android:text="نام غذا"
             android:textColor="@color/Gray_8"
-            android:textSize="12sp"
-            android:text="نام غذا"/>
+            android:textSize="12sp" />
 
         <TextView
             android:id="@+id/txt_SearchFoodCat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/estedad_medium"
+            android:text="در دسته غذای اصلی"
             android:textColor="@color/Gray_5"
-            android:textSize="10sp"
-            android:text="در دسته غذای اصلی"/>
+            android:textSize="10sp" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="42dp"
-        android:orientation="vertical"
         android:layout_gravity="end"
-        android:gravity="center_vertical">
+        android:gravity="center_vertical"
+        android:orientation="vertical">
 
         <ImageView
             android:layout_width="16dp"
             android:layout_height="16dp"
-            android:src="@drawable/search"/>
+            android:src="@drawable/search" />
 
     </LinearLayout>
 </LinearLayout>

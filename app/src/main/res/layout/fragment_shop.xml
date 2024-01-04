@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".fragments.ShopFragment">
 
@@ -27,106 +27,106 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="80dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginStart="20dp"
-        android:gravity="end">
+        android:gravity="end"
+        android:orientation="horizontal">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical">
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/peymanet_txt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="روش پرداخت"
                 android:fontFamily="@font/estedad_medium"
-                android:textSize="12sp"
-                android:textColor="@color/Gray_4"/>
+                android:text="روش پرداخت"
+                android:textColor="@color/Gray_4"
+                android:textSize="12sp" />
 
             <ImageView
                 android:id="@+id/payment_img"
                 android:layout_width="16dp"
                 android:layout_height="16dp"
-                app:tint="@color/Gray_4"
                 android:layout_marginStart="4dp"
-                android:src="@drawable/wallet"/>
+                android:src="@drawable/wallet"
+                app:tint="@color/Gray_4" />
 
             <TextView
                 android:id="@+id/payment_note"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="- - - - - -"
-                android:fontFamily="@font/estedad_medium"
-                android:textSize="12sp"
                 android:layout_marginStart="4dp"
                 android:layout_marginEnd="4dp"
-                android:textColor="@color/Gray_4"/>
+                android:fontFamily="@font/estedad_medium"
+                android:text="- - - - - -"
+                android:textColor="@color/Gray_4"
+                android:textSize="12sp" />
 
         </LinearLayout>
-        
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical">
-            
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
             <TextView
                 android:id="@+id/info_txt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="تکمیل اطلاعات"
                 android:fontFamily="@font/estedad_medium"
-                android:textSize="12sp"
-                android:textColor="@color/Gray_4"/>
+                android:text="تکمیل اطلاعات"
+                android:textColor="@color/Gray_4"
+                android:textSize="12sp" />
 
             <ImageView
                 android:id="@+id/info_img"
                 android:layout_width="16dp"
                 android:layout_height="16dp"
-                app:tint="@color/Gray_4"
                 android:layout_marginStart="4dp"
-                android:src="@drawable/tick_square"/>
+                android:src="@drawable/tick_square"
+                app:tint="@color/Gray_4" />
 
             <TextView
                 android:id="@+id/info_note"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text=" - - -"
-                android:fontFamily="@font/estedad_medium"
-                android:textSize="12sp"
                 android:layout_marginStart="4dp"
-                android:textColor="@color/Gray_4"/>
-            
+                android:fontFamily="@font/estedad_medium"
+                android:text=" - - -"
+                android:textColor="@color/Gray_4"
+                android:textSize="12sp" />
+
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical">
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/card_txt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="سبد خرید - - - "
                 android:fontFamily="@font/estedad_medium"
-                android:textSize="12sp"
-                android:textColor="@color/Primary"/>
+                android:text="سبد خرید - - - "
+                android:textColor="@color/Primary"
+                android:textSize="12sp" />
 
             <ImageView
                 android:id="@+id/card_img"
                 android:layout_width="16dp"
                 android:layout_height="16dp"
-                app:tint="@color/Primary"
                 android:layout_marginStart="4dp"
                 android:layout_marginEnd="4dp"
-                android:src="@drawable/shopping_cart"/>
+                android:src="@drawable/shopping_cart"
+                app:tint="@color/Primary" />
 
         </LinearLayout>
     </LinearLayout>
@@ -135,11 +135,11 @@
         android:id="@+id/layout_shopingCard"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="136dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginBottom="89dp">
+        android:layout_marginBottom="89dp"
+        android:visibility="gone">
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
@@ -166,31 +166,31 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
-                        app:dividerColor="@color/Gray_4"/>
+                        app:dividerColor="@color/Gray_4" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="25dp"
-                        android:orientation="horizontal"
+                        android:layout_marginTop="12dp"
                         android:gravity="center_vertical"
-                        android:layout_marginTop="12dp">
+                        android:orientation="horizontal">
 
                         <TextView
                             android:id="@+id/txt_OrderDiscount"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
+                            android:fontFamily="@font/estedad_medium"
                             android:text="@string/food_price"
                             android:textColor="@color/Gray_7"
-                            android:textSize="14sp"
-                            android:fontFamily="@font/estedad_medium"/>
+                            android:textSize="14sp" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:fontFamily="@font/estedad_medium"
                             android:text="تحفیف محصولات"
                             android:textColor="@color/Gray_8"
-                            android:textSize="14sp"
-                            android:fontFamily="@font/estedad_medium"/>
+                            android:textSize="14sp" />
 
                     </LinearLayout>
 
@@ -198,7 +198,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
-                        app:dividerColor="@color/Gray_4"/>
+                        app:dividerColor="@color/Gray_4" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -208,45 +208,45 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="25dp"
-                            android:orientation="horizontal"
+                            android:layout_marginTop="12dp"
                             android:gravity="center_vertical"
-                            android:layout_marginTop="12dp">
+                            android:orientation="horizontal">
 
                             <TextView
                                 android:id="@+id/txt_shiping"
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
+                                android:fontFamily="@font/estedad_medium"
                                 android:text="@string/food_price"
                                 android:textColor="@color/Gray_7"
-                                android:textSize="14sp"
-                                android:fontFamily="@font/estedad_medium"/>
+                                android:textSize="14sp" />
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
+                                android:fontFamily="@font/estedad_medium"
                                 android:text="هزینه ارسال"
                                 android:textColor="@color/Gray_8"
-                                android:textSize="14sp"
-                                android:fontFamily="@font/estedad_medium"/>
+                                android:textSize="14sp" />
 
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
+                            android:layout_marginTop="8dp"
                             android:gravity="end"
-                            android:layout_marginTop="8dp">
+                            android:orientation="horizontal">
 
                             <TextView
                                 android:layout_width="0dp"
-                                android:layout_weight="1"
                                 android:layout_height="36dp"
                                 android:layout_marginEnd="8dp"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/estedad_medium"
                                 android:text="هزینه ارسال در ادامه بر اساس آدرس، زمان و نحوه ارسال انتخابی شما محاسبه و به این مبلغ اضافه خواهد شد."
                                 android:textColor="@color/warning"
-                                android:fontFamily="@font/estedad_medium"
-                                android:textSize="10sp"/>
+                                android:textSize="10sp" />
 
                             <ImageView
                                 android:layout_width="16dp"
@@ -259,33 +259,33 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="12dp"
-                            app:dividerColor="@color/Gray_4"/>
+                            app:dividerColor="@color/Gray_4" />
 
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="25dp"
-                        android:orientation="horizontal"
+                        android:layout_marginTop="12dp"
                         android:gravity="center_vertical"
-                        android:layout_marginTop="12dp">
+                        android:orientation="horizontal">
 
                         <TextView
                             android:id="@+id/txt_OrderSum"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
+                            android:fontFamily="@font/estedad_medium"
                             android:text="@string/food_price"
                             android:textColor="@color/Primary"
-                            android:textSize="14sp"
-                            android:fontFamily="@font/estedad_medium"/>
+                            android:textSize="14sp" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:fontFamily="@font/estedad_medium"
                             android:text="مبلغ قابل پرداخت"
                             android:textColor="@color/Gray_8"
-                            android:textSize="14sp"
-                            android:fontFamily="@font/estedad_medium"/>
+                            android:textSize="14sp" />
 
                     </LinearLayout>
 
@@ -296,12 +296,12 @@
                         android:layout_marginTop="12dp"
                         android:backgroundTint="@color/Primary"
                         android:fontFamily="@font/estedad_medium"
+                        android:padding="1dp"
                         android:text="تکمیل اطلاعات       >"
                         app:cornerRadius="4dp"
-                        android:padding="1dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/layout_phoneNumber"/>
+                        app:layout_constraintTop_toBottomOf="@+id/layout_phoneNumber" />
 
                 </LinearLayout>
 
@@ -312,9 +312,9 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="136dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginStart="20dp"
         android:layout_marginBottom="89dp">
 
         <androidx.core.widget.NestedScrollView
@@ -340,17 +340,17 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:gravity="end|center_vertical">
+                            android:gravity="end|center_vertical"
+                            android:orientation="horizontal">
 
                             <TextView
                                 android:layout_width="0dp"
-                                android:layout_weight="1"
                                 android:layout_height="wrap_content"
-                                android:text="روش تحویل سفارش"
                                 android:layout_marginEnd="4dp"
+                                android:layout_weight="1"
                                 android:fontFamily="@font/estedad_medium"
-                                android:textSize="14sp"/>
+                                android:text="روش تحویل سفارش"
+                                android:textSize="14sp" />
 
                             <ImageView
                                 android:layout_width="16dp"
@@ -363,7 +363,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
-                            app:dividerColor="@color/Gray_4"/>
+                            app:dividerColor="@color/Gray_4" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -372,53 +372,53 @@
 
                             <LinearLayout
                                 android:layout_width="0dp"
-                                android:layout_weight="1"
                                 android:layout_height="match_parent"
                                 android:layout_marginTop="16dp"
+                                android:layout_weight="1"
                                 android:orientation="vertical">
 
                                 <LinearLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:orientation="horizontal"
-                                    android:gravity="end|center_vertical">
+                                    android:gravity="end|center_vertical"
+                                    android:orientation="horizontal">
 
                                     <ImageView
                                         android:layout_width="16dp"
                                         android:layout_height="16dp"
                                         android:layout_marginEnd="4dp"
-                                        android:src="@drawable/truck_fast"/>
+                                        android:src="@drawable/truck_fast" />
 
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="ارسال توسط پیک"
                                         android:fontFamily="@font/estedad_medium"
-                                        android:textSize="12sp"
-                                        android:textColor="@color/Gray_7"/>
+                                        android:text="ارسال توسط پیک"
+                                        android:textColor="@color/Gray_7"
+                                        android:textSize="12sp" />
 
                                 </LinearLayout>
 
                                 <LinearLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:orientation="horizontal"
                                     android:layout_marginTop="4dp"
-                                    android:gravity="end|center_vertical">
+                                    android:gravity="end|center_vertical"
+                                    android:orientation="horizontal">
 
                                     <ImageView
                                         android:layout_width="16dp"
                                         android:layout_height="16dp"
                                         android:layout_marginEnd="4dp"
-                                        android:src="@drawable/shopping_bag"/>
+                                        android:src="@drawable/shopping_bag" />
 
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="تحویل حضوری"
                                         android:fontFamily="@font/estedad_medium"
-                                        android:textSize="12sp"
-                                        android:textColor="@color/Gray_7"/>
+                                        android:text="تحویل حضوری"
+                                        android:textColor="@color/Gray_7"
+                                        android:textSize="12sp" />
 
                                 </LinearLayout>
 
@@ -427,18 +427,18 @@
                             <RadioGroup
                                 android:layout_width="35dp"
                                 android:layout_height="match_parent"
-                                android:orientation="vertical"
+                                android:layout_marginTop="16dp"
                                 android:layoutDirection="rtl"
-                                android:layout_marginTop="16dp">
+                                android:orientation="vertical">
 
                                 <com.google.android.material.radiobutton.MaterialRadioButton
                                     android:layout_width="wrap_content"
-                                    android:layout_height="22dp"/>
+                                    android:layout_height="22dp" />
 
                                 <com.google.android.material.radiobutton.MaterialRadioButton
                                     android:layout_width="wrap_content"
                                     android:layout_height="22dp"
-                                    android:layout_marginTop="4dp"/>
+                                    android:layout_marginTop="4dp" />
 
                             </RadioGroup>
                         </LinearLayout>
@@ -460,49 +460,49 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:gravity="end|center_vertical">
+                            android:gravity="end|center_vertical"
+                            android:orientation="horizontal">
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="افزودن آدرس"
                                 android:fontFamily="@font/estedad_medium"
-                                android:textSize="12sp"
-                                android:textColor="@color/Gray_8"/>
+                                android:text="افزودن آدرس"
+                                android:textColor="@color/Gray_8"
+                                android:textSize="12sp" />
 
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:src="@drawable/close_circle"/>
+                                android:src="@drawable/close_circle" />
 
                             <TextView
                                 android:layout_width="0dp"
-                                android:layout_weight="1"
                                 android:layout_height="wrap_content"
-                                android:text="آدرس‌ها"
+                                android:layout_weight="1"
                                 android:fontFamily="@font/estedad_medium"
-                                android:textSize="14sp"
-                                android:textColor="@color/Gray_8"/>
+                                android:text="آدرس‌ها"
+                                android:textColor="@color/Gray_8"
+                                android:textSize="14sp" />
 
                             <ImageView
                                 android:layout_width="16dp"
                                 android:layout_height="16dp"
                                 android:layout_marginStart="4dp"
-                                android:src="@drawable/location"/>
+                                android:src="@drawable/location" />
                         </LinearLayout>
 
                         <com.google.android.material.divider.MaterialDivider
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
-                            app:dividerColor="@color/Gray_4"/>
+                            app:dividerColor="@color/Gray_4" />
 
                         <androidx.recyclerview.widget.RecyclerView
                             android:id="@+id/recyclerView_COI"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="16dp"/>
+                            android:layout_marginTop="16dp" />
 
                     </LinearLayout>
 
@@ -523,22 +523,22 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:gravity="end|center_vertical">
+                            android:gravity="end|center_vertical"
+                            android:orientation="horizontal">
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="آدرس شعبه اکباتان"
                                 android:fontFamily="@font/estedad_medium"
-                                android:textSize="14sp"
-                                android:textColor="@color/Gray_8"/>
+                                android:text="آدرس شعبه اکباتان"
+                                android:textColor="@color/Gray_8"
+                                android:textSize="14sp" />
 
                             <ImageView
                                 android:layout_width="16dp"
                                 android:layout_height="16dp"
                                 android:layout_marginStart="8dp"
-                                app:srcCompat="@drawable/location"/>
+                                app:srcCompat="@drawable/location" />
 
                         </LinearLayout>
 
@@ -546,7 +546,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
-                            app:dividerColor="@color/Gray_4"/>
+                            app:dividerColor="@color/Gray_4" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -556,35 +556,36 @@
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="شهرک اکباتان، فاز ۳، مجتمع تجاری کوروش، طبقه سوم"
                                 android:layout_marginTop="16dp"
                                 android:fontFamily="@font/estedad_medium"
-                                android:textSize="10sp"
-                                android:textColor="@color/Gray_7"/>
+                                android:text="شهرک اکباتان، فاز ۳، مجتمع تجاری کوروش، طبقه سوم"
+                                android:textColor="@color/Gray_7"
+                                android:textSize="10sp" />
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="شماره تماس: ۰۲۱-۵۴۸۹۱۲۵۰-۵۱"
                                 android:layout_marginTop="4dp"
                                 android:fontFamily="@font/estedad_medium"
-                                android:textSize="10sp"
-                                android:textColor="@color/Gray_7"/>
+                                android:text="شماره تماس: ۰۲۱-۵۴۸۹۱۲۵۰-۵۱"
+                                android:textColor="@color/Gray_7"
+                                android:textSize="10sp" />
+
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="4dp"
-                                android:text="ساعت کاری: همه‌روزه از ساعت ۱۲ تا ۲۳ بجز روزهای تعطیل"
                                 android:fontFamily="@font/estedad_medium"
-                                android:textSize="10sp"
-                                android:textColor="@color/Gray_7"/>
-                            
+                                android:text="ساعت کاری: همه‌روزه از ساعت ۱۲ تا ۲۳ بجز روزهای تعطیل"
+                                android:textColor="@color/Gray_7"
+                                android:textSize="10sp" />
+
                         </LinearLayout>
-                        
+
                     </LinearLayout>
-                    
+
                 </com.google.android.material.card.MaterialCardView>
-                
+
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
                     android:layout_height="141dp"
@@ -599,17 +600,17 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:gravity="end|center_vertical">
+                            android:gravity="end|center_vertical"
+                            android:orientation="horizontal">
 
                             <TextView
                                 android:layout_width="0dp"
-                                android:layout_weight="1"
                                 android:layout_height="wrap_content"
-                                android:text="توضیحات سفارش (اختیاری)"
+                                android:layout_weight="1"
                                 android:fontFamily="@font/estedad_medium"
-                                android:textSize="14sp"
-                                android:textColor="@color/Gray_7"/>
+                                android:text="توضیحات سفارش (اختیاری)"
+                                android:textColor="@color/Gray_7"
+                                android:textSize="14sp" />
 
                             <ImageView
                                 android:layout_width="16dp"
@@ -633,7 +634,7 @@
                                 android:inputType="textMultiLine"
                                 android:padding="16dp"
                                 android:textColor="@color/Gray_7"
-                                android:textSize="10sp"/>
+                                android:textSize="10sp" />
 
 
                         </LinearLayout>

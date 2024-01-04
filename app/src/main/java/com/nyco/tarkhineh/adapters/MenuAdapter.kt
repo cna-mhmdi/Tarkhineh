@@ -10,7 +10,6 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.nyco.tarkhineh.R
-import com.nyco.tarkhineh.model.MainFood
 import com.nyco.tarkhineh.model.MenuFood
 
 

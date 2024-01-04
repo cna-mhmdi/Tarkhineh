@@ -16,10 +16,10 @@ class SearchFragment : Fragment() {
     private var _binding: FragmentSearchBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var recyclerSearch : RecyclerView
+    private lateinit var recyclerSearch: RecyclerView
 
     private val searchAdapter by lazy {
-        SearchAdapter(object : SearchAdapter.SearchFoodsClickListener{
+        SearchAdapter(object : SearchAdapter.SearchFoodsClickListener {
             override fun onSearchFoodsClick(searchFood: SearchFood) {
                 TODO("Not yet implemented")
             }
@@ -30,7 +30,7 @@ class SearchFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentSearchBinding.inflate(inflater,container,false)
+        _binding = FragmentSearchBinding.inflate(inflater, container, false)
         (activity as AppCompatActivity).setSupportActionBar(binding.searchToolbar)
         (activity as AppCompatActivity).supportActionBar?.title = null
 
