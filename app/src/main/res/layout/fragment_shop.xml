@@ -30,7 +30,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="80dp"
         android:layout_marginEnd="20dp"
-        android:gravity="end"
+        android:gravity="center|center_vertical"
         android:orientation="horizontal">
 
         <LinearLayout
@@ -63,7 +63,7 @@
                 android:layout_marginStart="4dp"
                 android:layout_marginEnd="4dp"
                 android:fontFamily="@font/estedad_medium"
-                android:text="- - - - - -"
+                android:text="- - - -"
                 android:textColor="@color/Gray_4"
                 android:textSize="12sp" />
 
@@ -98,7 +98,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:fontFamily="@font/estedad_medium"
-                android:text=" - - -"
+                android:text=" - -"
                 android:textColor="@color/Gray_4"
                 android:textSize="12sp" />
 
@@ -115,7 +115,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/estedad_medium"
-                android:text="سبد خرید - - - "
+                android:text="سبد خرید - - "
                 android:textColor="@color/Primary"
                 android:textSize="12sp" />
 
@@ -310,12 +310,14 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/layout_COI"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="20dp"
         android:layout_marginTop="136dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="89dp">
+        android:layout_marginBottom="89dp"
+        android:visibility="gone">
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
@@ -433,12 +435,15 @@
 
                                 <com.google.android.material.radiobutton.MaterialRadioButton
                                     android:layout_width="wrap_content"
-                                    android:layout_height="22dp" />
+                                    android:layout_height="22dp"
+                                    style="@style/Widget.App.RadioButton"
+                                    />
 
                                 <com.google.android.material.radiobutton.MaterialRadioButton
                                     android:layout_width="wrap_content"
                                     android:layout_height="22dp"
-                                    android:layout_marginTop="4dp" />
+                                    android:layout_marginTop="4dp"
+                                    style="@style/Widget.App.RadioButton"/>
 
                             </RadioGroup>
                         </LinearLayout>
@@ -640,7 +645,146 @@
                         </LinearLayout>
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
+                
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp">
+                    
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="24dp">
+                        
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="۶۳٬۰۰۰ تومان"
+                                android:fontFamily="@font/estedad_medium"
+                                android:textSize="14sp"
+                                android:textColor="@color/Gray_7"/>
+                            
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="تخفیف محصولات"
+                                android:fontFamily="@font/estedad_medium"
+                                android:textSize="14sp"
+                                android:textColor="@color/Gray_8"/>
+
+                        </LinearLayout>
+
+                        <com.google.android.material.divider.MaterialDivider
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:layout_marginBottom="13dp"
+                            app:dividerColor="@color/Gray_4" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="۶۳٬۰۰۰ تومان"
+                                android:fontFamily="@font/estedad_medium"
+                                android:textSize="14sp"
+                                android:textColor="@color/Gray_7"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="هزینه ارسال"
+                                android:fontFamily="@font/estedad_medium"
+                                android:textSize="14sp"
+                                android:textColor="@color/Gray_8"/>
+
+                        </LinearLayout>
+
+                        <com.google.android.material.divider.MaterialDivider
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:layout_marginBottom="13dp"
+                            app:dividerColor="@color/Gray_4" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="۶۳٬۰۰۰ تومان"
+                                android:fontFamily="@font/estedad_medium"
+                                android:textSize="14sp"
+                                android:textColor="@color/Primary"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="مبلغ قابل پرداخت"
+                                android:fontFamily="@font/estedad_medium"
+                                android:textSize="14sp"
+                                android:textColor="@color/Gray_8"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_marginTop="12dp">
+
+                            <Button
+                                android:id="@+id/btn_COI"
+                                android:layout_width="match_parent"
+                                android:layout_height="45dp"
+                                android:backgroundTint="@color/Primary"
+                                android:fontFamily="@font/estedad_medium"
+                                android:text="ثبت سفارش"
+                                android:textSize="10sp"
+                                app:cornerRadius="4dp"/>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="136dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="89dp">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none">
+
+
+
+
+
+        </androidx.core.widget.NestedScrollView>
+
+
     </RelativeLayout>
 </FrameLayout>

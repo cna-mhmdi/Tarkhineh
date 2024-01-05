@@ -16,4 +16,9 @@
     <style name="chip_font" parent="Widget.MaterialComponents.Chip.Choice">
         <item name="android:fontFamily">@font/estedad_medium</item>
     </style>
+
+    <style name="Widget.App.RadioButton" parent="Widget.MaterialComponents.CompoundButton.RadioButton">
+        <item name="buttonTint">@color/radio_button</item>
+        <item name="rippleColor">@color/Shade_1</item>
+    </style>
 </resources>
