@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ktx.PaymentResActivity">
+
+    <RelativeLayout
+        android:id="@+id/layout_paymentSuccess"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center|center_vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/payment_success"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="پرداخت شما با موفقیت انجام شد!"
+                android:fontFamily="@font/estedad_black"
+                android:textColor="@color/Primary"
+                android:textSize="16sp"
+                android:layout_marginTop="24dp"
+                android:gravity="center"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="کد رهگیری سفارش شما:  ۲۱۵۴۹۰۱۹"
+                android:fontFamily="@font/estedad_medium"
+                android:textColor="@color/Primary"
+                android:textSize="12sp"
+                android:layout_marginTop="16dp"
+                android:gravity="center"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="48dp"
+                android:gravity="center|center_vertical">
+
+                <Button
+                    android:layout_width="152dp"
+                    android:layout_height="45dp"
+                    android:backgroundTint="@color/Primary"
+                    android:fontFamily="@font/estedad_medium"
+                    android:text="پیگیری سفارش"
+                    android:layout_marginEnd="16dp"
+                    android:padding="1dp"
+                    android:textSize="10sp"
+                    app:cornerRadius="4dp" />
+
+                <TextView
+                    android:layout_width="152dp"
+                    android:layout_height="wrap_content"
+                    android:text="بازگشت به صفحه اصلی"
+                    android:textColor="@color/Primary"
+                    android:fontFamily="@font/estedad_light"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layout_paymentFailed"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center|center_vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/payment_failed"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="پرداخت شما ناموفق بود!"
+                android:fontFamily="@font/estedad_black"
+                android:textColor="@color/Error"
+                android:textSize="16sp"
+                android:layout_marginTop="24dp"
+                android:gravity="center"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="کد پیگیری تراکنش شما:  ۶۵۸۵۷۱۲۷"
+                android:fontFamily="@font/estedad_medium"
+                android:textColor="@color/Gray_8"
+                android:textSize="12sp"
+                android:layout_marginTop="16dp"
+                android:gravity="center"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="48dp"
+                android:gravity="center|center_vertical">
+
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="152dp"
+                    android:layout_height="45dp"
+                    android:backgroundTint="@color/white"
+                    app:strokeColor="@color/Primary"
+                    app:strokeWidth="2dp"
+                    android:fontFamily="@font/estedad_medium"
+                    android:text="پرداخت مجدد"
+                    android:textColor="@color/Primary"
+                    android:layout_marginEnd="16dp"
+                    android:padding="1dp"
+                    android:textSize="10sp"
+                    app:cornerRadius="4dp" />
+
+                <TextView
+                    android:layout_width="152dp"
+                    android:layout_height="wrap_content"
+                    android:text="بازگشت به صفحه اصلی"
+                    android:textColor="@color/Primary"
+                    android:fontFamily="@font/estedad_light"/>
+
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</FrameLayout>
