@@ -1,7 +1,7 @@
 package com.nyco.tarkhineh.ktx
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.nyco.tarkhineh.R
 
 class PaymentResActivity : AppCompatActivity() {

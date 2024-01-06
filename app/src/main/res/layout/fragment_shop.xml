@@ -434,16 +434,15 @@
                                 android:orientation="vertical">
 
                                 <com.google.android.material.radiobutton.MaterialRadioButton
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="22dp"
                                     style="@style/Widget.App.RadioButton"
-                                    />
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="22dp" />
 
                                 <com.google.android.material.radiobutton.MaterialRadioButton
+                                    style="@style/Widget.App.RadioButton"
                                     android:layout_width="wrap_content"
                                     android:layout_height="22dp"
-                                    android:layout_marginTop="4dp"
-                                    style="@style/Widget.App.RadioButton"/>
+                                    android:layout_marginTop="4dp" />
 
                             </RadioGroup>
                         </LinearLayout>
@@ -645,18 +644,18 @@
                         </LinearLayout>
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
-                
+
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp">
-                    
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
                         android:padding="24dp">
-                        
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -665,18 +664,18 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="۶۳٬۰۰۰ تومان"
                                 android:fontFamily="@font/estedad_medium"
-                                android:textSize="14sp"
-                                android:textColor="@color/Gray_7"/>
-                            
+                                android:text="۶۳٬۰۰۰ تومان"
+                                android:textColor="@color/Gray_7"
+                                android:textSize="14sp" />
+
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:fontFamily="@font/estedad_medium"
                                 android:text="تخفیف محصولات"
-                                android:fontFamily="@font/estedad_medium"
-                                android:textSize="14sp"
-                                android:textColor="@color/Gray_8"/>
+                                android:textColor="@color/Gray_8"
+                                android:textSize="14sp" />
 
                         </LinearLayout>
 
@@ -695,18 +694,18 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="۶۳٬۰۰۰ تومان"
                                 android:fontFamily="@font/estedad_medium"
-                                android:textSize="14sp"
-                                android:textColor="@color/Gray_7"/>
+                                android:text="۶۳٬۰۰۰ تومان"
+                                android:textColor="@color/Gray_7"
+                                android:textSize="14sp" />
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:fontFamily="@font/estedad_medium"
                                 android:text="هزینه ارسال"
-                                android:fontFamily="@font/estedad_medium"
-                                android:textSize="14sp"
-                                android:textColor="@color/Gray_8"/>
+                                android:textColor="@color/Gray_8"
+                                android:textSize="14sp" />
 
                         </LinearLayout>
 
@@ -725,27 +724,27 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="۶۳٬۰۰۰ تومان"
                                 android:fontFamily="@font/estedad_medium"
-                                android:textSize="14sp"
-                                android:textColor="@color/Primary"/>
+                                android:text="۶۳٬۰۰۰ تومان"
+                                android:textColor="@color/Primary"
+                                android:textSize="14sp" />
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="مبلغ قابل پرداخت"
                                 android:fontFamily="@font/estedad_medium"
-                                android:textSize="14sp"
-                                android:textColor="@color/Gray_8"/>
+                                android:text="مبلغ قابل پرداخت"
+                                android:textColor="@color/Gray_8"
+                                android:textSize="14sp" />
 
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
+                            android:layout_marginTop="12dp"
                             android:gravity="center_vertical"
-                            android:layout_marginTop="12dp">
+                            android:orientation="horizontal">
 
                             <Button
                                 android:id="@+id/btn_COI"
@@ -755,7 +754,7 @@
                                 android:fontFamily="@font/estedad_medium"
                                 android:text="ثبت سفارش"
                                 android:textSize="10sp"
-                                app:cornerRadius="4dp"/>
+                                app:cornerRadius="4dp" />
 
                         </LinearLayout>
 
@@ -778,12 +777,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:scrollbars="none">
-            
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
-                
+
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
@@ -793,22 +792,22 @@
                         android:layout_height="match_parent"
                         android:orientation="vertical"
                         android:padding="16dp">
-                        
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:gravity="end|center_vertical">
+                            android:gravity="end|center_vertical"
+                            android:orientation="horizontal">
 
                             <TextView
                                 android:layout_width="0dp"
-                                android:layout_weight="1"
                                 android:layout_height="wrap_content"
-                                android:text="ثبت کد تخفیف"
                                 android:layout_marginEnd="4dp"
+                                android:layout_weight="1"
                                 android:fontFamily="@font/estedad_medium"
+                                android:text="ثبت کد تخفیف"
                                 android:textColor="@color/Gray_8"
-                                android:textSize="14sp"/>
+                                android:textSize="14sp" />
 
                             <ImageView
                                 android:layout_width="16dp"
@@ -828,40 +827,40 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:gravity="end">
+                            android:gravity="end"
+                            android:orientation="horizontal">
 
                             <Button
                                 android:id="@+id/btn_sendCode"
                                 android:layout_width="51dp"
                                 android:layout_height="45dp"
+                                android:layout_gravity="bottom"
                                 android:layout_marginEnd="17dp"
                                 android:backgroundTint="@color/Primary"
-                                android:layout_gravity="bottom"
                                 android:fontFamily="@font/estedad_medium"
+                                android:padding="1dp"
                                 android:text="ثبت کد"
                                 android:textSize="10sp"
-                                android:padding="1dp"
-                                app:cornerRadius="4dp"/>
+                                app:cornerRadius="4dp" />
 
                             <com.google.android.material.textfield.TextInputLayout
                                 android:id="@+id/layout_phoneNumber"
                                 style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense"
                                 android:layout_width="0dp"
-                                android:layout_weight="1"
                                 android:layout_height="50dp"
+                                android:layout_weight="1"
                                 android:focusable="true"
                                 android:hint="کد تخفیف"
                                 app:boxStrokeColor="@color/Primary"
                                 app:hintTextColor="@color/Primary">
 
-                            <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/editText_phoneNumber"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:cursorVisible="false"
-                                android:fontFamily="@font/estedad_medium"
-                                android:textSize="12sp"/>
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/editText_phoneNumber"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:cursorVisible="false"
+                                    android:fontFamily="@font/estedad_medium"
+                                    android:textSize="12sp" />
 
                             </com.google.android.material.textfield.TextInputLayout>
 
@@ -871,245 +870,245 @@
 
                 </com.google.android.material.card.MaterialCardView>
 
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp">
-
-                <LinearLayout
+                <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:padding="16dp">
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="end|center_vertical">
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:layout_height="wrap_content"
-                            android:text="روش پرداخت"
-                            android:layout_marginEnd="4dp"
-                            android:fontFamily="@font/estedad_medium"
-                            android:textColor="@color/Gray_8"
-                            android:textSize="14sp"/>
-
-                        <ImageView
-                            android:layout_width="16dp"
-                            android:layout_height="16dp"
-                            app:srcCompat="@drawable/wallet_money" />
-
-
-                    </LinearLayout>
-
-                    <com.google.android.material.divider.MaterialDivider
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginBottom="16dp"
-                        app:dividerColor="@color/Gray_4" />
-
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <RadioGroup
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:gravity="center|center_vertical">
-
-                            <ImageView
-                                android:layout_width="16dp"
-                                android:layout_height="16dp"
-                                app:srcCompat="@drawable/wallet_2"
-                                android:layout_marginEnd="4dp"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:text="پرداخت در محل"
-                                android:layout_marginEnd="4dp"
-                                android:fontFamily="@font/estedad_medium"
-                                android:textColor="@color/Gray_7"
-                                android:textSize="12sp"/>
-
-
-                            <com.google.android.material.radiobutton.MaterialRadioButton
-                                android:layout_width="33dp"
-                                android:layout_height="22dp"
-                                style="@style/Widget.App.RadioButton"/>
-
-                            <ImageView
-                                android:layout_width="16dp"
-                                android:layout_height="16dp"
-                                app:srcCompat="@drawable/card_pos"
-                                android:layout_marginEnd="4dp"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:text="پرداخت اینترنتی"
-                                android:layout_marginEnd="4dp"
-                                android:fontFamily="@font/estedad_medium"
-                                android:textColor="@color/Gray_7"
-                                android:textSize="12sp"/>
-
-                            <com.google.android.material.radiobutton.MaterialRadioButton
-                                android:layout_width="33dp"
-                                android:layout_height="22dp"
-                                style="@style/Widget.App.RadioButton"/>
-
-                        </RadioGroup>
-                    </LinearLayout>
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:padding="16dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="end|center_vertical">
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:layout_height="wrap_content"
-                            android:text="درگاه پرداخت"
-                            android:layout_marginEnd="4dp"
-                            android:fontFamily="@font/estedad_medium"
-                            android:textColor="@color/Gray_8"
-                            android:textSize="14sp"/>
-
-                        <ImageView
-                            android:layout_width="16dp"
-                            android:layout_height="16dp"
-                            app:srcCompat="@drawable/card"/>
-
-
-                    </LinearLayout>
-
-                    <com.google.android.material.divider.MaterialDivider
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginBottom="16dp"
-                        app:dividerColor="@color/Gray_4" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:orientation="vertical"
-                        android:gravity="center|center_vertical">
+                        android:padding="16dp">
 
                         <LinearLayout
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:gravity="end|center_vertical"
                             android:orientation="horizontal">
 
-                            <ImageView
-                                android:layout_width="64dp"
-                                android:layout_height="64dp"
-                                android:layout_marginEnd="8dp"
-                                app:srcCompat="@drawable/card"/>
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="4dp"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/estedad_medium"
+                                android:text="روش پرداخت"
+                                android:textColor="@color/Gray_8"
+                                android:textSize="14sp" />
 
                             <ImageView
-                                android:layout_width="64dp"
-                                android:layout_height="64dp"
-                                android:layout_marginEnd="8dp"
-                                app:srcCompat="@drawable/card"/>
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                app:srcCompat="@drawable/wallet_money" />
 
-                            <ImageView
-                                android:layout_width="64dp"
-                                android:layout_height="64dp"
-                                app:srcCompat="@drawable/card"/>
 
                         </LinearLayout>
 
-                        <TextView
+                        <com.google.android.material.divider.MaterialDivider
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="پرداخت از طریق کلیه کارت‌های عضو شتاب امکان‌پذیر است. \n (لطفا قبل از پرداخت فیلترشکن خود را خاموش کنید.)"
-                            android:gravity="center"
-                            android:textSize="10sp"
-                            android:fontFamily="@font/estedad_medium"
-                            android:textColor="@color/Gray_7"/>
+                            android:layout_marginTop="8dp"
+                            android:layout_marginBottom="16dp"
+                            app:dividerColor="@color/Gray_4" />
 
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <RadioGroup
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center|center_vertical"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="16dp"
+                                    android:layout_height="16dp"
+                                    android:layout_marginEnd="4dp"
+                                    app:srcCompat="@drawable/wallet_2" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginEnd="4dp"
+                                    android:fontFamily="@font/estedad_medium"
+                                    android:text="پرداخت در محل"
+                                    android:textColor="@color/Gray_7"
+                                    android:textSize="12sp" />
+
+
+                                <com.google.android.material.radiobutton.MaterialRadioButton
+                                    style="@style/Widget.App.RadioButton"
+                                    android:layout_width="33dp"
+                                    android:layout_height="22dp" />
+
+                                <ImageView
+                                    android:layout_width="16dp"
+                                    android:layout_height="16dp"
+                                    android:layout_marginEnd="4dp"
+                                    app:srcCompat="@drawable/card_pos" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginEnd="4dp"
+                                    android:fontFamily="@font/estedad_medium"
+                                    android:text="پرداخت اینترنتی"
+                                    android:textColor="@color/Gray_7"
+                                    android:textSize="12sp" />
+
+                                <com.google.android.material.radiobutton.MaterialRadioButton
+                                    style="@style/Widget.App.RadioButton"
+                                    android:layout_width="33dp"
+                                    android:layout_height="22dp" />
+
+                            </RadioGroup>
+                        </LinearLayout>
                     </LinearLayout>
-                </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
 
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:backgroundTint="@color/Gray_1"
-                android:visibility="gone">
-
-                <LinearLayout
+                <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:padding="16dp">
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="end|center_vertical">
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="16dp">
 
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="قابل توجه"
-                            android:layout_marginEnd="4dp"
-                            android:fontFamily="@font/estedad_medium"
-                            android:textColor="@color/Gray_8"
-                            android:textSize="14sp"/>
+                            android:gravity="end|center_vertical"
+                            android:orientation="horizontal">
 
-                        <ImageView
-                            android:layout_width="16dp"
-                            android:layout_height="16dp"
-                            app:srcCompat="@drawable/warning"
-                            app:tint="@color/black"/>
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="4dp"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/estedad_medium"
+                                android:text="درگاه پرداخت"
+                                android:textColor="@color/Gray_8"
+                                android:textSize="14sp" />
 
+                            <ImageView
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                app:srcCompat="@drawable/card" />
+
+
+                        </LinearLayout>
+
+                        <com.google.android.material.divider.MaterialDivider
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginBottom="16dp"
+                            app:dividerColor="@color/Gray_4" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center|center_vertical"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="64dp"
+                                    android:layout_height="64dp"
+                                    android:layout_marginEnd="8dp"
+                                    app:srcCompat="@drawable/card" />
+
+                                <ImageView
+                                    android:layout_width="64dp"
+                                    android:layout_height="64dp"
+                                    android:layout_marginEnd="8dp"
+                                    app:srcCompat="@drawable/card" />
+
+                                <ImageView
+                                    android:layout_width="64dp"
+                                    android:layout_height="64dp"
+                                    app:srcCompat="@drawable/card" />
+
+                            </LinearLayout>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/estedad_medium"
+                                android:gravity="center"
+                                android:text="پرداخت از طریق کلیه کارت‌های عضو شتاب امکان‌پذیر است. \n (لطفا قبل از پرداخت فیلترشکن خود را خاموش کنید.)"
+                                android:textColor="@color/Gray_7"
+                                android:textSize="10sp" />
+
+                        </LinearLayout>
                     </LinearLayout>
 
-                    <com.google.android.material.divider.MaterialDivider
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginBottom="16dp"
-                        app:dividerColor="@color/Gray_4" />
+                </com.google.android.material.card.MaterialCardView>
 
-                    <TextView
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:backgroundTint="@color/Gray_1"
+                    android:visibility="gone">
+
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/estedad_medium"
-                        android:textColor="@color/Gray_7"
-                        android:textSize="10sp"
-                        android:text="هزینه سفارش شما در حین تحویل کالا دریافت خواهد شد. لطفا قبل از تحویل کالا کارت بانکی یا پول نقد همراه خود داشته باشید و از درخواست برای پرداخت در زمان بعدی یا نسیه خودداری فرمایید. با تشکر از همراهی شما."/>
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="end|center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="4dp"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/estedad_medium"
+                                android:text="قابل توجه"
+                                android:textColor="@color/Gray_8"
+                                android:textSize="14sp" />
+
+                            <ImageView
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                app:srcCompat="@drawable/warning"
+                                app:tint="@color/black" />
+
+                        </LinearLayout>
+
+                        <com.google.android.material.divider.MaterialDivider
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginBottom="16dp"
+                            app:dividerColor="@color/Gray_4" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/estedad_medium"
+                            android:text="هزینه سفارش شما در حین تحویل کالا دریافت خواهد شد. لطفا قبل از تحویل کالا کارت بانکی یا پول نقد همراه خود داشته باشید و از درخواست برای پرداخت در زمان بعدی یا نسیه خودداری فرمایید. با تشکر از همراهی شما."
+                            android:textColor="@color/Gray_7"
+                            android:textSize="10sp" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
 
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
@@ -1130,18 +1129,18 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="۶۳٬۰۰۰ تومان"
                                 android:fontFamily="@font/estedad_medium"
-                                android:textSize="14sp"
-                                android:textColor="@color/Gray_7"/>
+                                android:text="۶۳٬۰۰۰ تومان"
+                                android:textColor="@color/Gray_7"
+                                android:textSize="14sp" />
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:fontFamily="@font/estedad_medium"
                                 android:text="تخفیف محصولات"
-                                android:fontFamily="@font/estedad_medium"
-                                android:textSize="14sp"
-                                android:textColor="@color/Gray_8"/>
+                                android:textColor="@color/Gray_8"
+                                android:textSize="14sp" />
 
                         </LinearLayout>
 
@@ -1160,18 +1159,18 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="۶۳٬۰۰۰ تومان"
                                 android:fontFamily="@font/estedad_medium"
-                                android:textSize="14sp"
-                                android:textColor="@color/Gray_7"/>
+                                android:text="۶۳٬۰۰۰ تومان"
+                                android:textColor="@color/Gray_7"
+                                android:textSize="14sp" />
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:fontFamily="@font/estedad_medium"
                                 android:text="هزینه ارسال"
-                                android:fontFamily="@font/estedad_medium"
-                                android:textSize="14sp"
-                                android:textColor="@color/Gray_8"/>
+                                android:textColor="@color/Gray_8"
+                                android:textSize="14sp" />
 
                         </LinearLayout>
 
@@ -1190,27 +1189,27 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="۶۳٬۰۰۰ تومان"
                                 android:fontFamily="@font/estedad_medium"
-                                android:textSize="14sp"
-                                android:textColor="@color/Primary"/>
+                                android:text="۶۳٬۰۰۰ تومان"
+                                android:textColor="@color/Primary"
+                                android:textSize="14sp" />
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="مبلغ قابل پرداخت"
                                 android:fontFamily="@font/estedad_medium"
-                                android:textSize="14sp"
-                                android:textColor="@color/Gray_8"/>
+                                android:text="مبلغ قابل پرداخت"
+                                android:textColor="@color/Gray_8"
+                                android:textSize="14sp" />
 
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
+                            android:layout_marginTop="12dp"
                             android:gravity="center_vertical"
-                            android:layout_marginTop="12dp">
+                            android:orientation="horizontal">
 
                             <Button
                                 android:id="@+id/btn_finalPay"
@@ -1220,7 +1219,7 @@
                                 android:fontFamily="@font/estedad_medium"
                                 android:text="ثبت سفارش"
                                 android:textSize="10sp"
-                                app:cornerRadius="4dp"/>
+                                app:cornerRadius="4dp" />
 
                         </LinearLayout>
                     </LinearLayout>

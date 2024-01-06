@@ -14,58 +14,58 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:gravity="center|center_vertical">
+            android:gravity="center|center_vertical"
+            android:orientation="vertical">
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/payment_success"/>
+                app:srcCompat="@drawable/payment_success" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="پرداخت شما با موفقیت انجام شد!"
-                android:fontFamily="@font/estedad_black"
-                android:textColor="@color/Primary"
-                android:textSize="16sp"
                 android:layout_marginTop="24dp"
-                android:gravity="center"/>
+                android:fontFamily="@font/estedad_black"
+                android:gravity="center"
+                android:text="پرداخت شما با موفقیت انجام شد!"
+                android:textColor="@color/Primary"
+                android:textSize="16sp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="کد رهگیری سفارش شما:  ۲۱۵۴۹۰۱۹"
-                android:fontFamily="@font/estedad_medium"
-                android:textColor="@color/Primary"
-                android:textSize="12sp"
                 android:layout_marginTop="16dp"
-                android:gravity="center"/>
+                android:fontFamily="@font/estedad_medium"
+                android:gravity="center"
+                android:text="کد رهگیری سفارش شما:  ۲۱۵۴۹۰۱۹"
+                android:textColor="@color/Primary"
+                android:textSize="12sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:layout_marginTop="48dp"
-                android:gravity="center|center_vertical">
+                android:gravity="center|center_vertical"
+                android:orientation="horizontal">
 
                 <Button
                     android:layout_width="152dp"
                     android:layout_height="45dp"
+                    android:layout_marginEnd="16dp"
                     android:backgroundTint="@color/Primary"
                     android:fontFamily="@font/estedad_medium"
-                    android:text="پیگیری سفارش"
-                    android:layout_marginEnd="16dp"
                     android:padding="1dp"
+                    android:text="پیگیری سفارش"
                     android:textSize="10sp"
                     app:cornerRadius="4dp" />
 
                 <TextView
                     android:layout_width="152dp"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/estedad_light"
                     android:text="بازگشت به صفحه اصلی"
-                    android:textColor="@color/Primary"
-                    android:fontFamily="@font/estedad_light"/>
+                    android:textColor="@color/Primary" />
 
             </LinearLayout>
 
@@ -82,61 +82,61 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:gravity="center|center_vertical">
+            android:gravity="center|center_vertical"
+            android:orientation="vertical">
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/payment_failed"/>
+                app:srcCompat="@drawable/payment_failed" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="پرداخت شما ناموفق بود!"
-                android:fontFamily="@font/estedad_black"
-                android:textColor="@color/Error"
-                android:textSize="16sp"
                 android:layout_marginTop="24dp"
-                android:gravity="center"/>
+                android:fontFamily="@font/estedad_black"
+                android:gravity="center"
+                android:text="پرداخت شما ناموفق بود!"
+                android:textColor="@color/Error"
+                android:textSize="16sp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="کد پیگیری تراکنش شما:  ۶۵۸۵۷۱۲۷"
-                android:fontFamily="@font/estedad_medium"
-                android:textColor="@color/Gray_8"
-                android:textSize="12sp"
                 android:layout_marginTop="16dp"
-                android:gravity="center"/>
+                android:fontFamily="@font/estedad_medium"
+                android:gravity="center"
+                android:text="کد پیگیری تراکنش شما:  ۶۵۸۵۷۱۲۷"
+                android:textColor="@color/Gray_8"
+                android:textSize="12sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:layout_marginTop="48dp"
-                android:gravity="center|center_vertical">
+                android:gravity="center|center_vertical"
+                android:orientation="horizontal">
 
                 <com.google.android.material.button.MaterialButton
                     android:layout_width="152dp"
                     android:layout_height="45dp"
+                    android:layout_marginEnd="16dp"
                     android:backgroundTint="@color/white"
-                    app:strokeColor="@color/Primary"
-                    app:strokeWidth="2dp"
                     android:fontFamily="@font/estedad_medium"
+                    android:padding="1dp"
                     android:text="پرداخت مجدد"
                     android:textColor="@color/Primary"
-                    android:layout_marginEnd="16dp"
-                    android:padding="1dp"
                     android:textSize="10sp"
-                    app:cornerRadius="4dp" />
+                    app:cornerRadius="4dp"
+                    app:strokeColor="@color/Primary"
+                    app:strokeWidth="2dp" />
 
                 <TextView
                     android:layout_width="152dp"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/estedad_light"
                     android:text="بازگشت به صفحه اصلی"
-                    android:textColor="@color/Primary"
-                    android:fontFamily="@font/estedad_light"/>
+                    android:textColor="@color/Primary" />
 
             </LinearLayout>
         </LinearLayout>
