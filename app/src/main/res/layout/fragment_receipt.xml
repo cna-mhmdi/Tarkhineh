@@ -98,6 +98,7 @@
         android:layout_height="match_parent"
         android:layout_marginTop="15dp"
         android:layout_marginBottom="65dp"
+        tools:listitem="@layout/layout_receipt_item"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
 </LinearLayout>
