@@ -89,11 +89,16 @@ class VerifyCodeActivity : AppCompatActivity() {
                 val accessToken = loginResponse.access_token
                 val refreshToken = loginResponse.refresh_token
 
-                val sharedPreferences = context.getSharedPreferences("TOKENS", Context.MODE_PRIVATE)
-                val editor = sharedPreferences.edit()
+                val spToken = context.getSharedPreferences("TOKENS", Context.MODE_PRIVATE)
+                val editor = spToken.edit()
                 editor.putString("access_token", accessToken)
                 editor.putString("refresh_token", refreshToken)
                 editor.apply()
+
+                val spProcess = context.getSharedPreferences("startingProcess", Context.MODE_PRIVATE)
+                val editorProcess = spProcess.edit()
+                editorProcess.putBoolean("login", true)
+                editorProcess.apply()
 
                 Toast.makeText(this@VerifyCodeActivity, message, Toast.LENGTH_SHORT).show()
 
@@ -103,7 +108,6 @@ class VerifyCodeActivity : AppCompatActivity() {
                 finish()
 
             }
-
 
             tarkhinehViewModel.getLoginError().observe(this) { error ->
                 Toast.makeText(this@VerifyCodeActivity, error, Toast.LENGTH_SHORT).show()

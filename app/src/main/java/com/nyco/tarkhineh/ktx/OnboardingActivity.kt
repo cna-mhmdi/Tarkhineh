@@ -48,7 +48,7 @@ class OnboardingActivity : AppCompatActivity() {
             } else {
 
                 val sharedPreferences =
-                    this.getSharedPreferences("ONBOARDING", Context.MODE_PRIVATE)
+                    this.getSharedPreferences("startingProcess", Context.MODE_PRIVATE)
                 val editor = sharedPreferences.edit()
                 editor.putBoolean("onBoarding", true)
                 editor.apply()
