@@ -22,6 +22,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.nyco.tarkhineh.R
 import com.nyco.tarkhineh.TarkhinehApplication
 import com.nyco.tarkhineh.TarkhinehViewModel
+import com.nyco.tarkhineh.api.TokenManager
 import com.nyco.tarkhineh.databinding.ActivityVerifyCodeBinding
 import com.nyco.tarkhineh.model.LoginReq
 import com.nyco.tarkhineh.model.OTPRequest
@@ -95,12 +96,14 @@ class VerifyCodeActivity : AppCompatActivity() {
                 editor.putString("refresh_token", refreshToken)
                 editor.apply()
 
+//                TokenManager.saveTokens(this,loginResponse.access_token,loginResponse.refresh_token)
+
                 val spProcess = context.getSharedPreferences("startingProcess", Context.MODE_PRIVATE)
                 val editorProcess = spProcess.edit()
                 editorProcess.putBoolean("login", true)
                 editorProcess.apply()
 
-                Toast.makeText(this@VerifyCodeActivity, message, Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@VerifyCodeActivity, loginResponse.message, Toast.LENGTH_SHORT).show()
 
                 val intent = Intent(this, MainActivity::class.java)
                 intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
