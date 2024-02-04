@@ -14,6 +14,7 @@ import com.denzcoskun.imageslider.models.SlideModel
 import com.nyco.tarkhineh.R
 import com.nyco.tarkhineh.adapters.MainAdapter
 import com.nyco.tarkhineh.databinding.FragmentHomeBinding
+import com.nyco.tarkhineh.ktx.DetailFoodActivity
 import com.nyco.tarkhineh.ktx.MenuActivity
 import com.nyco.tarkhineh.model.MainFood
 
@@ -30,7 +31,7 @@ class HomeFragment : Fragment() {
     private val mainAdapter by lazy {
         MainAdapter(object : MainAdapter.MainFoodsClickListener {
             override fun onMainFoodsClick(mainFood: MainFood) {
-                Toast.makeText(requireContext(), mainFood.foodName, Toast.LENGTH_SHORT).show()
+                openMainFood(mainFood)
             }
         }, requireContext())
     }
@@ -86,11 +87,11 @@ class HomeFragment : Fragment() {
         }
 
         val foodList = listOf(
-            MainFood("پیتزا ویژه", "۲۰%", "۱۲.۲۰ تومان", "۴.۵"),
-            MainFood("کمبو برگر", "۲۰%", "۱۲.۲۰ تومان", "۴.۵"),
-            MainFood("لذت پاستا", "۲۰%", "۱۲.۲۰۰ تومان", "۴.۵"),
-            MainFood("جشنواره سوشی", "۲۰%", "۱۲.۲۰۲.۲۰ تومان", "۴.۵"),
-            MainFood("خوشمزه دسر", "۲۰%", "۱۲.۲۰.۲۰ تومان", "۴.۵")
+            MainFood("پیتزا ویژه", "۲۰%", "۱۲.۲۰ تومان", "۴.۵","این توضیحات غذای پیتزای ویژه ات اصلن بهبه عالیه بیایین بخرین"),
+            MainFood("کمبو برگر", "۲۰%", "۱۲.۲۰ تومان", "۴.۵","این توضیحات غذای کمبو برگر است اصلن بهبه عالیه بیایین بخرین"),
+            MainFood("لذت پاستا", "۲۰%", "۱۲.۲۰۰ تومان", "۴.۵","این توضیحات غذای لذت پاستا است اصلن بهبه عالیه بیایین بخرین"),
+            MainFood("جشنواره سوشی", "۲۰%", "۱۲.۲۰۲.۲۰ تومان", "۴.۵","این توضیحات جشنواره سوشی اصلن بهبه عالیه بیایین بخرین"),
+            MainFood("خوشمزه دسر", "۲۰%", "۱۲.۲۰.۲۰ تومان", "۴.۵","این توضیحات خوشمزه دسر ات اصلن بهبه عالیه بیایین بخرین")
         )
 
         recyclerSpecialOffer = binding.layoutSpecialOffer.recyclerSpecialOffer
@@ -106,6 +107,13 @@ class HomeFragment : Fragment() {
         mainAdapter.addMainFood(foodList)
 
         return binding.root
+    }
+
+    private fun openMainFood(mainFood: MainFood) {
+        val intent = Intent(requireContext(),DetailFoodActivity::class.java).apply {
+            putExtra(DetailFoodActivity.MOVIE_ID,mainFood)
+        }
+        startActivity(intent)
     }
 
     override fun onDestroyView() {
