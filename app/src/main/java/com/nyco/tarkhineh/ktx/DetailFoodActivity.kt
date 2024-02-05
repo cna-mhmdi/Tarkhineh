@@ -1,10 +1,12 @@
 package com.nyco.tarkhineh.ktx
 
 import android.os.Bundle
+import android.os.Parcelable
 import androidx.appcompat.app.AppCompatActivity
 import com.nyco.tarkhineh.R
 import com.nyco.tarkhineh.databinding.ActivityDetailFoodBinding
 import com.nyco.tarkhineh.model.MainFood
+import com.nyco.tarkhineh.model.MenuFood
 
 class DetailFoodActivity : AppCompatActivity() {
 
@@ -27,13 +29,24 @@ class DetailFoodActivity : AppCompatActivity() {
 
 
 
+        if (intent.hasExtra(MOVIE_ID)){
 
-        val movie = intent.getParcelableExtra<MainFood>(MOVIE_ID)
-        movie?.run {
-            binding.txtFoodDesc.text = movie.foodDesc
-            binding.txtFoodName.text = movie.foodName
-            binding.txtFoodPrice.text = movie.foodPrice
-            binding.txtFoodStar.text = movie.foodStar
+            val foodItem = intent.getParcelableExtra<Parcelable>(MOVIE_ID)
+
+            when(foodItem){
+                is MainFood -> {
+                    binding.txtFoodDesc.text = foodItem.foodDesc
+                    binding.txtFoodName.text = foodItem.foodName
+                    binding.txtFoodPrice.text = foodItem.foodPrice
+                    binding.txtFoodStar.text = foodItem.foodStar
+                }
+                is MenuFood -> {
+                    binding.txtFoodDesc.text = foodItem.foodDesc
+                    binding.txtFoodName.text = foodItem.foodName
+                    binding.txtFoodPrice.text = foodItem.foodPrice
+                    binding.txtFoodStar.text = foodItem.foodStar
+                }
+            }
         }
     }
 
@@ -41,5 +54,4 @@ class DetailFoodActivity : AppCompatActivity() {
         onBackPressed()
         return true
     }
-
 }

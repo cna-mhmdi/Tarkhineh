@@ -19,6 +19,7 @@ data class MenuFood(
     val foodDesc: String = "",
     val foodDiscount: String = "",
     val foodPrice: String = "",
+    val foodStar: String = "",
 ):Parcelable
 
 @Parcelize
