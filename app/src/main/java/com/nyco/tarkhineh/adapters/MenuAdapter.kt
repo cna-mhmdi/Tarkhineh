@@ -2,6 +2,7 @@ package com.nyco.tarkhineh.adapters
 
 
 import android.content.Context
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,10 +10,14 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import com.nyco.tarkhineh.R
+import com.nyco.tarkhineh.model.FavoriteFoods
 import com.nyco.tarkhineh.model.MenuFood
 
 
+@Suppress("IMPLICIT_CAST_TO_ANY")
 class MenuAdapter(
     private val clickListener: MenuFoodsClickListener,
     private val context: Context
@@ -42,6 +47,10 @@ class MenuAdapter(
         notifyDataSetChanged()
     }
 
+    interface MenuFoodsClickListener {
+        fun onMenuFoodsClick(menuFood: MenuFood)
+    }
+
     inner class MenuViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val foodName: TextView by lazy { itemView.findViewById(R.id.txt_menufoodName) }
         private val foodDiscount: TextView by lazy { itemView.findViewById(R.id.txt_menuFoodDis) }
@@ -58,17 +67,56 @@ class MenuAdapter(
             foodPrice.text = menuFood.foodPrice
 
             addToFavorite.setOnClickListener {
-                Toast.makeText(
-                    context,
-                    "${menuFood.foodName} added to favorite",
-                    Toast.LENGTH_SHORT
-                )
-                    .show()
+
+                // Get the current list of favorite items from SharedPreferences
+                val currentFavoriteList = getFavoriteListFromSharedPreferences().toMutableList()
+
+                if (!menuFood.isFavorite) {
+                    addToFavorite.setBackgroundColor(Color.RED)
+
+                    // Add the current item to the favorite list
+                    val favoriteItem = FavoriteFoods(
+                        menuFood.foodName,
+                        menuFood.foodDiscount,
+                        menuFood.foodPrice,
+                        menuFood.foodStar,
+                        menuFood.foodDesc,
+                        isFavorite = true
+                    )
+                    currentFavoriteList.add(favoriteItem)
+                } else {
+                    addToFavorite.setBackgroundColor(Color.TRANSPARENT)
+
+                    // Remove the current item from the favorite list based on its properties
+                    currentFavoriteList.removeAll { it.foodName == menuFood.foodName && it.foodDesc == menuFood.foodDesc }
+                }
+                saveFavoriteListToSharedPreferences(currentFavoriteList)
             }
         }
     }
 
-    interface MenuFoodsClickListener {
-        fun onMenuFoodsClick(menuFood: MenuFood)
+    private fun getFavoriteListFromSharedPreferences(): List<FavoriteFoods> {
+        val sharedPreferences = context.getSharedPreferences("favorites", Context.MODE_PRIVATE)
+        val gson = Gson()
+        val json = sharedPreferences.getString("favoriteList", null)
+
+        // If there is no stored data, return an empty list
+        return if (json == null) {
+            emptyList()
+        } else {
+            // Deserialize the JSON string into a list of FavoriteFoods
+            gson.fromJson(json, object : TypeToken<List<FavoriteFoods>>() {}.type)
+        }
+    }
+
+    private fun saveFavoriteListToSharedPreferences(favoriteList: List<FavoriteFoods>) {
+        val sharedPreferences =context.getSharedPreferences("favorites", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        val gson = Gson()
+        val json = gson.toJson(favoriteList)
+
+        // Save the JSON representation of the favorite list
+        editor.putString("favoriteList", json)
+        editor.apply()
     }
 }

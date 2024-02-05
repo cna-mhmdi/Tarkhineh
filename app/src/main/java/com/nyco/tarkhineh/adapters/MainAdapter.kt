@@ -1,6 +1,8 @@
 package com.nyco.tarkhineh.adapters
 
 import android.content.Context
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -56,12 +58,8 @@ class MainAdapter(
             foodStar.text = mainFood.foodStar
 
             addToFavorite.setOnClickListener {
-                Toast.makeText(
-                    context,
-                    "${mainFood.foodName} added to favorite",
-                    Toast.LENGTH_SHORT
-                )
-                    .show()
+                val tint = if (mainFood.isFavorite) Color.RED else Color.TRANSPARENT
+                addToFavorite.setBackgroundColor(tint)
             }
         }
     }

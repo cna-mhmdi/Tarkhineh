@@ -10,7 +10,18 @@ data class MainFood(
     val foodDiscount: String = "",
     val foodPrice: String = "",
     val foodStar: String = "",
-    val foodDesc: String= ""
+    val foodDesc: String= "",
+    val isFavorite: Boolean = false
+):Parcelable
+
+@Parcelize
+data class FavoriteFoods(
+    val foodName: String = "",
+    val foodDiscount: String = "",
+    val foodPrice: String = "",
+    val foodStar: String = "",
+    val foodDesc: String= "",
+    val isFavorite: Boolean = false
 ):Parcelable
 
 @Parcelize
@@ -20,6 +31,7 @@ data class MenuFood(
     val foodDiscount: String = "",
     val foodPrice: String = "",
     val foodStar: String = "",
+    val isFavorite: Boolean = false
 ):Parcelable
 
 @Parcelize

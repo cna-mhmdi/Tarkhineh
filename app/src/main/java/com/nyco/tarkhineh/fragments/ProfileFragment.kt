@@ -13,6 +13,7 @@ import com.nyco.tarkhineh.databinding.FragmentProfileBinding
 import com.nyco.tarkhineh.databinding.LayoutDialogLogoutBinding
 import com.nyco.tarkhineh.ktx.AboutUsActivity
 import com.nyco.tarkhineh.ktx.FaqsActivity
+import com.nyco.tarkhineh.ktx.FavoriteActivity
 import com.nyco.tarkhineh.ktx.LoginActivity
 import com.nyco.tarkhineh.ktx.PrivacyActivity
 import com.nyco.tarkhineh.ktx.UserInfoActivity
@@ -42,6 +43,7 @@ class ProfileFragment : Fragment() {
             startActivity(Intent(requireContext(), UserInfoActivity::class.java))
         }
         binding.userFavorite.setOnClickListener {
+            startActivity(Intent(requireContext(), FavoriteActivity::class.java))
 
         }
         binding.userLocations.setOnClickListener {

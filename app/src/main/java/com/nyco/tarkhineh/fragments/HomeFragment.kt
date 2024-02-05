@@ -1,6 +1,8 @@
 package com.nyco.tarkhineh.fragments
 
 import android.content.Intent
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -27,6 +29,9 @@ class HomeFragment : Fragment() {
     private lateinit var recyclerSpecialOffer: RecyclerView
     private lateinit var recyclerPopFoods: RecyclerView
     private lateinit var recyclerNonPersianFoods: RecyclerView
+
+    private lateinit var mainFood: MainFood
+    private lateinit var menuFood: MainFood
 
     private val mainAdapter by lazy {
         MainAdapter(object : MainAdapter.MainFoodsClickListener {
@@ -115,6 +120,17 @@ class HomeFragment : Fragment() {
         }
         startActivity(intent)
     }
+
+//    private fun updateFavoriteButtonState(){
+//
+//        val tint = if (mainFood.isFavorite) Color.RED
+//        binding.layoutSpecialOffer.recyclerSpecialOffer. = ColorStateList.valueOf(tint)
+//
+//    }
+//
+//    private fun toggleFavoriteState(){
+//
+//    }
 
     override fun onDestroyView() {
         super.onDestroyView()
