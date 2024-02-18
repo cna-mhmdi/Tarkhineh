@@ -3,6 +3,8 @@ package com.nyco.tarkhineh
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.nyco.tarkhineh.api.TarkhinehServices
+import com.nyco.tarkhineh.dataBase.FavoriteDao
+import com.nyco.tarkhineh.dataBase.FavoriteFoods
 import com.nyco.tarkhineh.model.LoginReq
 import com.nyco.tarkhineh.model.LoginResponse
 import com.nyco.tarkhineh.model.OTPRequest
@@ -10,7 +12,27 @@ import com.nyco.tarkhineh.model.OTPResponse
 import com.nyco.tarkhineh.model.UpdateUser
 import com.nyco.tarkhineh.model.UserProfile
 
-class TarkhinehRepository(private val tarkhinehServices: TarkhinehServices) {
+class TarkhinehRepository(private val tarkhinehServices: TarkhinehServices,private val favoriteDao: FavoriteDao) {
+
+    /**
+     * this section is for configuration of dataBase
+     */
+
+    val allFavoriteFoods : LiveData<List<FavoriteFoods>> = favoriteDao.getAllFavoriteFoods()
+
+    suspend fun insertFav(favoriteFoods: FavoriteFoods){
+        favoriteDao.insert(favoriteFoods)
+    }
+
+    suspend fun deleteFav(favoriteFoods: FavoriteFoods){
+        favoriteDao.delete(favoriteFoods)
+    }
+
+
+
+    /**
+     * end of the DB configuration
+     */
 
     private val otpLiveData = MutableLiveData<OTPResponse>()
     private val otpErrorLiveData = MutableLiveData<String>()

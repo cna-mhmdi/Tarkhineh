@@ -15,6 +15,16 @@ data class MainFood(
 ):Parcelable
 
 @Parcelize
+data class MainFoodDB(
+    val foodName: String = "",
+    val foodDiscount: String = "",
+    val foodPrice: String = "",
+    val foodStar: String = "",
+    val foodDesc: String= "",
+    val isFavorite: Boolean = false
+):Parcelable
+
+@Parcelize
 data class FavoriteFoods(
     val foodName: String = "",
     val foodDiscount: String = "",

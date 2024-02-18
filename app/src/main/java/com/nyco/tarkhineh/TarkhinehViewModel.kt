@@ -3,6 +3,7 @@ package com.nyco.tarkhineh
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.nyco.tarkhineh.dataBase.FavoriteFoods
 import com.nyco.tarkhineh.model.LoginReq
 import com.nyco.tarkhineh.model.LoginResponse
 import com.nyco.tarkhineh.model.OTPRequest
@@ -13,6 +14,24 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class TarkhinehViewModel(private val tarkhinehRepository: TarkhinehRepository) : ViewModel() {
+
+    /**
+     * this section is for configuration of dataBase
+     */
+
+    val allFavoriteFoods: LiveData<List<FavoriteFoods>> = tarkhinehRepository.allFavoriteFoods
+
+    fun insertFav(favoriteFoods: FavoriteFoods)= viewModelScope.launch {
+        tarkhinehRepository.insertFav(favoriteFoods)
+    }
+
+    fun deleteFav(favoriteFoods: FavoriteFoods) = viewModelScope.launch {
+        tarkhinehRepository.deleteFav(favoriteFoods)
+    }
+
+    /**
+     * end of the DB configuration
+     */
 
     val otp: LiveData<OTPResponse> get() = tarkhinehRepository.otp
     fun getOtpError(): LiveData<String> = tarkhinehRepository.otpError
