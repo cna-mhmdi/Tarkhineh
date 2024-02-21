@@ -138,8 +138,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="136dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="89dp"
-        android:visibility="gone">
+        android:layout_marginBottom="89dp">
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
@@ -160,7 +159,9 @@
                         android:id="@+id/recycler_shopingCard"
                         android:layout_width="match_parent"
                         android:layout_height="187dp"
-                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+                        android:scrollbars="vertical"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        tools:listitem="@layout/layout_shopping_card_item"/>
 
                     <com.google.android.material.divider.MaterialDivider
                         android:layout_width="match_parent"
@@ -427,6 +428,7 @@
                             </LinearLayout>
 
                             <RadioGroup
+                                android:id="@+id/radioGroup"
                                 android:layout_width="35dp"
                                 android:layout_height="match_parent"
                                 android:layout_marginTop="16dp"
@@ -434,11 +436,14 @@
                                 android:orientation="vertical">
 
                                 <com.google.android.material.radiobutton.MaterialRadioButton
+                                    android:id="@+id/radio_peyk"
                                     style="@style/Widget.App.RadioButton"
+                                    android:checked="true"
                                     android:layout_width="wrap_content"
                                     android:layout_height="22dp" />
 
                                 <com.google.android.material.radiobutton.MaterialRadioButton
+                                    android:id="@+id/radio_hozoori"
                                     style="@style/Widget.App.RadioButton"
                                     android:layout_width="wrap_content"
                                     android:layout_height="22dp"
@@ -513,6 +518,7 @@
                 </com.google.android.material.card.MaterialCardView>
 
                 <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card_shobe"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
@@ -766,12 +772,14 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/layout_payment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="20dp"
         android:layout_marginTop="136dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="89dp">
+        android:layout_marginBottom="89dp"
+        android:visibility="gone">
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
@@ -919,6 +927,7 @@
                             android:orientation="horizontal">
 
                             <RadioGroup
+                                android:id="@+id/radio_payment"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="center|center_vertical"
@@ -941,6 +950,7 @@
 
 
                                 <com.google.android.material.radiobutton.MaterialRadioButton
+                                    android:id="@+id/radio_btn_hozoori"
                                     style="@style/Widget.App.RadioButton"
                                     android:layout_width="33dp"
                                     android:layout_height="22dp" />
@@ -961,7 +971,9 @@
                                     android:textSize="12sp" />
 
                                 <com.google.android.material.radiobutton.MaterialRadioButton
+                                    android:id="@+id/radio_btn_internet"
                                     style="@style/Widget.App.RadioButton"
+                                    android:checked="true"
                                     android:layout_width="33dp"
                                     android:layout_height="22dp" />
 
@@ -971,6 +983,7 @@
                 </com.google.android.material.card.MaterialCardView>
 
                 <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card_payment_internet"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp">
@@ -1057,6 +1070,7 @@
                 </com.google.android.material.card.MaterialCardView>
 
                 <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card_payment_hozoori"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"

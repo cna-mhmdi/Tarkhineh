@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:backgroundTint="@color/Tint_2"
+    android:padding="4dp">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btn_decrease"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:backgroundTint="@color/Primary"
+            android:fontFamily="@font/estedad_medium"
+            android:padding="1dp"
+            android:text="-"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:cornerRadius="4dp" />
+
+        <TextView
+            android:id="@+id/txt_orderCount"
+            android:layout_width="6dp"
+            android:layout_height="29dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/estedad_medium"
+            android:text="۱"
+            android:textColor="@color/Primary"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/btn_increase"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:backgroundTint="@color/Primary"
+            android:fontFamily="@font/estedad_medium"
+            android:padding="1dp"
+            android:text="+"
+            android:textSize="16sp"
+            app:cornerRadius="4dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/food_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="نام غذا"
+            android:textSize="14sp"
+            android:fontFamily="@font/estedad_medium"/>
+
+        <TextView
+            android:id="@+id/food_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="12،000 تومان"
+            android:textSize="12sp"
+            android:textColor="@color/Gray_7"
+            android:fontFamily="@font/estedad_medium"/>
+
+    </LinearLayout>
+</LinearLayout>
