@@ -32,12 +32,6 @@ class FavoriteActivity : AppCompatActivity() {
         recyclerView = binding.recyclerSearch
         recyclerView.adapter = favoriteAdapter
 
-        // Assuming you have a function to retrieve the list of favorite items
-        val favoriteList = getFavoriteListFromSharedPreferences()
-
-        // Set the distinct list to the adapter
-        favoriteAdapter.setFavoriteList(favoriteList)
-
         val tarkhinehRepository = (application as TarkhinehApplication).tarkhinehRepository
         tarkhinehViewModel = ViewModelProvider(this, object : ViewModelProvider.Factory {
             override fun <T : ViewModel> create(modelClass: Class<T>): T {
@@ -46,23 +40,9 @@ class FavoriteActivity : AppCompatActivity() {
         })[TarkhinehViewModel::class.java]
 
         tarkhinehViewModel.allFavoriteFoods.observe(this){
+            favoriteAdapter.setFavoriteList(it)
             Toast.makeText(this,"$it",Toast.LENGTH_LONG).show()
         }
-    }
-
-    // Your function to retrieve the list of favorite items from SharedPreferences
-    private fun getFavoriteListFromSharedPreferences(): List<FavoriteFoods> {
-        val sharedPreferences = getSharedPreferences("favorites", Context.MODE_PRIVATE)
-        val gson = Gson()
-        val json = sharedPreferences.getString("favoriteList", null)
-
-        // If there is no stored data, return an empty list
-        if (json == null) {
-            return emptyList()
-        }
-
-        // Deserialize the JSON string into a list of FavoriteFoods
-        return gson.fromJson(json, object : TypeToken<List<FavoriteFoods>>() {}.type)
     }
 
 }

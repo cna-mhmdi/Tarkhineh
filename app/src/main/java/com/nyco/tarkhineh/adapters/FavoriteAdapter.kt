@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.nyco.tarkhineh.R
-import com.nyco.tarkhineh.model.FavoriteFoods
+import com.nyco.tarkhineh.dataBase.FavoriteFoods
 
 class FavoriteAdapter : RecyclerView.Adapter<FavoriteAdapter.ViewHolder>() {
 
