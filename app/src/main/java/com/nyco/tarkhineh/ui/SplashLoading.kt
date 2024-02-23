@@ -10,11 +10,6 @@ import android.view.View
 
 class CustomLoadingWidget : View {
 
-    /*
-    this section has a problem that need to be solve later
-    the circles need to change the color to white every
-    time they get big and turn to gray when they are small
-    */
     constructor(context: Context) : super(context)
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs)
 

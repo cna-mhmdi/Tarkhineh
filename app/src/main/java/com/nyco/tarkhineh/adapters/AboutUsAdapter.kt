@@ -41,10 +41,10 @@ class AboutUsAdapter(private val context: Context) :
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val branchNameTextView: TextView = itemView.findViewById(R.id.nameBranch)
-        val branchLocationTextView: TextView = itemView.findViewById(R.id.locationBranch)
-        val branchPhoneTextView: TextView = itemView.findViewById(R.id.phoneBranch)
-        val branchWorkTimeTextView: TextView = itemView.findViewById(R.id.workTimeBranch)
+        private val branchNameTextView: TextView = itemView.findViewById(R.id.nameBranch)
+        private val branchLocationTextView: TextView = itemView.findViewById(R.id.locationBranch)
+        private val branchPhoneTextView: TextView = itemView.findViewById(R.id.phoneBranch)
+        private val branchWorkTimeTextView: TextView = itemView.findViewById(R.id.workTimeBranch)
         val btnBranch: Button = itemView.findViewById(R.id.btn_Branch)
 
         fun bind(item: Branches) {

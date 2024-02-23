@@ -12,22 +12,24 @@ import com.nyco.tarkhineh.model.OTPResponse
 import com.nyco.tarkhineh.model.UpdateUser
 import com.nyco.tarkhineh.model.UserProfile
 
-class TarkhinehRepository(private val tarkhinehServices: TarkhinehServices,private val favoriteDao: FavoriteDao) {
+class TarkhinehRepository(
+    private val tarkhinehServices: TarkhinehServices,
+    private val favoriteDao: FavoriteDao
+) {
 
     /**
      * this section is for configuration of dataBase
      */
 
-    val allFavoriteFoods : LiveData<List<FavoriteFoods>> = favoriteDao.getAllFavoriteFoods()
+    val allFavoriteFoods: LiveData<List<FavoriteFoods>> = favoriteDao.getAllFavoriteFoods()
 
-    suspend fun insertFav(favoriteFoods: FavoriteFoods){
+    suspend fun insertFav(favoriteFoods: FavoriteFoods) {
         favoriteDao.insert(favoriteFoods)
     }
 
-    suspend fun deleteFav(favoriteFoods: FavoriteFoods){
+    suspend fun deleteFav(favoriteFoods: FavoriteFoods) {
         favoriteDao.delete(favoriteFoods)
     }
-
 
 
     /**

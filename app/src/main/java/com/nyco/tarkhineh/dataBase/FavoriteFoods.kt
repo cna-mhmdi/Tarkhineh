@@ -12,5 +12,5 @@ data class FavoriteFoods(
     @ColumnInfo(name = "foodPrice") val foodPrice: String,
     @ColumnInfo(name = "foodStar") val foodStar: String,
     @ColumnInfo(name = "foodDesc") val foodDesc: String,
-    @ColumnInfo(name = "isFavorite")val isFavorite:Boolean= false
+    @ColumnInfo(name = "isFavorite") val isFavorite: Boolean = false
 )

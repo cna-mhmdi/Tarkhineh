@@ -161,7 +161,7 @@
                         android:layout_height="187dp"
                         android:scrollbars="vertical"
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                        tools:listitem="@layout/layout_shopping_card_item"/>
+                        tools:listitem="@layout/layout_shopping_card_item" />
 
                     <com.google.android.material.divider.MaterialDivider
                         android:layout_width="match_parent"
@@ -438,9 +438,9 @@
                                 <com.google.android.material.radiobutton.MaterialRadioButton
                                     android:id="@+id/radio_peyk"
                                     style="@style/Widget.App.RadioButton"
-                                    android:checked="true"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="22dp" />
+                                    android:layout_height="22dp"
+                                    android:checked="true" />
 
                                 <com.google.android.material.radiobutton.MaterialRadioButton
                                     android:id="@+id/radio_hozoori"
@@ -973,9 +973,9 @@
                                 <com.google.android.material.radiobutton.MaterialRadioButton
                                     android:id="@+id/radio_btn_internet"
                                     style="@style/Widget.App.RadioButton"
-                                    android:checked="true"
                                     android:layout_width="33dp"
-                                    android:layout_height="22dp" />
+                                    android:layout_height="22dp"
+                                    android:checked="true" />
 
                             </RadioGroup>
                         </LinearLayout>

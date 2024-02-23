@@ -18,11 +18,11 @@ class LoadingButton(context: Context, attrs: AttributeSet) : View(context, attrs
     private var progressFraction = 0.0f
     private val buttonPaint = Paint()
     private val progressPaint = Paint()
-    private var sweepAngle = 20f // Initial value for sweepAngle
+    private var sweepAngle = 20f
     private var isIncreasing = true
 
     private val handler = Handler(Looper.getMainLooper())
-    private val updateInterval = 100L // Update interval in milliseconds (0.1 seconds)
+    private val updateInterval = 100L
 
     init {
         buttonPaint.color = Color.parseColor("#417F56")
@@ -30,7 +30,6 @@ class LoadingButton(context: Context, attrs: AttributeSet) : View(context, attrs
         progressPaint.style = Paint.Style.STROKE
         progressPaint.strokeWidth = 8f
 
-        // Start the loop
         startLoop()
     }
 
@@ -38,19 +37,18 @@ class LoadingButton(context: Context, attrs: AttributeSet) : View(context, attrs
         super.onDraw(canvas)
 
         if (isButtonState) {
-            // Draw the button appearance
+
             val buttonRect = Rect(0, 0, width, height)
             canvas.drawRect(buttonRect, buttonPaint)
         } else {
-            // Draw the indeterminate circular progress bar (spinner)
+
             val centerX = width / 2
             val centerY = height / 2
             val radius = min(width, height) / 2 - progressPaint.strokeWidth
 
-            // Rotate the canvas based on progressFraction
             canvas.rotate(360 * progressFraction, centerX.toFloat(), centerY.toFloat())
 
-            progressPaint.color = Color.parseColor("#417F56") // Set the color to #417F56
+            progressPaint.color = Color.parseColor("#417F56")
 
             val useCenter = false
 
@@ -62,7 +60,7 @@ class LoadingButton(context: Context, attrs: AttributeSet) : View(context, attrs
     }
 
     fun startProgressAnimation() {
-        if (!isButtonState) return // Animation is already in progress
+        if (!isButtonState) return
         isButtonState = false
 
         val animator = ValueAnimator.ofFloat(0f, 1f)
@@ -100,7 +98,7 @@ class LoadingButton(context: Context, attrs: AttributeSet) : View(context, attrs
             }
         } else {
             sweepAngle -= increment
-            if (sweepAngle <= 20f) { // Change this threshold as needed
+            if (sweepAngle <= 20f) {
                 sweepAngle = 20f
                 isIncreasing = true
             }

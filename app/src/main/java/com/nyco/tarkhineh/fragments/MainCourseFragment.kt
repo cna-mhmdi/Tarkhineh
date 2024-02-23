@@ -6,14 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.nyco.tarkhineh.R
 import com.nyco.tarkhineh.adapters.MenuAdapter
 import com.nyco.tarkhineh.databinding.FragmentMainCourseBinding
 import com.nyco.tarkhineh.ktx.DetailFoodActivity
-import com.nyco.tarkhineh.model.MainFood
 import com.nyco.tarkhineh.model.MenuFood
 
 class MainCourseFragment : Fragment() {
@@ -186,7 +184,8 @@ class MainCourseFragment : Fragment() {
                 "۱۵٫۹۹ دلار",
                 "۴.۵"
             ),
-            MenuFood("اسموتی",
+            MenuFood(
+                "اسموتی",
                 "اسموتی توت مختلف با ماست. تازه و مغذی.",
                 "8%",
                 "۴٫۹۹ دلار",
@@ -265,7 +264,7 @@ class MainCourseFragment : Fragment() {
 
     private fun openMainFood(menuFood: MenuFood) {
         val intent = Intent(requireContext(), DetailFoodActivity::class.java).apply {
-            putExtra(DetailFoodActivity.MOVIE_ID,menuFood)
+            putExtra(DetailFoodActivity.MOVIE_ID, menuFood)
         }
         startActivity(intent)
     }

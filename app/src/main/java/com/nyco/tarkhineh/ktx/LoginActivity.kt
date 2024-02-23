@@ -48,11 +48,6 @@ class LoginActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-
-        /*
-        This part checks whether the number is 11 digits and starts with 09 or not.
-         Next to it, it checks if the checkbox is checked
-         */
         val phonePattern = "^09\\d{9}$".toRegex()
         binding.editTextPhoneNumber.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
@@ -76,10 +71,6 @@ class LoginActivity : AppCompatActivity() {
             binding.btnSendCode.isEnabled = isChecked && isValidPhoneNumber
         }
 
-        /*
-        This section is used to convert a part of the text view
-         into a link to go to the rules and regulations page by clicking on it
-          */
         val privacyText = binding.textViewPrivacy.text
         val spannableString = SpannableString(privacyText)
 

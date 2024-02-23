@@ -1,7 +1,6 @@
 package com.nyco.tarkhineh
 
 import android.app.Application
-import androidx.room.Room
 import com.nyco.tarkhineh.api.TarkhinehServices
 import com.nyco.tarkhineh.dataBase.TarkhinehDataBase
 import retrofit2.Retrofit
@@ -24,6 +23,7 @@ class TarkhinehApplication : Application() {
 
         tarkhinehDataBase = TarkhinehDataBase.getDataBase(applicationContext)
 
-        tarkhinehRepository = TarkhinehRepository(tarkhinehService,tarkhinehDataBase.favoriteFoodDao())
+        tarkhinehRepository =
+            TarkhinehRepository(tarkhinehService, tarkhinehDataBase.favoriteFoodDao())
     }
 }

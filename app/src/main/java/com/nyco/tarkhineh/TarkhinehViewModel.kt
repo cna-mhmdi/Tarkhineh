@@ -21,7 +21,7 @@ class TarkhinehViewModel(private val tarkhinehRepository: TarkhinehRepository) :
 
     val allFavoriteFoods: LiveData<List<FavoriteFoods>> = tarkhinehRepository.allFavoriteFoods
 
-    fun insertFav(favoriteFoods: FavoriteFoods)= viewModelScope.launch {
+    fun insertFav(favoriteFoods: FavoriteFoods) = viewModelScope.launch {
         tarkhinehRepository.insertFav(favoriteFoods)
     }
 

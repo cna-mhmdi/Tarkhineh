@@ -7,16 +7,16 @@ import androidx.room.RoomDatabase
 
 
 @Database(entities = [FavoriteFoods::class], version = 1, exportSchema = false)
-abstract class TarkhinehDataBase: RoomDatabase() {
+abstract class TarkhinehDataBase : RoomDatabase() {
 
     abstract fun favoriteFoodDao(): FavoriteDao
 
-    companion object{
+    companion object {
         @Volatile
         private var INSTANCE: TarkhinehDataBase? = null
 
-        fun getDataBase(context: Context): TarkhinehDataBase{
-            return INSTANCE ?: synchronized(this){
+        fun getDataBase(context: Context): TarkhinehDataBase {
+            return INSTANCE ?: synchronized(this) {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
                     TarkhinehDataBase::class.java,

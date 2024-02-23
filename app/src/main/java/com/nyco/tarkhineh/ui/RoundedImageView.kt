@@ -32,7 +32,7 @@ class RoundedImageView : AppCompatImageView {
         paint.isAntiAlias = true
         paint.color = Color.TRANSPARENT
         paint.style = Paint.Style.STROKE
-        paint.strokeWidth = 10f // You can adjust the border width
+        paint.strokeWidth = 10f
 
         setBackgroundColor(Color.TRANSPARENT)
         scaleType = ScaleType.CENTER_CROP

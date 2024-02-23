@@ -30,16 +30,16 @@ class ShopFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentShopBinding.inflate(inflater,container,false)
+        _binding = FragmentShopBinding.inflate(inflater, container, false)
         (activity as AppCompatActivity).setSupportActionBar(binding.shopToolbar)
         (activity as AppCompatActivity).supportActionBar?.title = null
 
         val items = listOf(
-            Shopping("غذای 1 ","قیمت 1"),
-            Shopping("غذای 2 ","قیمت 2"),
-            Shopping("غذای 3 ","قیمت 3"),
-            Shopping("غذای 4 ","قیمت 4"),
-            Shopping("غذای 5 ","قیمت 5")
+            Shopping("غذای 1 ", "قیمت 1"),
+            Shopping("غذای 2 ", "قیمت 2"),
+            Shopping("غذای 3 ", "قیمت 3"),
+            Shopping("غذای 4 ", "قیمت 4"),
+            Shopping("غذای 5 ", "قیمت 5")
         )
         shoppingCardRecyclerView = binding.recyclerShopingCard
         shoppingCardRecyclerView.adapter = shopAdapter
@@ -55,11 +55,12 @@ class ShopFragment : Fragment() {
         }
 
         binding.radioGroup.setOnCheckedChangeListener { _, checkedId ->
-            when(checkedId){
+            when (checkedId) {
                 R.id.radio_peyk -> {
                     binding.cardAdresses.visibility = View.VISIBLE
                     binding.cardShobe.visibility = View.GONE
                 }
+
                 R.id.radio_hozoori -> {
                     binding.cardAdresses.visibility = View.GONE
                     binding.cardShobe.visibility = View.VISIBLE
@@ -77,11 +78,12 @@ class ShopFragment : Fragment() {
         }
 
         binding.radioPayment.setOnCheckedChangeListener { _, checkedId ->
-            when(checkedId){
+            when (checkedId) {
                 R.id.radio_btn_hozoori -> {
                     binding.cardPaymentHozoori.visibility = View.VISIBLE
                     binding.cardPaymentInternet.visibility = View.GONE
                 }
+
                 R.id.radio_btn_internet -> {
                     binding.cardPaymentInternet.visibility = View.VISIBLE
                     binding.cardPaymentHozoori.visibility = View.GONE
@@ -90,9 +92,8 @@ class ShopFragment : Fragment() {
         }
 
         binding.btnFinalPay.setOnClickListener {
-            startActivity(Intent(requireContext(),PaymentResActivity::class.java))
+            startActivity(Intent(requireContext(), PaymentResActivity::class.java))
         }
-
 
         return binding.root
     }

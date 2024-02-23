@@ -17,13 +17,6 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-//        val sharedPreferences = this.getSharedPreferences("TOKENS", Context.MODE_PRIVATE)
-//        val accessToken = sharedPreferences.getString("access_token", null)
-//        val refreshToken = sharedPreferences.getString("refresh_token", null)
-//
-//        Toast.makeText(this, "access token is : $accessToken", Toast.LENGTH_SHORT).show()
-//        Toast.makeText(this, "refresh token is : $refreshToken", Toast.LENGTH_SHORT).show()
-
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController

@@ -1,14 +1,13 @@
 package com.nyco.tarkhineh.ktx
 
 import android.animation.ValueAnimator
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.animation.LinearInterpolator
 import androidx.appcompat.app.AppCompatActivity
 import com.nyco.tarkhineh.R
 import com.nyco.tarkhineh.adapters.ViewPagerAdapter
-import com.nyco.tarkhineh.api.TokenManager
+import com.nyco.tarkhineh.TokenManager
 import com.nyco.tarkhineh.databinding.ActivityOnboardingBinding
 
 class OnboardingActivity : AppCompatActivity() {
@@ -48,13 +47,7 @@ class OnboardingActivity : AppCompatActivity() {
                 binding.onBoardingViewPager.setCurrentItem(getItem(1), true)
             } else {
 
-//                val sharedPreferences =
-//                    this.getSharedPreferences("startingProcess", Context.MODE_PRIVATE)
-//                val editor = sharedPreferences.edit()
-//                editor.putBoolean("onBoarding", true)
-//                editor.apply()
-
-                TokenManager.saveState(this,"onBoarding",true)
+                TokenManager.saveState(this, "onBoarding", true)
 
                 val intent = Intent(this@OnboardingActivity, LoginActivity::class.java)
                 startActivity(intent)

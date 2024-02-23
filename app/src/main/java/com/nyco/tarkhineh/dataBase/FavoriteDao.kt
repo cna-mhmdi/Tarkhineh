@@ -9,7 +9,7 @@ import androidx.room.Query
 
 
 @Dao
-interface FavoriteDao{
+interface FavoriteDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(favoriteFoods: FavoriteFoods)

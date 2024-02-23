@@ -28,7 +28,7 @@ class FavoriteAdapter : RecyclerView.Adapter<FavoriteAdapter.ViewHolder>() {
     }
 
     fun setFavoriteList(newFavoriteList: List<FavoriteFoods>) {
-        // Use a HashSet to filter out duplicate items
+
         favoriteList = LinkedHashSet(newFavoriteList).toList()
         notifyDataSetChanged()
     }

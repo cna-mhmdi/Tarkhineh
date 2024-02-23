@@ -10,9 +10,9 @@ data class MainFood(
     val foodDiscount: String = "",
     val foodPrice: String = "",
     val foodStar: String = "",
-    val foodDesc: String= "",
+    val foodDesc: String = "",
     val isFavorite: Boolean = false
-):Parcelable
+) : Parcelable
 
 @Parcelize
 data class MainFoodDB(
@@ -20,9 +20,9 @@ data class MainFoodDB(
     val foodDiscount: String = "",
     val foodPrice: String = "",
     val foodStar: String = "",
-    val foodDesc: String= "",
+    val foodDesc: String = "",
     val isFavorite: Boolean = false
-):Parcelable
+) : Parcelable
 
 @Parcelize
 data class FavoriteFoods(
@@ -30,9 +30,9 @@ data class FavoriteFoods(
     val foodDiscount: String = "",
     val foodPrice: String = "",
     val foodStar: String = "",
-    val foodDesc: String= "",
+    val foodDesc: String = "",
     val isFavorite: Boolean = false
-):Parcelable
+) : Parcelable
 
 @Parcelize
 data class MenuFood(
@@ -42,10 +42,10 @@ data class MenuFood(
     val foodPrice: String = "",
     val foodStar: String = "",
     val isFavorite: Boolean = false
-):Parcelable
+) : Parcelable
 
 @Parcelize
 data class SearchFood(
     val foodName: String = "",
     val foodCategory: String = ""
-):Parcelable
+) : Parcelable

@@ -1,11 +1,10 @@
 package com.nyco.tarkhineh.ktx
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.nyco.tarkhineh.api.TokenManager
+import com.nyco.tarkhineh.TokenManager
 import com.nyco.tarkhineh.databinding.ActivitySplashScreenBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -22,20 +21,16 @@ class SplashScreenActivity : AppCompatActivity() {
         binding = ActivitySplashScreenBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-//        val sharedPreferences = this.getSharedPreferences("startingProcess", Context.MODE_PRIVATE)
-////        val onboarding = sharedPreferences.getBoolean("onBoarding", false)
-////        val login = sharedPreferences.getBoolean("login", false)
-
-        val onBoarding = TokenManager.getState(this,"onBoarding")
-        val login = TokenManager.getState(this,"login")
+        val onBoarding = TokenManager.getState(this, "onBoarding")
+        val login = TokenManager.getState(this, "login")
 
         CoroutineScope(Dispatchers.Main).launch {
             delay(3000)
             if (!onBoarding) {
                 startActivity(Intent(this@SplashScreenActivity, OnboardingActivity::class.java))
-            } else if(!login) {
+            } else if (!login) {
                 startActivity(Intent(this@SplashScreenActivity, LoginActivity::class.java))
-            }else {
+            } else {
                 startActivity(Intent(this@SplashScreenActivity, MainActivity::class.java))
             }
             finish()

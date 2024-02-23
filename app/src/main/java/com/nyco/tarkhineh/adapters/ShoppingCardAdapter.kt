@@ -8,12 +8,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.nyco.tarkhineh.R
 import com.nyco.tarkhineh.model.Shopping
 
-class ShoppingCardAdapter():RecyclerView.Adapter<ShoppingCardAdapter.ShoppingCardViewHolder>() {
+class ShoppingCardAdapter() : RecyclerView.Adapter<ShoppingCardAdapter.ShoppingCardViewHolder>() {
 
     private val items = mutableListOf<Shopping>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ShoppingCardViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.layout_shopping_card_item,parent,false)
+            .inflate(R.layout.layout_shopping_card_item, parent, false)
         return ShoppingCardViewHolder(view)
     }
 
@@ -26,18 +26,18 @@ class ShoppingCardAdapter():RecyclerView.Adapter<ShoppingCardAdapter.ShoppingCar
         return items.size
     }
 
-    fun addItems(items: List<Shopping>){
+    fun addItems(items: List<Shopping>) {
         this.items.clear()
         this.items.addAll(items)
         notifyDataSetChanged()
     }
 
-    inner class ShoppingCardViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
+    inner class ShoppingCardViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        private val foodName :TextView by lazy { itemView.findViewById(R.id.food_name) }
-        private val foodPrice :TextView by lazy { itemView.findViewById(R.id.food_price) }
+        private val foodName: TextView by lazy { itemView.findViewById(R.id.food_name) }
+        private val foodPrice: TextView by lazy { itemView.findViewById(R.id.food_price) }
 
-        fun bind(shop: Shopping){
+        fun bind(shop: Shopping) {
             foodName.text = shop.foodName
             foodPrice.text = shop.foodPrice
         }

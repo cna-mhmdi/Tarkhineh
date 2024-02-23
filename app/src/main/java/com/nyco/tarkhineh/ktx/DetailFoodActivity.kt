@@ -3,7 +3,6 @@ package com.nyco.tarkhineh.ktx
 import android.os.Bundle
 import android.os.Parcelable
 import android.util.Log
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -45,11 +44,11 @@ class DetailFoodActivity : AppCompatActivity() {
         })[TarkhinehViewModel::class.java]
 
 
-        if (intent.hasExtra(MOVIE_ID)){
+        if (intent.hasExtra(MOVIE_ID)) {
 
             val foodItem = intent.getParcelableExtra<Parcelable>(MOVIE_ID)
 
-            when(foodItem){
+            when (foodItem) {
                 is MainFood -> {
                     binding.txtFoodDesc.text = foodItem.foodDesc
                     binding.txtFoodName.text = foodItem.foodName
@@ -62,9 +61,11 @@ class DetailFoodActivity : AppCompatActivity() {
                         foodItem.foodPrice,
                         foodItem.foodStar,
                         foodItem.foodDesc,
-                        foodItem.isFavorite)
+                        foodItem.isFavorite
+                    )
 
                 }
+
                 is MenuFood -> {
                     binding.txtFoodDesc.text = foodItem.foodDesc
                     binding.txtFoodName.text = foodItem.foodName
@@ -76,7 +77,7 @@ class DetailFoodActivity : AppCompatActivity() {
 
         binding.btnAddToFavorite.setOnClickListener {
 
-            Log.d(MOVIE_ID,mainFoodDB.toString())
+            Log.d(MOVIE_ID, mainFoodDB.toString())
             tarkhinehViewModel.insertFav(mainFoodDB)
 
         }

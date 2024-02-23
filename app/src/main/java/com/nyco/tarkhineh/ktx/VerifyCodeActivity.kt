@@ -22,7 +22,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.nyco.tarkhineh.R
 import com.nyco.tarkhineh.TarkhinehApplication
 import com.nyco.tarkhineh.TarkhinehViewModel
-import com.nyco.tarkhineh.api.TokenManager
+import com.nyco.tarkhineh.TokenManager
 import com.nyco.tarkhineh.databinding.ActivityVerifyCodeBinding
 import com.nyco.tarkhineh.model.LoginReq
 import com.nyco.tarkhineh.model.OTPRequest
@@ -33,10 +33,6 @@ import kotlinx.coroutines.launch
 
 @Suppress("UNCHECKED_CAST")
 class VerifyCodeActivity : AppCompatActivity() {
-
-    companion object {
-        const val CALLAPINYCO = "CALL_FOR_TAG"
-    }
 
     private var countDownTimer: CountDownTimer? = null
     private lateinit var tarkhinehViewModel: TarkhinehViewModel
@@ -49,7 +45,6 @@ class VerifyCodeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityVerifyCodeBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val context = this
         startCountdownTimer()
         binding.btnSendCode.isEnabled = false
 
@@ -58,7 +53,8 @@ class VerifyCodeActivity : AppCompatActivity() {
             binding.txtPhoneNumber.text = getString(R.string.verify_code_desc, phoneNumber)
         }
 
-        Toast.makeText(this@VerifyCodeActivity, "یک کد به صورت رندوم وارد کنید", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this@VerifyCodeActivity, "یک کد به صورت رندوم وارد کنید", Toast.LENGTH_SHORT)
+            .show()
 
         val tarkhinehRepository = (application as TarkhinehApplication).tarkhinehRepository
         tarkhinehViewModel = ViewModelProvider(this, object : ViewModelProvider.Factory {
@@ -67,13 +63,13 @@ class VerifyCodeActivity : AppCompatActivity() {
             }
         })[TarkhinehViewModel::class.java]
 
-        tarkhinehViewModel.otp.observe(this) { otpResponse ->
-            Toast.makeText(this, otpResponse.code, Toast.LENGTH_SHORT).show()
-        }
-
-        tarkhinehViewModel.getOtpError().observe(this) { error ->
-            Toast.makeText(this, error, Toast.LENGTH_SHORT).show()
-        }
+//        tarkhinehViewModel.otp.observe(this) { otpResponse ->
+//            Toast.makeText(this, otpResponse.code, Toast.LENGTH_SHORT).show()
+//        }
+//
+//        tarkhinehViewModel.getOtpError().observe(this) { error ->
+//            Toast.makeText(this, error, Toast.LENGTH_SHORT).show()
+//        }
 
         binding.btnSendCode.setOnClickListener {
 
@@ -90,7 +86,7 @@ class VerifyCodeActivity : AppCompatActivity() {
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
             finish()
-            TokenManager.saveState(this,"login",true)
+            TokenManager.saveState(this, "login", true)
 
 
 //            tarkhinehViewModel.login.observe(this) { loginResponse ->
