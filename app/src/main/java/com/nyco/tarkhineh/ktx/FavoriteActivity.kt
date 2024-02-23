@@ -41,7 +41,6 @@ class FavoriteActivity : AppCompatActivity() {
 
         tarkhinehViewModel.allFavoriteFoods.observe(this){
             favoriteAdapter.setFavoriteList(it)
-            Toast.makeText(this,"$it",Toast.LENGTH_LONG).show()
         }
     }
 

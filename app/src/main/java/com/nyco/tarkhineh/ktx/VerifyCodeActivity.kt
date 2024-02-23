@@ -58,6 +58,8 @@ class VerifyCodeActivity : AppCompatActivity() {
             binding.txtPhoneNumber.text = getString(R.string.verify_code_desc, phoneNumber)
         }
 
+        Toast.makeText(this@VerifyCodeActivity, "یک کد به صورت رندوم وارد کنید", Toast.LENGTH_SHORT).show()
+
         val tarkhinehRepository = (application as TarkhinehApplication).tarkhinehRepository
         tarkhinehViewModel = ViewModelProvider(this, object : ViewModelProvider.Factory {
             override fun <T : ViewModel> create(modelClass: Class<T>): T {
@@ -84,33 +86,42 @@ class VerifyCodeActivity : AppCompatActivity() {
             val login = LoginReq(phoneNumber, userCode)
             tarkhinehViewModel.sendLogin(login)
 
-            tarkhinehViewModel.login.observe(this) { loginResponse ->
+            val intent = Intent(this, MainActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
+            finish()
+            TokenManager.saveState(this,"login",true)
 
-                val message = loginResponse.message
-                val accessToken = loginResponse.access_token
-                val refreshToken = loginResponse.refresh_token
 
-                val spToken = context.getSharedPreferences("TOKENS", Context.MODE_PRIVATE)
-                val editor = spToken.edit()
-                editor.putString("access_token", accessToken)
-                editor.putString("refresh_token", refreshToken)
-                editor.apply()
-
-//                TokenManager.saveTokens(this,loginResponse.access_token,loginResponse.refresh_token)
-
-                val spProcess = context.getSharedPreferences("startingProcess", Context.MODE_PRIVATE)
-                val editorProcess = spProcess.edit()
-                editorProcess.putBoolean("login", true)
-                editorProcess.apply()
-
-                Toast.makeText(this@VerifyCodeActivity, loginResponse.message, Toast.LENGTH_SHORT).show()
-
-                val intent = Intent(this, MainActivity::class.java)
-                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                startActivity(intent)
-                finish()
-
-            }
+//            tarkhinehViewModel.login.observe(this) { loginResponse ->
+//
+//                val message = loginResponse.message
+//                val accessToken = loginResponse.access_token
+//                val refreshToken = loginResponse.refresh_token
+//
+//                val spToken = context.getSharedPreferences("TOKENS", Context.MODE_PRIVATE)
+//                val editor = spToken.edit()
+//                editor.putString("access_token", accessToken)
+//                editor.putString("refresh_token", refreshToken)
+//                editor.apply()
+//
+////                TokenManager.saveTokens(this,loginResponse.access_token,loginResponse.refresh_token)
+//
+////                val spProcess = context.getSharedPreferences("startingProcess", Context.MODE_PRIVATE)
+////                val editorProcess = spProcess.edit()
+////                editorProcess.putBoolean("login", true)
+////                editorProcess.apply()
+////
+//                TokenManager.saveState(this,"login",true)
+//
+//                Toast.makeText(this@VerifyCodeActivity, loginResponse.message, Toast.LENGTH_SHORT).show()
+//
+//                val intent = Intent(this, MainActivity::class.java)
+//                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+//                startActivity(intent)
+//                finish()
+//
+//            }
 
             tarkhinehViewModel.getLoginError().observe(this) { error ->
                 Toast.makeText(this@VerifyCodeActivity, error, Toast.LENGTH_SHORT).show()
